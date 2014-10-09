@@ -1,6 +1,6 @@
 # BorrowDirect
 
-TODO: Write a gem description
+EXPERIMENTAL WORK IN PROGRESS, MAY HAVE UNSTABLE API
 
 ## Installation
 
