@@ -5,14 +5,14 @@ http_interactions:
     uri: https://bdtest.relais-host.com/dws/item/available
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"isbn","Value":"NO_SUCH_THING"}]}'
+      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"isbn","Value":"9810743734"}]}'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
       Accept:
       - ! '*/*'
       Date:
-      - Thu, 09 Oct 2014 15:03:52 GMT
+      - Thu, 09 Oct 2014 15:13:43 GMT
       Content-Type:
       - application/json
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Thu, 09 Oct 2014 15:04:04 GMT
+      - Thu, 09 Oct 2014 15:13:45 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -32,9 +32,8 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"MpdhLvqbgObPaXl8TJ_vUyMOx3w","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","ButtonLabel":"Request","RequestMessage":"Borrow
-        Direct cannot fill this request at this time.  Please request through Interlibrary
-        Loan."},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
+      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9810743734","AuthorizationId":"XVsENrX8wp3VdXNbxO9RKON-kSc","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
+        this item"},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
         Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
         History of Medicine","JH Medical Campus Office (faculty and staff)","JHMI
@@ -44,5 +43,5 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Thu, 09 Oct 2014 15:04:04 GMT
+  recorded_at: Thu, 09 Oct 2014 15:13:45 GMT
 recorded_with: VCR 2.9.3
