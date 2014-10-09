@@ -4,9 +4,6 @@ require 'ostruct'
 
 require 'borrow_direct/error'
 
-## TODO: Need to rescue HTTPClient::ReceiveTimeoutError and re-raise
-# as a proper error
-
 module BorrowDirect
   # Generic abstract BD request, put in a Hash request body, get
   # back a Hash answer. 
@@ -26,6 +23,8 @@ module BorrowDirect
 
       json_request = JSON.generate(hash)
 
+      start_time = Time.now
+
       http_response = http.post @api_uri, json_request, {"Content-Type" => "application/json"}
 
       if http_response.code != 200
@@ -39,6 +38,9 @@ module BorrowDirect
       response_hash = JSON.parse(http_response.body)
 
       return response_hash
+    rescue HTTPClient::ReceiveTimeoutError => e
+      elapsed = Time.now - start_time
+      raise BorrowDirect::HttpTimeoutError.new("Timeout after #{elapsed}s connecting to BorrowDirect server at #{@api_base}")
     end
 
     protected

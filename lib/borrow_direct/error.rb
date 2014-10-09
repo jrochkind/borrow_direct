@@ -12,6 +12,6 @@ module BorrowDirect
     
   end
 
-  class HttpError < Error
-  end
+  class HttpError < Error ; end
+  class HttpTimeoutError < HttpError ; end
 end
