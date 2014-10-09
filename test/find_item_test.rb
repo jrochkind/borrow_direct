@@ -45,7 +45,7 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem} do
     resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find(:isbn => "NO_SUCH_THING")
   end
 
-  describe "bd_requestable?" do
+  #describe "bd_requestable?" do
     it "says yes for requestable item" do
       assert_equal true, BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).bd_requestable?(:isbn => REQUESTABLE_ITEM_ISBN)
     end
@@ -62,7 +62,7 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem} do
       assert_equal false, BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).bd_requestable?(:isbn => NOT_REQUESTABLE_ITEM_ISBN)
     end
 
-  end
+  #end
 
 
 end
