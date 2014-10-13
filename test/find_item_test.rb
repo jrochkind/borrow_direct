@@ -34,6 +34,20 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem} do
     end
   end
 
+  describe "query production" do
+    it "exact search works" do
+      finder = BorrowDirect::FindItem.new("barcodeX", "libraryX")
+      hash   = finder.send(:exact_search_request_hash, :isbn, "2")
+
+      assert_equal BorrowDirect::Defaults.partnership_id, hash["PartnershipId"]
+      assert_equal "barcodeX", hash["Credentials"]["Barcode"]
+      assert_equal "libraryX", hash["Credentials"]["LibrarySymbol"]
+
+      assert_equal "ISBN", hash["ExactSearch"].first["Type"]
+      assert_equal "2", hash["ExactSearch"].first["Value"]
+    end
+  end
+
 
   it "raises on no search critera" do
     assert_raises(ArgumentError) do

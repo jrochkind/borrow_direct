@@ -78,7 +78,7 @@ module BorrowDirect
           },
           "ExactSearch" => [
               {
-                  "Type" => type,
+                  "Type" => type.to_s.upcase,
                   "Value" => value
               }
           ]
