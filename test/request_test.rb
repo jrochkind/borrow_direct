@@ -67,6 +67,16 @@ describe "BorrowDirect::Request", :vcr => {:tag => :bd_request} do
     response = BorrowDirect::Request.new("/dws/item/available").request( request )      
   end
 
+  it "uses timeout for HttpClient" do
+    request = BorrowDirect::Request.new("/some/path")
+    request.timeout = 5
+
+    http_client = request.send(:http_client!)
+
+    assert_equal 5, http_client.send_timeout
+    assert_equal 5, http_client.receive_timeout
+    assert_equal 5, http_client.connect_timeout
+  end
 
 
 end

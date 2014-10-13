@@ -18,12 +18,7 @@ module BorrowDirect
     end
 
     def request(hash)
-      http = HTTPClient.new
-      if self.timeout
-        http.send_timeout    = timeout
-        http.connect_timeout = timeout
-        http.read_timeout    = timeout
-      end
+      http = http_client!
 
       json_request = JSON.generate(hash)
 
@@ -48,6 +43,17 @@ module BorrowDirect
     end
 
     protected
+
+    def http_client!
+      http = HTTPClient.new
+      if self.timeout
+        http.send_timeout    = self.timeout
+        http.connect_timeout = self.timeout
+        http.receive_timeout    = self.timeout
+      end
+
+      return http
+    end
 
     # returns an OpenStruct with #message and #number, 
     # or nil if error info can not be extracted
