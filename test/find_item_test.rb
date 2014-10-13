@@ -14,6 +14,27 @@ NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no l
 
 describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem} do
 
+  describe "with defaults" do
+    before do
+      @original_symbol = BorrowDirect::Defaults.library_symbol
+      @original_bar    = BorrowDirect::Defaults.find_item_patron_barcode
+      BorrowDirect::Defaults.library_symbol = "OUR_SYMBOL"      
+      BorrowDirect::Defaults.find_item_patron_barcode = "OUR_BARCODE"      
+    end
+    after do 
+      BorrowDirect::Defaults.library_symbol = @original_symbol    
+      BorrowDirect::Defaults.find_item_patron_barcode = @original_bar
+    end
+
+    it "uses defaults" do
+      finder = BorrowDirect::FindItem.new
+
+      assert_equal "OUR_SYMBOL",  finder.patron_library_symbol
+      assert_equal "OUR_BARCODE", finder.patron_barcode
+    end
+  end
+
+
   it "raises on no search critera" do
     assert_raises(ArgumentError) do
       BorrowDirect::FindItem.new("whatever", "whatever").find

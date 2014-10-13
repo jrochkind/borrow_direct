@@ -8,11 +8,9 @@ module BorrowDirect
   # Generic abstract BD request, put in a Hash request body, get
   # back a Hash answer. 
   class Request
-    TEST_API_BASE = "https://bdtest.relais-host.com/"
-    BD_PARTNERSHIP_ID = "BD"
 
     def initialize(path)
-      @api_base = TEST_API_BASE
+      @api_base = Defaults.api_base
       @api_path = path
 
       @api_uri = @api_base.chomp("/") + @api_path

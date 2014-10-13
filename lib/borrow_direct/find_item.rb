@@ -9,7 +9,8 @@ module BorrowDirect
     @@valid_search_types = %w{ISBN ISSN LCCN OCLC PHRASE}
 
 
-    def initialize(patron_barcode, patron_library_symbol)
+    def initialize(patron_barcode = Defaults.find_item_patron_barcode, 
+                   patron_library_symbol = Defaults.library_symbol)
       super(@@api_path)
 
       @patron_barcode        = patron_barcode
@@ -70,7 +71,7 @@ module BorrowDirect
 
     def exact_search_request_hash(type, value)
       {
-          "PartnershipId" => "BD",
+          "PartnershipId" => Defaults.partnership_id,
           "Credentials" => {
               "LibrarySymbol" => self.patron_library_symbol,
               "Barcode" => self.patron_barcode
