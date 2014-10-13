@@ -8,6 +8,7 @@ module BorrowDirect
   # Generic abstract BD request, put in a Hash request body, get
   # back a Hash answer. 
   class Request
+    attr_accessor :timeout
 
     def initialize(path)
       @api_base = Defaults.api_base
@@ -18,6 +19,11 @@ module BorrowDirect
 
     def request(hash)
       http = HTTPClient.new
+      if self.timeout
+        http.send_timeout    = timeout
+        http.connect_timeout = timeout
+        http.read_timeout    = timeout
+      end
 
       json_request = JSON.generate(hash)
 
