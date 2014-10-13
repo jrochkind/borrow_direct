@@ -51,33 +51,33 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem} do
 
   it "raises on no search critera" do
     assert_raises(ArgumentError) do
-      BorrowDirect::FindItem.new("whatever", "whatever").find
+      BorrowDirect::FindItem.new("whatever", "whatever").find_item_request
     end
   end
 
   it "raises on multiple search critera" do
     assert_raises(ArgumentError) do
-      BorrowDirect::FindItem.new("whatever", "whatever").find(:isbn => "1", :issn => "1")
+      BorrowDirect::FindItem.new("whatever", "whatever").find_item_request(:isbn => "1", :issn => "1")
     end
   end
 
   it "raises on unrecognized search criteria" do
     assert_raises(ArgumentError) do
-      BorrowDirect::FindItem.new("whatever", "whatever").find(:whoknows => "1")
+      BorrowDirect::FindItem.new("whatever", "whatever").find_item_request(:whoknows => "1")
     end
   end
 
 
   it "finds a requestable item" do
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find(:isbn => REQUESTABLE_ITEM_ISBN)
+    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => REQUESTABLE_ITEM_ISBN)
   end
 
   it "finds a locally available item" do
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find(:isbn => LOCALLY_AVAIL_ITEM_ISBN)
+    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => LOCALLY_AVAIL_ITEM_ISBN)
   end
 
   it "finds an item that does not exist in BD" do
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find(:isbn => "NO_SUCH_THING")
+    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => "NO_SUCH_THING")
   end
 
   #describe "bd_requestable?" do

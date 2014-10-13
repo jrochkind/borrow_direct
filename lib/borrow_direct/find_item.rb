@@ -2,6 +2,14 @@ require 'borrow_direct'
 require 'borrow_direct/request'
 
 module BorrowDirect
+  # The BorrowDirect FindItem service, for discovering item availability
+  # http://borrowdirect.pbworks.com/w/file/83346676/Find%20Item%20Service.docx
+  #
+  #     BorrowDirect::FindItem.new(patron_barcode).bd_requestability?(:isbn => isbn)
+  #     # or set BorrowDirect::Defaults.find_item_patron_barcode to make patron barcode
+  #     # optional and use a default patron barcode
+  #
+  # You can also use #find_item_request to get the raw BD response as a ruby hash
   class FindItem < Request
     attr_reader :patron_barcode, :patron_library_symbol
 
@@ -26,7 +34,7 @@ module BorrowDirect
     #    finder.find(:isbn => "12345545456")
     #    finder.find(:lccn => "12345545456")
     #    finder.find(:oclc => "12345545456")
-    def find(options)
+    def find_item_request(options)
       search_type, search_value = nil, nil
       options.each_pair do |key, value|
         if @@valid_search_types.include? key.to_s.upcase
@@ -55,7 +63,7 @@ module BorrowDirect
     #
     #    finder.bd_requestable? :isbn => "12345545456"
     def bd_requestable?(options)
-      resp = find(options)
+      resp = find_item_request(options)
 
       # Items that are available locally, and thus not requestable via BD, can
       # only be found by looking at the RequestMessage, bah
