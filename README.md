@@ -35,6 +35,9 @@ BorrowDirect::FindItem.new.bd_requestable?(:isbn => "1212121212")
 BorrowDirect::FindItem.new(patron_barcode).bd_requestable?(:oclc => "121212")
 ~~~
 
+In error conditions, a BorrowDirect::Error may be thrown -- including request timeouts when
+BD is taking too long to respond. You can set timeout value with TBD.
+
 ## Installation
 
 Add this line to your application's Gemfile:
