@@ -28,6 +28,7 @@ end
 
 i = 0
 identifiers.each do |id|
+  id = id.chomp
   i = i + 1
 
   start = Time.now
