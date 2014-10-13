@@ -2,6 +2,39 @@
 
 EXPERIMENTAL WORK IN PROGRESS, MAY HAVE UNSTABLE API
 
+Ruby tools for programmatic access to BorrowDirect consortial system, powered by Relais D2D software. 
+
+Using API as well as deep-linking to search results and possibly other stuff. 
+
+May also work with other Relais D2D setups with configuration or changes, no idea. 
+
+## Usage
+
+Some configuration at boot, perhaps in a Rails initializer:
+
+~~~ruby
+# Uses BD Test system by defualt, if you want to use production system instead
+BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_USE
+
+# Set a default BD LibrarySymbol for your library
+BorrowDirect::Defaults.library_symbol = "YOURSYMBOL"
+
+# If you want to do FindItem requests with a default generic patron
+# barcode
+BorrowDirect::Defaults.find_item_patron_barcode = "9999999"
+~~~
+
+Then you can do things, including:
+
+~~~ruby
+# default generic patron
+BorrowDirect::FindItem.new.bd_requestable?(:isbn => "1212121212")
+#=> true or false
+
+# specific patron
+BorrowDirect::FindItem.new(patron_barcode).bd_requestable?(:oclc => "121212")
+~~~
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,9 +51,7 @@ Or install it yourself as:
 
     $ gem install borrow_direct
 
-## Usage
 
-TODO: Write usage instructions here
 
 ## Contributing
 
