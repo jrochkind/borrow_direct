@@ -9,6 +9,7 @@ module BorrowDirect
   # back a Hash answer. 
   class Request
     attr_accessor :timeout
+    attr_reader :last_request_uri, :last_request_json, :last_request_response, :last_request_time
 
     def initialize(path)
       @api_base = Defaults.api_base
@@ -22,9 +23,16 @@ module BorrowDirect
 
       json_request = JSON.generate(hash)
 
+      # Mostly for debugging, store these
+      @last_request_uri = @api_uri
+      @last_request_json = json_request      
+
       start_time = Time.now
 
       http_response = http.post @api_uri, json_request, {"Content-Type" => "application/json"}
+
+      @last_request_response = http_response
+      @last_request_time     = Time.now - start_time
 
       if http_response.code != 200
         if (einfo = error_info(http_response.body))
