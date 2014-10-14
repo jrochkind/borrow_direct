@@ -12,7 +12,7 @@ VCRFilter.sensitive_data! :bd_finditem_patron, :bd_requestitem
 $REQUESTABLE_ITEM_ISBN     = "9797994864" # item is in BD, and can be requested
 $LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
 $NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
-
+$PICKUP_LOCATION           = "Some location" # BD seems to allow anything, which is disturbing
 
 
 describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
@@ -27,13 +27,13 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
 
   it "raises on multiple search critera" do
     assert_raises(ArgumentError) do
-      BorrowDirect::RequestItem.new("whatever").request_item_request(:isbn => "1", :issn => "1")
+      BorrowDirect::RequestItem.new("whatever").request_item_request(nil, :isbn => "1", :issn => "1")
     end
   end
 
   it "raises on unrecognized search criteria" do
     assert_raises(ArgumentError) do
-      BorrowDirect::RequestItem.new("whatever").request_item_request(:whoknows => "1")
+      BorrowDirect::RequestItem.new("whatever").request_item_request(nil, :whoknows => "1")
     end
   end
 
@@ -41,7 +41,7 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
   it "raw requests an unrequestable item" do
     auth_id = make_find_item_for_auth(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
-    resp = BorrowDirect::RequestItem.new(auth_id).request_item_request(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+    resp = BorrowDirect::RequestItem.new(auth_id).request_item_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
 
     assert_present resp
@@ -52,7 +52,7 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "make_request for a requestable item" do
       auth_id = make_find_item_for_auth(:isbn => $REQUESTABLE_ITEM_ISBN)
 
-      request_id = BorrowDirect::RequestItem.new(auth_id).make_request(:isbn => $REQUESTABLE_ITEM_ISBN)
+      request_id = BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
 
       assert_present request_id    
     end
@@ -60,7 +60,7 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "make_request for an unrequestable item" do
       auth_id = make_find_item_for_auth(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
-      resp = BorrowDirect::RequestItem.new(auth_id).make_request(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+      resp = BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
       assert_nil resp
     end
@@ -68,9 +68,19 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "make_request for a locally available item" do
       auth_id = make_find_item_for_auth(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)
 
-      resp = BorrowDirect::RequestItem.new(auth_id).make_request(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)
+      resp = BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $LOCALLY_AVAIL_ITEM_ISBN)
 
       assert_nil resp
+    end
+  end
+
+  describe "with pickup location and requestable item" do
+    it "still works" do
+      auth_id = make_find_item_for_auth(:isbn => $REQUESTABLE_ITEM_ISBN)
+
+      request_id = BorrowDirect::RequestItem.new(auth_id).make_request($PICKUP_LOCATION, :isbn => $REQUESTABLE_ITEM_ISBN)
+
+      assert_present request_id    
     end
   end
 
@@ -78,7 +88,7 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "returns number for succesful request" do
       auth_id = make_find_item_for_auth(:isbn => $REQUESTABLE_ITEM_ISBN)
 
-      request_id = BorrowDirect::RequestItem.new(auth_id).make_request!(:isbn => $REQUESTABLE_ITEM_ISBN)
+      request_id = BorrowDirect::RequestItem.new(auth_id).make_request!(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
 
       assert_present request_id    
     end
@@ -87,7 +97,7 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
       auth_id = make_find_item_for_auth(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
       error = assert_raises(BorrowDirect::Error) do
-        request_id = BorrowDirect::RequestItem.new(auth_id).make_request!(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+        request_id = BorrowDirect::RequestItem.new(auth_id).make_request!(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
       end
     end
     

@@ -23,13 +23,17 @@ module BorrowDirect
     # need to send a key and value for a valid exact_search type
     # type can be string or symbol, lowercase or uppercase. 
     #
+    # Also a pickup_location -- can pass in nil, and we'll send no
+    # PickupLocation to BD, which it seems to accept, not sure what it
+    # does with it. 
+    #
     # Returns the actual complete BD response hash. You may want
     # #make_request instead
     #
-    #    finder.request_item_request(:isbn => "12345545456")
-    #    finder.request_item_request(:lccn => "12345545456")
-    #    finder.request_item_request(:oclc => "12345545456")
-    def request_item_request(options)
+    #    finder.request_item_request(pickup_location, :isbn => "12345545456")
+    #    finder.request_item_request(pickup_location, :lccn => "12345545456")
+    #    finder.request_item_request(pickup_location, :oclc => "12345545456")
+    def request_item_request(pickup_location, options)
       search_type, search_value = nil, nil
       options.each_pair do |key, value|
         if @@valid_search_types.include? key.to_s.upcase
@@ -44,26 +48,29 @@ module BorrowDirect
         raise ArgumentError.new("Missing valid search type and value: '#{options}'")
       end
 
-      request exact_search_request_hash(search_type, search_value)
+      request exact_search_request_hash(pickup_location, search_type, search_value)
     end
 
-    # Pass in a BD exact search eg
-    #     make_request(:isbn => isbn)
+    # Pass in a BD exact search and pickup location eg
+    #     make_request(pickup_location, :isbn => isbn)
+    #
+    # Pass in nil for pickup_location if... not sure exactly what
+    # BD will do, but it does allow it. 
     #
     # Returns the BD RequestNumber, or nil if a request could
     # not be made
     #
     # See also make_request! to raise if request can not be made
-    def make_request(options)
-      resp = request_item_request(options)
+    def make_request(pickup_location, options)
+      resp = request_item_request(pickup_location, options)
 
       return extract_request_number(resp)
     end
 
     # Like make_request, but will raise a BorrowDirect::Error if
     # item can't be requested. 
-    def make_request!(options)
-      resp = request_item_request(options)
+    def make_request!(pickup_location, options)
+      resp = request_item_request(pickup_location, options)
 
       number = extract_request_number(resp)
 
@@ -80,12 +87,11 @@ module BorrowDirect
       return (resp["Request"] && resp["Request"]["RequestNumber"])
     end
 
-    def exact_search_request_hash(type, value)
-      {
+    def exact_search_request_hash(pickup_location, type, value)
+      hash = {
           "PartnershipId" => Defaults.partnership_id,
           "AuthorizationId" => @authorization_id,
-          #TODO TODO TODO
-          "PickupLocation" => "Milton S. Eisenhower Library",
+          "PickupLocation" => "BAD BAD BAD",
           "ExactSearch" => [
               {
                   "Type" => type.to_s.upcase,
@@ -93,6 +99,12 @@ module BorrowDirect
               }
           ]
       }
+
+      if pickup_location
+        hash["PickupLocation"] = pickup_location
+      end
+
+      return hash
     end
 
 

@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 19:34:57 GMT
+      - Tue, 14 Oct 2014 19:42:20 GMT
       Content-Type:
       - application/json
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 19:35:09 GMT
+      - Tue, 14 Oct 2014 19:42:32 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"kT_RbDC89x3RENrxgUSUbdSFzrk","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
+      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"HsURFThs8TB8CGOFEe-Aj9ZT5W0","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
         this item"},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
         Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
@@ -43,21 +43,21 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 19:35:09 GMT
+  recorded_at: Tue, 14 Oct 2014 19:42:32 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"kT_RbDC89x3RENrxgUSUbdSFzrk","PickupLocation":"Milton
-        S. Eisenhower Library","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"HsURFThs8TB8CGOFEe-Aj9ZT5W0","PickupLocation":"BAD
+        BAD BAD","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 19:35:09 GMT
+      - Tue, 14 Oct 2014 19:42:32 GMT
       Content-Type:
       - application/json
   response:
@@ -68,7 +68,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 19:35:20 GMT
+      - Tue, 14 Oct 2014 19:42:43 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -81,5 +81,5 @@ http_interactions:
         Direct cannot fill this request at this time.  Please request through Interlibrary
         Loan."}}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 19:35:20 GMT
+  recorded_at: Tue, 14 Oct 2014 19:42:43 GMT
 recorded_with: VCR 2.9.3
