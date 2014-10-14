@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 17:17:02 GMT
+      - Tue, 14 Oct 2014 19:33:13 GMT
       Content-Type:
       - application/json
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 17:17:14 GMT
+      - Tue, 14 Oct 2014 19:33:25 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"RcSg0JI_9Kj190Fwn49XjThjMaA","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
+      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"bCa7Uqwzynzz2vjfFX4R1NvShcU","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
         this item"},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
         Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
@@ -43,21 +43,21 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:17:14 GMT
+  recorded_at: Tue, 14 Oct 2014 19:33:25 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"RcSg0JI_9Kj190Fwn49XjThjMaA","PickupLocation":"Milton
-        S. Eisenhower Library","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"bCa7Uqwzynzz2vjfFX4R1NvShcU","PickupLocation":"Milton
+        S. Eisenhower Library","ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
     headers:
       User-Agent:
       - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 17:17:14 GMT
+      - Tue, 14 Oct 2014 19:33:25 GMT
       Content-Type:
       - application/json
   response:
@@ -68,7 +68,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 17:17:24 GMT
+      - Tue, 14 Oct 2014 19:33:37 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -77,9 +77,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Request":{"RequestLink":{"ButtonLabel":"Request","ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","RequestMessage":"Borrow
-        Direct cannot fill this request at this time.  Please request through Interlibrary
-        Loan."}}}'
+      string: ! '{"Request":{"RequestNumber":"JHU-99000715"}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:17:24 GMT
+  recorded_at: Tue, 14 Oct 2014 19:33:37 GMT
 recorded_with: VCR 2.9.3

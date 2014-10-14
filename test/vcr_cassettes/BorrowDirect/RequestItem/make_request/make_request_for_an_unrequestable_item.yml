@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 17:18:00 GMT
+      - Tue, 14 Oct 2014 19:33:37 GMT
       Content-Type:
       - application/json
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 17:18:12 GMT
+      - Tue, 14 Oct 2014 19:33:48 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"Y285vvyxoCckF8kEtTlrhTDBNho","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
+      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"AyCdNIqauitQpaDCiN8aXB4E5AI","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
         this item"},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
         Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
@@ -43,13 +43,13 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:18:12 GMT
+  recorded_at: Tue, 14 Oct 2014 19:33:48 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"Y285vvyxoCckF8kEtTlrhTDBNho","PickupLocation":"Milton
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"AyCdNIqauitQpaDCiN8aXB4E5AI","PickupLocation":"Milton
         S. Eisenhower Library","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
     headers:
       User-Agent:
@@ -57,7 +57,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 17:18:12 GMT
+      - Tue, 14 Oct 2014 19:33:48 GMT
       Content-Type:
       - application/json
   response:
@@ -68,7 +68,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 17:18:23 GMT
+      - Tue, 14 Oct 2014 19:33:59 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -81,5 +81,5 @@ http_interactions:
         Direct cannot fill this request at this time.  Please request through Interlibrary
         Loan."}}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:18:23 GMT
+  recorded_at: Tue, 14 Oct 2014 19:33:59 GMT
 recorded_with: VCR 2.9.3

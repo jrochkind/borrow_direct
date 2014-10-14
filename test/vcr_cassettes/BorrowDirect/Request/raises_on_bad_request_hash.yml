@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 17:19:48 GMT
+      - Tue, 14 Oct 2014 19:34:33 GMT
       Content-Type:
       - application/json
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 17:19:49 GMT
+      - Tue, 14 Oct 2014 19:34:34 GMT
       Content-Type:
       - text/html; charset=ISO-8859-1
       Content-Length:
@@ -57,5 +57,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:19:49 GMT
+  recorded_at: Tue, 14 Oct 2014 19:34:34 GMT
 recorded_with: VCR 2.9.3
