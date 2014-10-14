@@ -52,6 +52,27 @@ module BorrowDirect
       request exact_search_request_hash(search_type, search_value)
     end
 
+    # need to send a key and value for a valid exact_search type
+    # type can be string or symbol, lowercase or uppercase. 
+    #
+    # Returns true or false -- can the item actually be requested
+    # via BorrowDirect. 
+    #
+    #    finder.bd_requestable? :isbn => "12345545456"
+    def bd_requestable?(options)
+     resp = find_item_request(options)
+
+     # Items that are available locally, and thus not requestable via BD, can
+     # only be found by looking at the RequestMessage, bah
+     h = resp["Item"]["RequestLink"]
+     if h && h["RequestMessage"] == "This item is available locally"
+       return false
+     end
+
+     return resp["Item"]["Available"].to_s == "true"
+    end
+
+    protected
 
     def exact_search_request_hash(type, value)
       {
