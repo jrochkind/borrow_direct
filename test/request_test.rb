@@ -78,5 +78,29 @@ describe "BorrowDirect::Request", :vcr => {:tag => :bd_request} do
     assert_equal 5, http_client.connect_timeout
   end
 
+  describe "with expected errors" do
+    it "still returns result" do
+      request = {
+          "PartnershipId" => "BAD_ID",
+          "Credentials" => {
+              "LibrarySymbol" => "librarySymbol",
+              "Barcode" => "barcode/patronId"
+          },
+          "ExactSearch" => [
+              {
+                  "Type" => "type",
+                  "Value" => "value"
+              }
+          ]
+      }
+
+      bd = BorrowDirect::Request.new("/dws/item/available")
+      bd.expected_error_codes << "PUBFI003"
+      response = bd.request( request )      
+
+      assert_present response
+    
+    end
+  end    
 
 end
