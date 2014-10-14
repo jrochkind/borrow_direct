@@ -15,7 +15,7 @@ NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no l
 
 
 
-describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem, :match_requests_on => [:method, :uri, :body]} do
+describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
 
 
 

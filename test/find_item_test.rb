@@ -12,7 +12,7 @@ LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally 
 NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
 
 
-describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem, :match_requests_on => [:body]} do
+describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
 
   describe "with defaults" do
     before do

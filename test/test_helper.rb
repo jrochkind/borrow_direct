@@ -16,6 +16,10 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr_cassettes'
   c.hook_into :webmock # or :fakeweb
+
+  # BD API requests tend to have their distinguishing
+  # features in a POSTed JSON request body
+  c.default_cassette_options = { :match_requests_on => [:method, :uri, :body] }
 end
 
 MinitestVcr::Spec.configure!
