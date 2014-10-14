@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://bdtest.relais-host.com/dws/item/available
+    body:
+      encoding: UTF-8
+      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"0109836413"}]}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
+      Accept:
+      - ! '*/*'
+      Date:
+      - Tue, 14 Oct 2014 20:33:04 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx/1.4.1
+      Date:
+      - Tue, 14 Oct 2014 20:33:08 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"Error":{"ErrorNumber":"PUBFI002","ErrorMessage":"No result"}}'
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 20:33:08 GMT
+recorded_with: VCR 2.9.3

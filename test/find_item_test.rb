@@ -10,7 +10,7 @@ VCRFilter.sensitive_data! :bd_finditem_patron, :bd_finditem
 $REQUESTABLE_ITEM_ISBN     = "9810743734" # item is in BD, and can be requested
 $LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
 $NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
-
+$RETURNS_PUBFI002_ISBN     = "0109836413" # BD returns an error PUBFI002 for this one, which we want to treat as simply not available. 
 
 
 describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
@@ -72,15 +72,21 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
 
 
   it "finds a requestable item" do
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $REQUESTABLE_ITEM_ISBN)
+    assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $REQUESTABLE_ITEM_ISBN)    
   end
 
   it "finds a locally available item" do
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)
+    assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)    
   end
 
   it "finds an item that does not exist in BD" do
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => "NO_SUCH_THING")
+    assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => "NO_SUCH_THING")
+  end
+
+  describe "with expected error PUBFI002" do
+    it "returns result" do
+      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $RETURNS_PUBFI002_ISBN )
+    end
   end
 
   #describe "bd_requestable?" do
@@ -98,6 +104,10 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
 
     it "says no for item that no libraries will lend" do
       assert_equal false, BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).bd_requestable?(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+    end
+
+    it "says no for item that BD returns PUBFI002" do
+      assert_equal false, BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).bd_requestable?(:isbn => $RETURNS_PUBFI002_ISBN)
     end
 
   #end

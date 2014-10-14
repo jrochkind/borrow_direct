@@ -23,6 +23,10 @@ module BorrowDirect
 
       @patron_barcode        = patron_barcode
       @patron_library_symbol = patron_library_symbol
+
+      # BD sometimes unpredictably returns this error when it means
+      # "no results", other times it doens't. We don't want to raise on it. 
+      self.expected_error_codes << "PUBFI002"
     end
 
     # need to send a key and value for a valid exact_search type
@@ -61,6 +65,12 @@ module BorrowDirect
     #    finder.bd_requestable? :isbn => "12345545456"
     def bd_requestable?(options)
      resp = find_item_request(options)
+
+      # Sometimes a PUBFI002 error code isn't really an error,
+      # but just means not available. 
+      if resp && resp["Error"] && (resp["Error"]["ErrorNumber"] == "PUBFI002")
+        return false
+      end
 
      # Items that are available locally, and thus not requestable via BD, can
      # only be found by looking at the RequestMessage, bah
