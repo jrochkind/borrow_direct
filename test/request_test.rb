@@ -52,8 +52,8 @@ describe "BorrowDirect::Request", :vcr => {:tag => :bd_request} do
       request = {
           "PartnershipId" => "BD",
           "Credentials" => {
-              "LibrarySymbol" => "JOHNSHOPKINS",
-              "Barcode" => "21151006865006"
+              "LibrarySymbol" => VCRFilter[:bd_library_symbol],
+              "Barcode" => VCRFilter[:bd_finditem_patron]
           },
           "ExactSearch" => [
               {
