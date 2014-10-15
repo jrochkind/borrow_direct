@@ -7,8 +7,30 @@ require 'borrow_direct'
 module BorrowDirect
   # Generic abstract BD request, put in a Hash request body, get
   # back a Hash answer. 
+  #  
+  #    response_hash = Request.new("/path/to/endpoint").request(request_hash)
+  #
+  # Typically, clients will use various sub-classes of Request implementing
+  # calling of individual BD API's
+  # 
+  # ## AuthenticationID's
+  #
+  # Some API endpoints require an "AId"/"AuthencationID". BorrowDirect::Request
+  # provides some facilities for managing obtaining such (using Authentication API),
+  # usually will be used under the hood by Request subclasses. 
+  #
+  #     # fetch new auth ID using Authentication API, store it
+  #     # in self.authentication_id
+  #     request.fetch_auth_id!(barcode, library_symbol)  
+  #
+  #     # return the existing value in self.authentication_id, or if
+  #     # nil run fetch_auth_id! to fill it out. 
+  #     request.need_auth_id(barcode, library_symbol)
+  #     
+  #     request.authentication_id # cached or nil
   class Request
     attr_accessor :timeout
+    attr_accessor :authentication_id
     attr_reader :last_request_uri, :last_request_json, :last_request_response, :last_request_time
 
     # Usually an error code from the server will be turned into an exception. 
@@ -80,6 +102,24 @@ module BorrowDirect
         "Accept-Language" => "en"
       }
     end
+
+    # Fetches new authID, stores it in self.authentication_id, overwriting
+    # any previous value there. Will raise BorrowDirect::Error if no auth
+    # could be fetched. 
+    #
+    # returns auth_id too. 
+    def fetch_auth_id!(barcode, library_symbol)
+      self.authentication_id = Authentication.new(barcode, library_symbol).get_auth_id
+    end
+
+    # Will use value in self.authentication_id, or if nil will
+    # fetch a value with fetch_auth_id! and return that. 
+    def need_auth_id(barcode, library_symbol)
+      self.authentication_id || fetch_auth_id!(barcode, library_symbol)
+    end
+
+
+
 
     protected
 

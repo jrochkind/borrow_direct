@@ -101,6 +101,39 @@ describe "Request", :vcr => {:tag => :bd_request} do
       assert_present response
     
     end
-  end    
+  end
+
+  describe "authentication_id" do
+    it "starts out nil" do
+      assert_nil BorrowDirect::Request.new("/").authentication_id
+    end
+
+    it "manually set one will be used without fetch" do
+      r = BorrowDirect::Request.new("/")
+      r.authentication_id = "OUR_AUTH_ID"
+
+      assert_equal "OUR_AUTH_ID", r.need_auth_id("wont_use_this", "or_this")
+    end
+
+    it "automatically fetches one when needed" do
+      r = BorrowDirect::Request.new("/")
+      auth_id = r.need_auth_id(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+
+      assert_present auth_id
+      assert_equal auth_id, r.authentication_id
+    end
+
+    it "can refetch when instructed" do
+      r = BorrowDirect::Request.new("/")
+
+      r.authentication_id = "OLD_BAD_AUTH_ID"
+      fetched = r.fetch_auth_id!(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+
+      assert_present r.authentication_id
+      assert_equal fetched, r.authentication_id
+      refute_equal "OLD_BAD_AUTH_ID", r.authentication_id
+
+    end
+  end
 
 end
