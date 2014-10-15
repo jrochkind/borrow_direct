@@ -9,7 +9,7 @@ VCRFilter.sensitive_data! :bd_finditem_patron, :bd_request
 SUCCESSFUL_ITEM_ISBN = "9810743734"
 
 
-describe "BorrowDirect::Request", :vcr => {:tag => :bd_request} do
+describe "Request", :vcr => {:tag => :bd_request} do
 
 
   it "raises on bad path"  do

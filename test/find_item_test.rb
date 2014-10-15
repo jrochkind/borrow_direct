@@ -13,7 +13,7 @@ $NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no 
 $RETURNS_PUBFI002_ISBN     = "0109836413" # BD returns an error PUBFI002 for this one, which we want to treat as simply not available. 
 
 
-describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
+describe "FindItem", :vcr => {:tag => :bd_finditem } do
   
 
 

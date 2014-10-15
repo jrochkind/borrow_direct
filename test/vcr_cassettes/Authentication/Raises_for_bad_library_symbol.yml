@@ -5,14 +5,14 @@ http_interactions:
     uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
     body:
       encoding: UTF-8
-      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"BAD_BARCODE"}}'
+      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"BAD_SYMBOL","PatronId":"DUMMY_BD_FINDITEM_PATRON"}}'
     headers:
       User-Agent:
       - ruby borrow_direct gem (0.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 18:29:46 GMT
+      - Wed, 15 Oct 2014 18:50:20 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 18:29:48 GMT
+      - Wed, 15 Oct 2014 18:50:20 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -45,9 +45,8 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Authentication":{"Problem":{"Code":"PUBAN003","Message":"Authentication
-        failed[NCIP_MSG:Unknown User - #Unknown borrower barcode - please refer to
-        the circulation desk.]"}}}'
+      string: ! '{"Authentication":{"Problem":{"Code":"PUBAN005","Message":"Invalid
+        library symbol"}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 18:29:48 GMT
+  recorded_at: Wed, 15 Oct 2014 18:50:20 GMT
 recorded_with: VCR 2.9.3

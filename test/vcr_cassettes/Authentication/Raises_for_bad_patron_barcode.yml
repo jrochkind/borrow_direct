@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 18:37:45 GMT
+      - Wed, 15 Oct 2014 18:50:21 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 18:37:48 GMT
+      - Wed, 15 Oct 2014 18:50:22 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -49,5 +49,5 @@ http_interactions:
         failed[NCIP_MSG:Unknown User - #Unknown borrower barcode - please refer to
         the circulation desk.]"}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 18:37:48 GMT
+  recorded_at: Wed, 15 Oct 2014 18:50:22 GMT
 recorded_with: VCR 2.9.3

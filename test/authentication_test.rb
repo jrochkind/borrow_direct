@@ -9,7 +9,7 @@ VCRFilter.sensitive_data! :bd_finditem_patron, :bd_auth
 
 
 
-describe "BD Authentication", :vcr => {:tag => :bd_auth} do
+describe "Authentication", :vcr => {:tag => :bd_auth} do
   describe "raw request to verify HTTP api" do
     it "works" do
       uri = BorrowDirect::Defaults.api_base.chomp("/") + "/portal-service/user/authentication/patron"

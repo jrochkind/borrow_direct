@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 18:48:35 GMT
+      - Wed, 15 Oct 2014 18:50:37 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 18:48:36 GMT
+      - Wed, 15 Oct 2014 18:50:38 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -45,16 +45,16 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"yDb_7xEjDZUHQCMl5yJ4KYyUD0Q","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"P51OcMCbtO20-XBMjaLbigr9W7k","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
         Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 18:48:36 GMT
+  recorded_at: Wed, 15 Oct 2014 18:50:38 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"yDb_7xEjDZUHQCMl5yJ4KYyUD0Q","PickupLocation":"BAD
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"P51OcMCbtO20-XBMjaLbigr9W7k","PickupLocation":"BAD
         BAD BAD","ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
     headers:
       User-Agent:
@@ -62,7 +62,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 18:48:36 GMT
+      - Wed, 15 Oct 2014 18:50:38 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -75,7 +75,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 18:48:37 GMT
+      - Wed, 15 Oct 2014 18:50:40 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -84,7 +84,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Request":{"RequestNumber":"JHU-99000727"}}'
+      string: ! '{"Request":{"RequestNumber":"JHU-99000731"}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 18:48:37 GMT
+  recorded_at: Wed, 15 Oct 2014 18:50:40 GMT
 recorded_with: VCR 2.9.3

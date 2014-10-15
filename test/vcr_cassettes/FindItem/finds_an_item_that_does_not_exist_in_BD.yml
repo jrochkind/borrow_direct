@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 17:57:33 GMT
+      - Wed, 15 Oct 2014 18:50:57 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 17:57:44 GMT
+      - Wed, 15 Oct 2014 18:51:09 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -34,7 +34,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"mMauuQ3wvP7U52uwrMXwY4OmsMc","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","ButtonLabel":"Request","RequestMessage":"Borrow
+      string: ! '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"qdPDyo4xXZitYHDTs-msg6mjJ4w","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","ButtonLabel":"Request","RequestMessage":"Borrow
         Direct cannot fill this request at this time.  Please request through Interlibrary
         Loan."},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
@@ -46,5 +46,5 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 17:57:44 GMT
+  recorded_at: Wed, 15 Oct 2014 18:51:09 GMT
 recorded_with: VCR 2.9.3
