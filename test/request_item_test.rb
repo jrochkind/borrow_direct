@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'vcr'
 
-require 'borrow_direct/find_item'
+require 'borrow_direct/authentication'
 require 'borrow_direct/request_item'
 
 
@@ -16,7 +16,7 @@ $RETURNS_PUBRI004_ISBN     = "0109836413" # BD returns an error PUBRI004 for thi
 $PICKUP_LOCATION           = "Some location" # BD seems to allow anything, which is disturbing
 
 
-describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
+describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
 
 
@@ -115,12 +115,7 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
   # Helper method to do the FindItem and get a BD AuthorizationID, sadly
   # neccesary first for making a request, really slowing things down yes. 
   def make_find_item_for_auth(conditions)
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $REQUESTABLE_ITEM_ISBN)
-    auth_id = resp["Item"]["AuthorizationId"]
-
-    assert ! auth_id.nil?, "No AuthorizationId received from BD"
-
-    return auth_id
+    BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).get_auth_id    
   end
 
 end

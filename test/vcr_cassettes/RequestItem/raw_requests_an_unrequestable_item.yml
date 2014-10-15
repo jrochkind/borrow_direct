@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/available
+    uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
+      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_FINDITEM_PATRON"}}'
     headers:
       User-Agent:
       - ruby borrow_direct gem (0.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 17:57:24 GMT
+      - Wed, 15 Oct 2014 18:48:43 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,33 +25,36 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 17:57:25 GMT
+      - Wed, 15 Oct 2014 18:48:44 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Set-Cookie:
+      - visited=yes
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Language:
+      - en
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"VA8vtNtgPH2GwMx2BTl3MVZzsa0","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
-        this item"},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
-        - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
-        Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
-        History of Medicine","JH Medical Campus Office (faculty and staff)","JHMI
-        Pickup - Armstrong 306","JHMI Pickup - BSPH E4643","JHMI Pickup - Hampton
-        House 9th floor","JHMI Pickup - PCTB 115-116","JHMI Pickup - School of Nursing
-        313","JHU Homewood Office (faculty and grad students)","Montgomery Library
-        Resource Center","SAIS Library","Washington Library Resource Center","Welch
-        Medical Library","Wilmer Friedenwald Library"]}}}'
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"d0MKJURw0KlmA7P7cVaSOZQ3vHo","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+        Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 17:57:25 GMT
+  recorded_at: Wed, 15 Oct 2014 18:48:44 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"VA8vtNtgPH2GwMx2BTl3MVZzsa0","PickupLocation":"BAD
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"d0MKJURw0KlmA7P7cVaSOZQ3vHo","PickupLocation":"BAD
         BAD BAD","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
     headers:
       User-Agent:
@@ -59,7 +62,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 17:57:25 GMT
+      - Wed, 15 Oct 2014 18:48:44 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -72,7 +75,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 17:57:26 GMT
+      - Wed, 15 Oct 2014 18:48:44 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -85,5 +88,5 @@ http_interactions:
         Direct cannot fill this request at this time.  Please request through Interlibrary
         Loan."}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 17:57:26 GMT
+  recorded_at: Wed, 15 Oct 2014 18:48:44 GMT
 recorded_with: VCR 2.9.3
