@@ -20,17 +20,17 @@ module BorrowDirect
   # usually will be used under the hood by Request subclasses. 
   #
   #     # fetch new auth ID using Authentication API, store it
-  #     # in self.authentication_id
+  #     # in self.auth_id
   #     request.fetch_auth_id!(barcode, library_symbol)  
   #
-  #     # return the existing value in self.authentication_id, or if
+  #     # return the existing value in self.auth_id, or if
   #     # nil run fetch_auth_id! to fill it out. 
   #     request.need_auth_id(barcode, library_symbol)
   #     
-  #     request.authentication_id # cached or nil
+  #     request.auth_id # cached or nil
   class Request
     attr_accessor :timeout
-    attr_accessor :authentication_id
+    attr_accessor :auth_id
     attr_reader :last_request_uri, :last_request_json, :last_request_response, :last_request_time
 
     # Usually an error code from the server will be turned into an exception. 
@@ -103,19 +103,19 @@ module BorrowDirect
       }
     end
 
-    # Fetches new authID, stores it in self.authentication_id, overwriting
+    # Fetches new authID, stores it in self.auth_id, overwriting
     # any previous value there. Will raise BorrowDirect::Error if no auth
     # could be fetched. 
     #
     # returns auth_id too. 
     def fetch_auth_id!(barcode, library_symbol)
-      self.authentication_id = Authentication.new(barcode, library_symbol).get_auth_id
+      self.auth_id = Authentication.new(barcode, library_symbol).get_auth_id
     end
 
-    # Will use value in self.authentication_id, or if nil will
+    # Will use value in self.auth_id, or if nil will
     # fetch a value with fetch_auth_id! and return that. 
     def need_auth_id(barcode, library_symbol)
-      self.authentication_id || fetch_auth_id!(barcode, library_symbol)
+      self.auth_id || fetch_auth_id!(barcode, library_symbol)
     end
 
 
