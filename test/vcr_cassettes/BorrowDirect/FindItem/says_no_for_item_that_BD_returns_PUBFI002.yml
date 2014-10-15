@@ -8,13 +8,15 @@ http_interactions:
       string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"0109836413"}]}'
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
+      - ruby borrow_direct gem (0.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Tue, 14 Oct 2014 20:34:34 GMT
+      - Wed, 15 Oct 2014 17:57:31 GMT
       Content-Type:
       - application/json
+      Accept-Language:
+      - en
   response:
     status:
       code: 404
@@ -23,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 14 Oct 2014 20:34:38 GMT
+      - Wed, 15 Oct 2014 17:57:33 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -34,5 +36,5 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"Error":{"ErrorNumber":"PUBFI002","ErrorMessage":"No result"}}'
     http_version: 
-  recorded_at: Tue, 14 Oct 2014 20:34:38 GMT
+  recorded_at: Wed, 15 Oct 2014 17:57:33 GMT
 recorded_with: VCR 2.9.3

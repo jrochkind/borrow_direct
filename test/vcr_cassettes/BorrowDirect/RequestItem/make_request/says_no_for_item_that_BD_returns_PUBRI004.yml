@@ -8,13 +8,15 @@ http_interactions:
       string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
+      - ruby borrow_direct gem (0.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 13:49:13 GMT
+      - Wed, 15 Oct 2014 17:57:00 GMT
       Content-Type:
       - application/json
+      Accept-Language:
+      - en
   response:
     status:
       code: 200
@@ -23,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 13:49:17 GMT
+      - Wed, 15 Oct 2014 17:57:04 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -32,7 +34,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"QYTCglSIDuW0Q0fs_m1A9AhnO9s","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
+      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=9797994864","AuthorizationId":"LERu4JWOH5yrEEj20lr34HsNp9E","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
         this item"},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
         Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
@@ -43,23 +45,25 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 13:49:17 GMT
+  recorded_at: Wed, 15 Oct 2014 17:57:04 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"QYTCglSIDuW0Q0fs_m1A9AhnO9s","PickupLocation":"BAD
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"LERu4JWOH5yrEEj20lr34HsNp9E","PickupLocation":"BAD
         BAD BAD","ExactSearch":[{"Type":"ISBN","Value":"0109836413"}]}'
     headers:
       User-Agent:
-      - HTTPClient/1.0 (2.4.0, ruby 1.9.3 (2013-11-22))
+      - ruby borrow_direct gem (0.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Wed, 15 Oct 2014 13:49:18 GMT
+      - Wed, 15 Oct 2014 17:57:04 GMT
       Content-Type:
       - application/json
+      Accept-Language:
+      - en
   response:
     status:
       code: 404
@@ -68,7 +72,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 15 Oct 2014 13:49:21 GMT
+      - Wed, 15 Oct 2014 17:57:07 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -79,5 +83,5 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"Error":{"ErrorNumber":"PUBRI004","ErrorMessage":"No result"}}'
     http_version: 
-  recorded_at: Wed, 15 Oct 2014 13:49:21 GMT
+  recorded_at: Wed, 15 Oct 2014 17:57:07 GMT
 recorded_with: VCR 2.9.3

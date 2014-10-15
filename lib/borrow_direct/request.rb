@@ -2,7 +2,7 @@ require 'json'
 require 'httpclient'
 require 'ostruct'
 
-require 'borrow_direct/error'
+require 'borrow_direct'
 
 module BorrowDirect
   # Generic abstract BD request, put in a Hash request body, get
@@ -38,7 +38,7 @@ module BorrowDirect
 
       start_time = Time.now
 
-      http_response = http.post @api_uri, json_request, {"Content-Type" => "application/json"}
+      http_response = http.post @api_uri, json_request, self.request_headers
 
       @last_request_response = http_response
       @last_request_time     = Time.now - start_time
@@ -68,6 +68,17 @@ module BorrowDirect
     rescue HTTPClient::ReceiveTimeoutError => e
       elapsed = Time.now - start_time
       raise BorrowDirect::HttpTimeoutError.new("Timeout after #{elapsed}s connecting to BorrowDirect server at #{@api_base}")
+    end
+
+    # For now, we can send same request headers for all requests. May have to
+    # make parameterized later. 
+    # Note SOME but not all BD API endpoints REQUIRE User-Agent and 
+    # Accept-Language (for no discernable reason)
+    def request_headers
+      { "Content-Type" => "application/json", 
+        "User-Agent" => "ruby borrow_direct gem (#{BorrowDirect::VERSION}) https://github.com/jrochkind/borrow_direct", 
+        "Accept-Language" => "en"
+      }
     end
 
     protected
