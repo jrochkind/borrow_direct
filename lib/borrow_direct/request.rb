@@ -100,6 +100,12 @@ module BorrowDirect
       if hash && (e = hash["Error"]) && (e["ErrorNumber"] || e["ErrorMessage"])
         return OpenStruct.new(:number => e["ErrorNumber"], :message => e["ErrorMessage"])
       end
+
+      # Or wait! Some API's have a totally different way of reporting errors, great!
+      if hash && (e = hash["Authentication"]) && e["Problem"] 
+        return OpenStruct.new(:number => e["Problem"]["Code"], :message => e["Problem"]["Message"])
+      end
+
       return nil    
     end
   end

@@ -33,9 +33,53 @@ describe "BD Authentication", :vcr => {:tag => :bd_auth} do
       assert_present response_hash
 
       assert_present response_hash["Authentication"]["AuthnUserInfo"]["AId"]
-
     end
   end
+
+  it "Makes a request succesfully" do
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol])
+    response = bd.authentication_request
+
+    assert_present response
+    assert_present response["Authentication"]["AuthnUserInfo"]["AId"]
+  end
+
+  it "Raises for bad library symbol" do
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , "BAD_SYMBOL")
+    assert_raises(BorrowDirect::Error) do
+      bd.authentication_request
+    end
+  end
+
+  it "Raises for bad patron barcode" do
+    bd = BorrowDirect::Authentication.new("BAD_BARCODE", VCRFilter[:bd_library_symbol])
+    assert_raises(BorrowDirect::Error) do
+      bd.authentication_request
+    end
+  end
+
+  describe "get_auth_id" do
+    it "returns an auth_id for a good request" do
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol])
+      assert_present bd.get_auth_id
+    end
+
+    it "raises for a bad library symbol" do
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , "BAD_SYMBOL")
+      assert_raises(BorrowDirect::Error) do
+        bd.get_auth_id
+      end
+    end
+
+    it "raises for a bad patron barcode" do
+      bd = BorrowDirect::Authentication.new("BAD_BARCODE", VCRFilter[:bd_library_symbol])
+      assert_raises(BorrowDirect::Error) do
+        bd.get_auth_id
+      end
+    end
+
+  end
+
 
 
 end
