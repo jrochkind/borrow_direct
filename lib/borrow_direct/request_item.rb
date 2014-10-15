@@ -17,7 +17,11 @@ module BorrowDirect
     def initialize(auth_id)
       super(@@api_path)
 
-      @authorization_id      = auth_id      
+      @authorization_id      = auth_id  
+
+      # BD sometimes unpredictably returns this error when it means
+      # "no results", other times it doens't. We don't want to raise on it. 
+      self.expected_error_codes << "PUBRI004"    
     end
 
     # need to send a key and value for a valid exact_search type

@@ -7,3 +7,17 @@ def assert_present(arg, msg = nil)
 
   assert is_present, msg
 end
+
+def assert_length(length, array, msg = nil)
+  msg ||= "Expected #{array.inspect.slice(0, 10)} to be length #{length}"
+
+  assert (array.respond_to?(:length) && array.length == length), msg
+end
+
+def assert_include(collection, item, msg = nil)
+  assert_respond_to(collection, :include?, "The collection must respond to :include?.")
+    
+  msg ||= "#{collection.inspect.slice(0,10)} expected to include\#{item}"
+
+  assert collection.include?(item), msg
+end

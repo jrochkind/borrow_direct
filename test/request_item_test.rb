@@ -12,6 +12,7 @@ VCRFilter.sensitive_data! :bd_finditem_patron, :bd_requestitem
 $REQUESTABLE_ITEM_ISBN     = "9797994864" # item is in BD, and can be requested
 $LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
 $NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
+$RETURNS_PUBRI004_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available. 
 $PICKUP_LOCATION           = "Some location" # BD seems to allow anything, which is disturbing
 
 
@@ -72,6 +73,13 @@ describe "BorrowDirect::RequestItem", :vcr => {:tag => :bd_requestitem } do
 
       assert_nil resp
     end
+
+    it "says no for item that BD returns PUBRI004" do
+      auth_id = make_find_item_for_auth(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)
+
+      assert_nil BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $RETURNS_PUBRI004_ISBN)
+    end
+
   end
 
   describe "with pickup location and requestable item" do
