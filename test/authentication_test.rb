@@ -23,7 +23,7 @@ describe "BD Authentication", :vcr => {:tag => :bd_auth} do
       } 
 
       http = HTTPClient.new
-      response = http.post uri, JSON.generate(request_hash), {"Content-Type" => "application/json", "User-Agent" => "ruby-borrow-direct-gem-#{BorrowDirect::VERSION}", "Accept-Language" => "en"}
+      response = http.post uri, JSON.generate(request_hash), {"Content-Type" => "application/json", "User-Agent" => "ruby borrow_direct gem (#{BorrowDirect::VERSION}) https://github.com/jrochkind/borrow_direct", "Accept-Language" => "en"}
 
       assert_equal 200, response.code
       assert_present response.body
