@@ -49,6 +49,18 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
       assert_equal "ISBN", hash["ExactSearch"].first["Type"]
       assert_equal "2", hash["ExactSearch"].first["Value"]
     end
+
+    it "works with multiple values" do
+      finder = BorrowDirect::FindItem.new("barcodeX", "libraryX")
+      hash   = finder.send(:exact_search_request_hash, :isbn, ["2", "3"])
+
+      exact_searches = hash["ExactSearch"]
+
+      assert_length 2, exact_searches
+
+      assert_include exact_searches, {"Type"=>"ISBN", "Value"=>"2"}
+      assert_include exact_searches, {"Type"=>"ISBN", "Value"=>"3"}
+    end
   end
 
 
@@ -83,15 +95,24 @@ describe "BorrowDirect::FindItem", :vcr => {:tag => :bd_finditem } do
     assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => "NO_SUCH_THING")
   end
 
+  it "works with multiple values" do
+    assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => [$REQUESTABLE_ITEM_ISBN, $LOCALLY_AVAIL_ITEM_ISBN])
+  end
+
   describe "with expected error PUBFI002" do
     it "returns result" do
       assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $RETURNS_PUBFI002_ISBN )
     end
   end
 
+
   #describe "bd_requestable?" do
     it "says yes for requestable item" do
       assert_equal true, BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).bd_requestable?(:isbn => $REQUESTABLE_ITEM_ISBN)
+    end
+
+    it "says yes with multiple items if at least one is requestable" do
+      assert_equal true, BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).bd_requestable?(:isbn => [$REQUESTABLE_ITEM_ISBN, "NO_SUCH_ISBN"])
     end
 
     it "says no for locally available item" do

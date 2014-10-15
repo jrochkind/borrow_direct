@@ -36,8 +36,11 @@ module BorrowDirect
     # #bd_requestable? instead
     #
     #    finder.find_item_request(:isbn => "12345545456")
-    #    finder.find_item_request(:lccn => "12345545456")
-    #    finder.find_item_request(:oclc => "12345545456")
+    #
+    # You can request multiple values which BD will treat as an 'OR'/union -- sort
+    # of. BD does unpredictable things here, be careful. 
+    #
+    #     finder.find_item_request(:isbn => ["12345545456", "99999999"])
     def find_item_request(options)
       search_type, search_value = nil, nil
       options.each_pair do |key, value|
@@ -84,20 +87,30 @@ module BorrowDirect
 
     protected
 
+    # Produce BD request hash for exact search of type eg "ISBN"
+    # value can be a singel value, or an array of values. For array,
+    # BD will "OR" them. 
     def exact_search_request_hash(type, value)
-      {
+      # turn it into an array if it's not one already
+      values = Array(value)
+
+      hash = {
           "PartnershipId" => Defaults.partnership_id,
           "Credentials" => {
               "LibrarySymbol" => self.patron_library_symbol,
               "Barcode" => self.patron_barcode
           },
-          "ExactSearch" => [
-              {
-                  "Type" => type.to_s.upcase,
-                  "Value" => value
-              }
-          ]
+          "ExactSearch" => []
       }
+
+      values.each do |value|
+        hash["ExactSearch"] << {
+            "Type" => type.to_s.upcase,
+            "Value" => value
+        }
+      end
+    
+      return hash
     end
 
 
