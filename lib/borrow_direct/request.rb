@@ -47,6 +47,8 @@ module BorrowDirect
       @api_uri = @api_base.chomp("/") + @api_path
 
       @expected_error_codes = []
+
+      @timeout = Defaults.timeout
     end
 
     def request(hash)

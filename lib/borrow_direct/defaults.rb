@@ -17,11 +17,17 @@ module BorrowDirect
     PRODUCTION_API_BASE   = "NOT_YET_AVAILABLE"
     
     class << self
-      attr_accessor :api_base, :partnership_id, :find_item_patron_barcode, :library_symbol      
+      attr_accessor :api_base, :partnership_id, :find_item_patron_barcode, :library_symbol
+
+      # used for HTTPClient send, connection, AND receive timeouts, so
+      # theoretically could take 3x this, but unlikely, usually it's just
+      # receive that might timeout. In seconds. Default 30s.
+      attr_accessor :timeout    
     end
 
     self.api_base       = BorrowDirect::Defaults::TEST_API_BASE
     self.partnership_id = "BD"
+    self.timeout        = 30
 
   end
 end
