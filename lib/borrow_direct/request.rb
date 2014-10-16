@@ -103,9 +103,13 @@ module BorrowDirect
     # make parameterized later. 
     # Note SOME but not all BD API endpoints REQUIRE User-Agent and 
     # Accept-Language (for no discernable reason)
+    #
+    # NOTE WELL: API sometimes requires User-Agent _not to change_ when using
+    # an AuthorizationID, or it will revoke your authorization. Need to use the
+    # same User-Agent when using an auth_id as you used when receiving it. 
     def request_headers
       { "Content-Type" => "application/json", 
-        "User-Agent" => "ruby borrow_direct gem (#{BorrowDirect::VERSION}) https://github.com/jrochkind/borrow_direct", 
+        "User-Agent" => "ruby borrow_direct gem #{BorrowDirect::VERSION} (HTTPClient #{HTTPClient::VERSION}) https://github.com/jrochkind/borrow_direct", 
         "Accept-Language" => "en"
       }
     end
