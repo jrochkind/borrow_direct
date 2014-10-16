@@ -43,6 +43,14 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
     resp = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).request_item_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
+    assert_present resp
+    assert_present resp["Request"]
+  end
+
+  it "uses manually set auth_id" do
+    bd          = BorrowDirect::RequestItem.new("bad_patron" , "bad_symbol")
+    bd.auth_id  = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).get_auth_id  
+    resp        = bd.request_item_request(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
 
     assert_present resp
     assert_present resp["Request"]
@@ -97,10 +105,6 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
   end
 
 
-  # Helper method to do the FindItem and get a BD AuthorizationID, sadly
-  # neccesary first for making a request, really slowing things down yes. 
-  def make_find_item_for_auth(conditions)
-    BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).get_auth_id    
-  end
+
 
 end
