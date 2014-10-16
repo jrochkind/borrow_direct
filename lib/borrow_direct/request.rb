@@ -116,7 +116,11 @@ module BorrowDirect
     #
     # returns auth_id too. 
     def fetch_auth_id!(barcode, library_symbol)
-      self.auth_id = Authentication.new(barcode, library_symbol).get_auth_id
+      auth = Authentication.new(barcode, library_symbol)
+      # use the same HTTPClient so we use the same HTTP connection, perhaps
+      # slightly more performance worth a shot. 
+      auth.http_client = http_client
+      self.auth_id = auth.get_auth_id
     end
 
     # Will use value in self.auth_id, or if nil will
