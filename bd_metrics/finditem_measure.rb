@@ -34,7 +34,7 @@ identifiers.each do |id|
   start = Time.now
 
   begin
-    finder.find(key => id)
+    finder.find_item_request(key => id)
   rescue BorrowDirect::Error => e
     errors << [key, id, e]
   end
@@ -47,12 +47,13 @@ identifiers.each do |id|
     min       = times[0]
     tenth     = times[(times.count / 10) - 1]
     median    = times[(times.count / 2) - 1]
+    seventyfifth = times[(times.count - (times.count / 4)) - 1]
     ninetieth = times[(times.count - (times.count / 10)) - 1]
     ninetyninth = times[(times.count - (times.count / 100)) - 1]
 
     max       = times[times.count - 1]
 
-    puts "i==#{i}; min: #{min}; 10th %ile: #{tenth}; median: #{median}; 90th %ile: #{ninetieth}; 99th %ile: #{ninetyninth}; max: #{max}"
+    puts "i==#{i}; min: #{min}; 10th %ile: #{tenth}; median: #{median}; 75th %ile: #{seventyfifth}; 90th %ile: #{ninetieth}; 99th %ile: #{ninetyninth}; max: #{max}"
     puts "    errors: #{errors.count}"
   end
 
