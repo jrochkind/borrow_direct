@@ -71,7 +71,7 @@ describe "Request", :vcr => {:tag => :bd_request} do
     request = BorrowDirect::Request.new("/some/path")
     request.timeout = 5
 
-    http_client = request.send(:http_client!)
+    http_client = request.http_client
 
     assert_equal 5, http_client.send_timeout
     assert_equal 5, http_client.receive_timeout

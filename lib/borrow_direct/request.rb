@@ -29,6 +29,7 @@ module BorrowDirect
   #     
   #     request.auth_id # cached or nil
   class Request
+    attr_writer :http_client
     attr_accessor :timeout
     attr_accessor :auth_id
     attr_reader :last_request_uri, :last_request_json, :last_request_response, :last_request_time
@@ -52,7 +53,7 @@ module BorrowDirect
     end
 
     def request(hash)
-      http = http_client!
+      http = http_client
 
       json_request = JSON.generate(hash)
 
@@ -94,6 +95,10 @@ module BorrowDirect
       raise BorrowDirect::HttpTimeoutError.new("Timeout after #{elapsed}s connecting to BorrowDirect server at #{@api_base}")
     end
 
+    def http_client
+      @http_client ||= make_http_client!
+    end
+
     # For now, we can send same request headers for all requests. May have to
     # make parameterized later. 
     # Note SOME but not all BD API endpoints REQUIRE User-Agent and 
@@ -125,7 +130,7 @@ module BorrowDirect
 
     protected
 
-    def http_client!
+    def make_http_client!
       http = HTTPClient.new
       if self.timeout
         http.send_timeout    = self.timeout
