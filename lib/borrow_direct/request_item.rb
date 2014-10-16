@@ -7,17 +7,20 @@ module BorrowDirect
   #
   # You can also use #find_item_request to get the raw BD response as a ruby hash
   class RequestItem < Request
+    attr_reader :patron_barcode, :patron_library_symbol
     attr_reader :authorization_id
 
     @@api_path = "/dws/item/add"
     @@valid_search_types = %w{ISBN ISSN LCCN OCLC Control }
 
 
-    # Need an AuthorizationId acquired from a previous FindItem request, probably. 
-    def initialize(auth_id)
+    
+    def initialize(patron_barcode,
+                   patron_library_symbol = Defaults.library_symbol)
       super(@@api_path)
 
-      @authorization_id      = auth_id  
+      @patron_barcode        = patron_barcode
+      @patron_library_symbol = patron_library_symbol
 
       # BD sometimes unpredictably returns this error when it means
       # "no results", other times it doens't. We don't want to raise on it. 
@@ -94,8 +97,8 @@ module BorrowDirect
     def exact_search_request_hash(pickup_location, type, value)
       hash = {
           "PartnershipId" => Defaults.partnership_id,
-          "AuthorizationId" => @authorization_id,
-          "PickupLocation" => "BAD BAD BAD",
+          "AuthorizationId" => need_auth_id(self.patron_barcode, self.patron_library_symbol),
+          "PickupLocation" => pickup_location,
           "ExactSearch" => [
               {
                   "Type" => type.to_s.upcase,

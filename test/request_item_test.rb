@@ -39,10 +39,9 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
   end
 
 
-  it "raw requests an unrequestable item" do
-    auth_id = make_find_item_for_auth(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+  it "raw requests an unrequestable item" do    
 
-    resp = BorrowDirect::RequestItem.new(auth_id).request_item_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+    resp = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).request_item_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
 
     assert_present resp
@@ -51,42 +50,32 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
   describe "make_request" do
     it "make_request for a requestable item" do
-      auth_id = make_find_item_for_auth(:isbn => $REQUESTABLE_ITEM_ISBN)
-
-      request_id = BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
+      request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
 
       assert_present request_id    
     end
 
     it "make_request for an unrequestable item" do
-      auth_id = make_find_item_for_auth(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
-
-      resp = BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+      resp = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
 
       assert_nil resp
     end
 
     it "make_request for a locally available item" do
-      auth_id = make_find_item_for_auth(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)
-
-      resp = BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $LOCALLY_AVAIL_ITEM_ISBN)
+      resp = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => $LOCALLY_AVAIL_ITEM_ISBN)
 
       assert_nil resp
     end
 
     it "says no for item that BD returns PUBRI004" do
-      auth_id = make_find_item_for_auth(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)
-
-      assert_nil BorrowDirect::RequestItem.new(auth_id).make_request(nil, :isbn => $RETURNS_PUBRI004_ISBN)
+      assert_nil BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => $RETURNS_PUBRI004_ISBN)
     end
 
   end
 
   describe "with pickup location and requestable item" do
     it "still works" do
-      auth_id = make_find_item_for_auth(:isbn => $REQUESTABLE_ITEM_ISBN)
-
-      request_id = BorrowDirect::RequestItem.new(auth_id).make_request($PICKUP_LOCATION, :isbn => $REQUESTABLE_ITEM_ISBN)
+      request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request($PICKUP_LOCATION, :isbn => $REQUESTABLE_ITEM_ISBN)
 
       assert_present request_id    
     end
@@ -94,18 +83,14 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
   describe "make_request!" do
     it "returns number for succesful request" do
-      auth_id = make_find_item_for_auth(:isbn => $REQUESTABLE_ITEM_ISBN)
-
-      request_id = BorrowDirect::RequestItem.new(auth_id).make_request!(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
+      request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request!(nil, :isbn => $REQUESTABLE_ITEM_ISBN)
 
       assert_present request_id    
     end
 
     it "raises for unrequestable" do
-      auth_id = make_find_item_for_auth(:isbn => $NOT_REQUESTABLE_ITEM_ISBN)
-
       error = assert_raises(BorrowDirect::Error) do
-        request_id = BorrowDirect::RequestItem.new(auth_id).make_request!(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
+        request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).make_request!(nil, :isbn => $NOT_REQUESTABLE_ITEM_ISBN)
       end
     end
     
