@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jrochkind/borrow_direct.svg)](https://travis-ci.org/jrochkind/borrow_direct)
+
 # BorrowDirect
 
 EXPERIMENTAL WORK IN PROGRESS, MAY HAVE UNSTABLE API
