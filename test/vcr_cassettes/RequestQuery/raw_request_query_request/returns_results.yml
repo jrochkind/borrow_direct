@@ -1,0 +1,309 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
+    body:
+      encoding: UTF-8
+      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_FINDITEM_PATRON"}}'
+    headers:
+      User-Agent:
+      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.0) https://github.com/jrochkind/borrow_direct
+      Accept:
+      - ! '*/*'
+      Date:
+      - Mon, 20 Oct 2014 18:39:39 GMT
+      Content-Type:
+      - application/json
+      Accept-Language:
+      - en
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.1
+      Date:
+      - Mon, 20 Oct 2014 18:39:41 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - visited=yes
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Language:
+      - en
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store, max-age=0
+    body:
+      encoding: US-ASCII
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"fdSWai5NhjNwaygfdfbei2jwouw","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+        Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
+    http_version: 
+  recorded_at: Mon, 20 Oct 2014 18:39:41 GMT
+- request:
+    method: get
+    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=fdSWai5NhjNwaygfdfbei2jwouw&fullRecord=0&type=all
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.0) https://github.com/jrochkind/borrow_direct
+      Accept:
+      - ! '*/*'
+      Date:
+      - Mon, 20 Oct 2014 18:39:41 GMT
+      Content-Type:
+      - application/json
+      Accept-Language:
+      - en
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.1
+      Date:
+      - Mon, 20 Oct 2014 18:39:41 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - visited=yes
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Language:
+      - en
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache, no-store, max-age=0
+    body:
+      encoding: US-ASCII
+      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000755","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102836","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000754","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102809","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000753","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102722","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000752","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102715","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103003"},{"RequestNumber":"JHU-99000751","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102451","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000750","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102442","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000749","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102434","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000748","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102422","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102503"},{"RequestNumber":"JHU-99000741","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 01:49 PM","ISO8601DateSubmitted":"20141016134910","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 01:50 PM","ISO8601RequestStatusDate":"20141016135003"},{"RequestNumber":"JHU-99000740","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 01:49 PM","ISO8601DateSubmitted":"20141016134902","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 01:45 PM","ISO8601RequestStatusDate":"20141016134503"},{"RequestNumber":"JHU-99000739","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 01:48 PM","ISO8601DateSubmitted":"20141016134803","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 01:45 PM","ISO8601RequestStatusDate":"20141016134503"},{"RequestNumber":"JHU-99000738","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 01:47 PM","ISO8601DateSubmitted":"20141016134757","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 01:45 PM","ISO8601RequestStatusDate":"20141016134503"},{"RequestNumber":"JHU-99000735","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 09:14 AM","ISO8601DateSubmitted":"20141016091430","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 09:15 AM","ISO8601RequestStatusDate":"20141016091503"},{"RequestNumber":"JHU-99000734","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 09:10 AM","ISO8601DateSubmitted":"20141016091035","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 09:10 AM","ISO8601RequestStatusDate":"20141016091004"},{"RequestNumber":"JHU-99000733","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 09:10 AM","ISO8601DateSubmitted":"20141016091024","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 09:10 AM","ISO8601RequestStatusDate":"20141016091004"},{"RequestNumber":"JHU-99000732","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        16, 2014 09:10 AM","ISO8601DateSubmitted":"20141016091019","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        16, 2014 09:10 AM","ISO8601RequestStatusDate":"20141016091004"},{"RequestNumber":"JHU-99000731","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:50 PM","ISO8601DateSubmitted":"20141015145040","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:50 PM","ISO8601RequestStatusDate":"20141015145004"},{"RequestNumber":"JHU-99000730","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:50 PM","ISO8601DateSubmitted":"20141015145031","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:50 PM","ISO8601RequestStatusDate":"20141015145004"},{"RequestNumber":"JHU-99000729","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:50 PM","ISO8601DateSubmitted":"20141015145019","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:50 PM","ISO8601RequestStatusDate":"20141015145004"},{"RequestNumber":"JHU-99000728","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:48 PM","ISO8601DateSubmitted":"20141015144842","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000727","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:48 PM","ISO8601DateSubmitted":"20141015144837","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000726","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:48 PM","ISO8601DateSubmitted":"20141015144829","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000725","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:47 PM","ISO8601DateSubmitted":"20141015144742","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000724","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:47 PM","ISO8601DateSubmitted":"20141015144737","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000723","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 02:47 PM","ISO8601DateSubmitted":"20141015144724","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000722","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 01:58 PM","ISO8601DateSubmitted":"20141015135828","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 01:55 PM","ISO8601RequestStatusDate":"20141015135503"},{"RequestNumber":"JHU-99000721","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 01:57 PM","ISO8601DateSubmitted":"20141015135724","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 01:55 PM","ISO8601RequestStatusDate":"20141015135503"},{"RequestNumber":"JHU-99000720","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        15, 2014 01:57 PM","ISO8601DateSubmitted":"20141015135717","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        15, 2014 01:55 PM","ISO8601RequestStatusDate":"20141015135503"},{"RequestNumber":"JHU-99000719","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:53 PM","ISO8601DateSubmitted":"20141014155353","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:50 PM","ISO8601RequestStatusDate":"20141014155004"},{"RequestNumber":"JHU-99000718","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:43 PM","ISO8601DateSubmitted":"20141014154313","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:40 PM","ISO8601RequestStatusDate":"20141014154004"},{"RequestNumber":"JHU-99000717","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:38 PM","ISO8601DateSubmitted":"20141014153820","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:35 PM","ISO8601RequestStatusDate":"20141014153504"},{"RequestNumber":"JHU-99000716","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:34 PM","ISO8601DateSubmitted":"20141014153457","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:35 PM","ISO8601RequestStatusDate":"20141014153503"},{"RequestNumber":"JHU-99000715","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:33 PM","ISO8601DateSubmitted":"20141014153336","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:30 PM","ISO8601RequestStatusDate":"20141014153003"},{"RequestNumber":"JHU-99000714","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:19 PM","ISO8601DateSubmitted":"20141014151913","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:20 PM","ISO8601RequestStatusDate":"20141014152003"},{"RequestNumber":"JHU-99000713","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:07 PM","ISO8601DateSubmitted":"20141014150736","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:05 PM","ISO8601RequestStatusDate":"20141014150503"},{"RequestNumber":"JHU-99000712","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 03:06 PM","ISO8601DateSubmitted":"20141014150642","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 03:05 PM","ISO8601RequestStatusDate":"20141014150503"},{"RequestNumber":"JHU-99000711","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 01:18 PM","ISO8601DateSubmitted":"20141014131827","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 01:15 PM","ISO8601RequestStatusDate":"20141014131504"},{"RequestNumber":"JHU-99000710","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 01:17 PM","ISO8601DateSubmitted":"20141014131748","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 01:15 PM","ISO8601RequestStatusDate":"20141014131504"},{"RequestNumber":"JHU-99000709","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 01:04 PM","ISO8601DateSubmitted":"20141014130429","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 01:05 PM","ISO8601RequestStatusDate":"20141014130503"},{"RequestNumber":"JHU-99000708","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 01:03 PM","ISO8601DateSubmitted":"20141014130353","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 01:00 PM","ISO8601RequestStatusDate":"20141014130003"},{"RequestNumber":"JHU-99000707","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:51 PM","ISO8601DateSubmitted":"20141014125109","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:50 PM","ISO8601RequestStatusDate":"20141014125003"},{"RequestNumber":"JHU-99000706","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:50 PM","ISO8601DateSubmitted":"20141014125030","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:50 PM","ISO8601RequestStatusDate":"20141014125003"},{"RequestNumber":"JHU-99000705","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:35 PM","ISO8601DateSubmitted":"20141014123553","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:35 PM","ISO8601RequestStatusDate":"20141014123503"},{"RequestNumber":"JHU-99000704","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:35 PM","ISO8601DateSubmitted":"20141014123507","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:35 PM","ISO8601RequestStatusDate":"20141014123503"},{"RequestNumber":"JHU-99000703","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:11 PM","ISO8601DateSubmitted":"20141014121109","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:10 PM","ISO8601RequestStatusDate":"20141014121004"},{"RequestNumber":"JHU-99000702","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:10 PM","ISO8601DateSubmitted":"20141014121045","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:10 PM","ISO8601RequestStatusDate":"20141014121004"},{"RequestNumber":"JHU-99000701","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:01 PM","ISO8601DateSubmitted":"20141014120135","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:00 PM","ISO8601RequestStatusDate":"20141014120004"},{"RequestNumber":"JHU-99000700","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 12:01 PM","ISO8601DateSubmitted":"20141014120111","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 12:00 PM","ISO8601RequestStatusDate":"20141014120004"},{"RequestNumber":"JHU-99000699","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:52 AM","ISO8601DateSubmitted":"20141014115216","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:50 AM","ISO8601RequestStatusDate":"20141014115004"},{"RequestNumber":"JHU-99000698","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:51 AM","ISO8601DateSubmitted":"20141014115134","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:50 AM","ISO8601RequestStatusDate":"20141014115003"},{"RequestNumber":"JHU-99000697","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:16 AM","ISO8601DateSubmitted":"20141014111651","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:15 AM","ISO8601RequestStatusDate":"20141014111504"},{"RequestNumber":"JHU-99000696","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:15 AM","ISO8601DateSubmitted":"20141014111541","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:15 AM","ISO8601RequestStatusDate":"20141014111504"},{"RequestNumber":"JHU-99000695","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:11 AM","ISO8601DateSubmitted":"20141014111110","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:10 AM","ISO8601RequestStatusDate":"20141014111004"},{"RequestNumber":"JHU-99000694","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:10 AM","ISO8601DateSubmitted":"20141014111020","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:10 AM","ISO8601RequestStatusDate":"20141014111004"},{"RequestNumber":"JHU-99000693","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 11:04 AM","ISO8601DateSubmitted":"20141014110422","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:05 AM","ISO8601RequestStatusDate":"20141014110504"},{"RequestNumber":"JHU-99000692","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:59 AM","ISO8601DateSubmitted":"20141014105920","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 11:00 AM","ISO8601RequestStatusDate":"20141014110004"},{"RequestNumber":"JHU-99000691","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:56 AM","ISO8601DateSubmitted":"20141014105638","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:55 AM","ISO8601RequestStatusDate":"20141014105504"},{"RequestNumber":"JHU-99000690","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:54 AM","ISO8601DateSubmitted":"20141014105455","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:55 AM","ISO8601RequestStatusDate":"20141014105504"},{"RequestNumber":"JHU-99000689","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:54 AM","ISO8601DateSubmitted":"20141014105410","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:55 AM","ISO8601RequestStatusDate":"20141014105504"},{"RequestNumber":"JHU-99000688","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:53 AM","ISO8601DateSubmitted":"20141014105312","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:50 AM","ISO8601RequestStatusDate":"20141014105004"},{"RequestNumber":"JHU-99000687","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:52 AM","ISO8601DateSubmitted":"20141014105241","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:50 AM","ISO8601RequestStatusDate":"20141014105004"},{"RequestNumber":"JHU-99000686","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        14, 2014 10:50 AM","ISO8601DateSubmitted":"20141014105029","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:50 AM","ISO8601RequestStatusDate":"20141014105004"},{"RequestNumber":"JHU-99000685","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:46 AM","ISO8601DateSubmitted":"20141014104621","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:45 AM","ISO8601RequestStatusDate":"20141014104504"},{"RequestNumber":"JHU-99000684","Title":"A
+        TRIBUTE TO FOO CHEE SAN : MOMENTS AND MILESTONES","DateSubmitted":"Oct 14,
+        2014 10:36 AM","ISO8601DateSubmitted":"20141014103635","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:35 AM","ISO8601RequestStatusDate":"20141014103504"},{"RequestNumber":"JHU-99000683","Title":"A
+        TRIBUTE TO FOO CHEE SAN : MOMENTS AND MILESTONES","DateSubmitted":"Oct 14,
+        2014 10:36 AM","ISO8601DateSubmitted":"20141014103616","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:35 AM","ISO8601RequestStatusDate":"20141014103503"},{"RequestNumber":"JHU-99000682","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:25 AM","ISO8601DateSubmitted":"20141014102547","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:25 AM","ISO8601RequestStatusDate":"20141014102503"},{"RequestNumber":"JHU-99000681","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:11 AM","ISO8601DateSubmitted":"20141014101135","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:10 AM","ISO8601RequestStatusDate":"20141014101003"},{"RequestNumber":"JHU-99000680","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:10 AM","ISO8601DateSubmitted":"20141014101031","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:10 AM","ISO8601RequestStatusDate":"20141014101003"},{"RequestNumber":"JHU-99000679","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:06 AM","ISO8601DateSubmitted":"20141014100642","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100504"},{"RequestNumber":"JHU-99000678","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:06 AM","ISO8601DateSubmitted":"20141014100619","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100503"},{"RequestNumber":"JHU-99000677","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:04 AM","ISO8601DateSubmitted":"20141014100426","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100503"},{"RequestNumber":"JHU-99000401","Title":"BAD
+        MONKEY","Author":"Hiaasen, Carl","DateSubmitted":"Apr 10, 2014 10:06 AM","ISO8601DateSubmitted":"20140410100651","DueDate":"Apr
+        14, 2014 03:41 PM","ISO8601DueDate":"20140414154107","AllowRenew":false,"AllowCancel":false,"RequestStatus":"COMPLETE","RequestStatusDate":"Apr
+        15, 2014 12:52 PM","ISO8601RequestStatusDate":"20140415125223"}]}}'
+    http_version: 
+  recorded_at: Mon, 20 Oct 2014 18:39:41 GMT
+recorded_with: VCR 2.9.3

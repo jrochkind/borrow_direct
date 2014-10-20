@@ -32,6 +32,8 @@ module BorrowDirect
     attr_writer :http_client
     attr_accessor :timeout
     attr_accessor :auth_id
+    # default :post, but can be set to :get, usually by a subclass
+    attr_accessor :http_method
     attr_reader :last_request_uri, :last_request_json, :last_request_response, :last_request_time
 
     # Usually an error code from the server will be turned into an exception. 
@@ -50,20 +52,28 @@ module BorrowDirect
       @expected_error_codes = []
 
       @timeout = Defaults.timeout
+      @http_method = :post
     end
 
     def request(hash)
       http = http_client
 
-      json_request = JSON.generate(hash)
-
+      
       # Mostly for debugging, store these
       @last_request_uri = @api_uri
-      @last_request_json = json_request      
+
 
       start_time = Time.now
 
-      http_response = http.post @api_uri, json_request, self.request_headers
+      if self.http_method == :post
+        @last_request_json = json_request = JSON.generate(hash)        
+        http_response = http.post @api_uri, json_request, self.request_headers
+      elsif self.http_method == :get
+        @last_request_query_params = hash
+        http_response = http.get @api_uri, hash, self.request_headers
+      else
+        raise ArgumentError.new("BorrowDirect::Request only understands http_method :get and :post, not `#{self.http_method}`")
+      end
 
       @last_request_response = http_response
       @last_request_time     = Time.now - start_time

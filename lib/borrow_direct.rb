@@ -9,6 +9,7 @@ require 'borrow_direct/authentication'
 require 'borrow_direct/request'
 require 'borrow_direct/find_item'
 require 'borrow_direct/request_item'
+require 'borrow_direct/request_query'
 
 
 module BorrowDirect

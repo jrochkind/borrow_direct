@@ -52,21 +52,59 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
 
       assert_present response_hash
       assert_present response_hash["QueryResult"]
-      assert_kind_of Array, response_hash["QueryResult"]["MyRequestRecords"]
-      
+      assert_kind_of Array, response_hash["QueryResult"]["MyRequestRecords"]      
+  end
+
+  describe "raw request_query_request" do
+    it "returns results" do
+      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      response = request_query.request_query_request
+
+      assert_present response      
+      assert_kind_of Hash, response
+      assert_present response["QueryResult"]["MyRequestRecords"]
+      assert_kind_of Array, response["QueryResult"]["MyRequestRecords"]
+    end
+  end
+
+  describe "requests" do
+    it "fetches default records" do
+      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      results = request_query.requests
+
+      assert_kind_of Array, results
+
+      item = results.sample
+
+      [ :request_number, :title, :request_status].each do |key|
+        assert_present item.send key
+      end
+
+      [:allow_renew, :allow_cancel].each do |key|
+        assert_includes [true, false], item.send(key)
+      end
+
+      [:request_status_date, :date_submitted].each do |key|
+        assert_present item.send(key)
+        assert_kind_of DateTime, item.send(key)
+      end
+    end
+
+    it "fetches full records" do
+      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      results = request_query.requests("all", true)
+
+      assert_kind_of Array, results
+      # too hard to test presence of each attributes, as not every item has every
+      # attribute and too hard to find examples to test. 
+    end
+
   end
 
 
-  # Helper method to do the FindItem and get a BD AuthorizationID, sadly
-  # neccesary first for making a request, really slowing things down yes. 
-  def make_find_item_for_auth(conditions)
-    resp = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $REQUESTABLE_ITEM_ISBN)
-    auth_id = resp["Item"]["AuthorizationId"]
 
-    assert ! auth_id.nil?, "No AuthorizationId received from BD"
 
-    return auth_id
-  end
+
 
 end
 
