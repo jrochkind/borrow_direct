@@ -62,27 +62,10 @@ module BorrowDirect
     # need to send a key and value for a valid exact_search type
     # type can be string or symbol, lowercase or uppercase. 
     #
-    # Returns true or false -- can the item actually be requested
-    # via BorrowDirect. 
-    #
-    #    finder.bd_requestable? :isbn => "12345545456"
-    def bd_requestable?(options)
-     resp = find_item_request(options)
-
-      # Sometimes a PUBFI002 error code isn't really an error,
-      # but just means not available. 
-      if resp && resp["Error"] && (resp["Error"]["ErrorNumber"] == "PUBFI002")
-        return false
-      end
-
-     # Items that are available locally, and thus not requestable via BD, can
-     # only be found by looking at the RequestMessage, bah
-     h = resp["Item"]["RequestLink"]
-     if h && h["RequestMessage"] == "This item is available locally"
-       return false
-     end
-
-     return resp["Item"]["Available"].to_s == "true"
+    # Returns a BorrowDirect::FindItem::Response object, from which you
+    # can find out requestability, list of pickup locations, etc. 
+    def find(options)
+      BorrowDirect::FindItem::Response.new find_item_request(options)
     end
 
     protected
@@ -111,6 +94,38 @@ module BorrowDirect
       end
     
       return hash
+    end
+
+    class Response
+      attr_reader :response_hash
+      
+      def initialize(hash)
+        @response_hash = hash
+      end
+
+
+      # Returns true or false -- can the item actually be requested
+      # via BorrowDirect. 
+      #
+      #    finder.find(:isbn => "12345545456").requestable?
+      def requestable?
+        # Sometimes a PUBFI002 error code isn't really an error,
+        # but just means not available. 
+        if response_hash && response_hash["Error"] && (response_hash["Error"]["ErrorNumber"] == "PUBFI002")
+          return false
+        end
+
+       # Items that are available locally, and thus not requestable via BD, can
+       # only be found by looking at the RequestMessage, bah
+       h = response_hash["Item"]["RequestLink"]
+       if h && h["RequestMessage"] == "This item is available locally"
+         return false
+       end
+
+       return response_hash["Item"]["Available"].to_s == "true"
+      end
+
+
     end
 
 
