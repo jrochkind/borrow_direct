@@ -109,7 +109,31 @@ Or install it yourself as:
 
     $ gem install borrow_direct
 
+## Running tests
 
+Test coverage is with Minitest::Spec -- if more convenient, you can use Minitest::Unit
+style instead. But we do not use rspec; and we use Minispec assertion style (assert_x) not
+expectation style please (not x.must_).
+
+Run tests with 
+*`rake test`
+* or a specific test file with `ruby -Ilib:test ./test/some_test.rb`
+
+Tests are recorded with the [VCR](https://github.com/vcr/vcr) gem, 
+so tests can be re-run without actually contacting BorrowDirect server, it uses
+the recorded transactions. 
+
+To re-run tests with live HTTP connections to BD
+* delete all or some of the cassettes in `./test/vcr_cassettes`
+* set shell ENV variables `BD_LIBRARY_SYMBOL` and `BD_PATRON` to values
+  that will be used for testing, and re-recording cassettes
+* There are some constants at the top of the testing file that identify
+  ISBN's expected to have certain characteristics (like being requestable, or not).
+  If those characteristics are not true for your library, you may need to reset
+  those constants to values that meet expected conditions. 
+
+Your barcode and library symbol credentials are not stored in the VCR cassettes,
+they are filtered out. 
 
 ## Contributing
 
