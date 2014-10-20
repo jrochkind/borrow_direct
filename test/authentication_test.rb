@@ -5,7 +5,7 @@ require 'httpclient'
 
 
 VCRFilter.sensitive_data! :bd_library_symbol, :bd_auth
-VCRFilter.sensitive_data! :bd_finditem_patron, :bd_auth
+VCRFilter.sensitive_data! :bd_patron, :bd_auth
 
 
 
@@ -18,7 +18,7 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
       request_hash = {
         "AuthenticationInformation" => {
           "LibrarySymbol" => VCRFilter[:bd_library_symbol],
-          "PatronId" => VCRFilter[:bd_finditem_patron]
+          "PatronId" => VCRFilter[:bd_patron]
         }
       } 
 
@@ -37,7 +37,7 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
   end
 
   it "Makes a request succesfully" do
-    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol])
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
     response = bd.authentication_request
 
     assert_present response
@@ -45,7 +45,7 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
   end
 
   it "Raises for bad library symbol" do
-    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , "BAD_SYMBOL")
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , "BAD_SYMBOL")
     assert_raises(BorrowDirect::Error) do
       bd.authentication_request
     end
@@ -60,12 +60,12 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
 
   describe "get_auth_id" do
     it "returns an auth_id for a good request" do
-      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol])
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
       assert_present bd.get_auth_id
     end
 
     it "raises for a bad library symbol" do
-      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_finditem_patron] , "BAD_SYMBOL")
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , "BAD_SYMBOL")
       assert_raises(BorrowDirect::Error) do
         bd.get_auth_id
       end

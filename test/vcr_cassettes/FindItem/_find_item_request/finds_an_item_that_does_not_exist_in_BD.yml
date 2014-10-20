@@ -5,14 +5,14 @@ http_interactions:
     uri: https://bdtest.relais-host.com/dws/item/available
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_FINDITEM_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"NO_SUCH_THING"}]}'
+      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"NO_SUCH_THING"}]}'
     headers:
       User-Agent:
       - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.0) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 14:28:19 GMT
+      - Mon, 20 Oct 2014 19:30:14 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 14:28:30 GMT
+      - Mon, 20 Oct 2014 19:30:26 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -34,7 +34,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"eVmtc14Fv0PWxCiJ05pL9SxjvYI","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","ButtonLabel":"Request","RequestMessage":"Borrow
+      string: ! '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"H_057bVHnYadlnYo27uyernWSPU","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","ButtonLabel":"Request","RequestMessage":"Borrow
         Direct cannot fill this request at this time.  Please request through Interlibrary
         Loan."},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
         - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
@@ -46,5 +46,5 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 14:28:30 GMT
+  recorded_at: Mon, 20 Oct 2014 19:30:26 GMT
 recorded_with: VCR 2.9.3

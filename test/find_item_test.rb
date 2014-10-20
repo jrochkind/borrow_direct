@@ -5,7 +5,7 @@ require 'borrow_direct/find_item'
 
 
 VCRFilter.sensitive_data! :bd_library_symbol, :bd_finditem
-VCRFilter.sensitive_data! :bd_finditem_patron, :bd_finditem
+VCRFilter.sensitive_data! :bd_patron, :bd_finditem
 
 $REQUESTABLE_ITEM_ISBN     = "9810743734" # item is in BD, and can be requested
 $LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
@@ -85,31 +85,31 @@ describe "FindItem", :vcr => {:tag => :bd_finditem } do
 
 
     it "finds a requestable item" do
-      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $REQUESTABLE_ITEM_ISBN)    
+      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $REQUESTABLE_ITEM_ISBN)    
     end
 
     it "finds a locally available item" do
-      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)    
+      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $LOCALLY_AVAIL_ITEM_ISBN)    
     end
 
     it "finds an item that does not exist in BD" do
-      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => "NO_SUCH_THING")
+      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => "NO_SUCH_THING")
     end
 
     it "works with multiple values" do
-      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => [$REQUESTABLE_ITEM_ISBN, $LOCALLY_AVAIL_ITEM_ISBN])
+      assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => [$REQUESTABLE_ITEM_ISBN, $LOCALLY_AVAIL_ITEM_ISBN])
     end
 
     describe "with expected error PUBFI002" do
       it "returns result" do
-        assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $RETURNS_PUBFI002_ISBN )
+        assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => $RETURNS_PUBFI002_ISBN )
       end
     end
   end
 
   describe "find with Response" do
     before do
-      @find_item = BorrowDirect::FindItem.new(VCRFilter[:bd_finditem_patron] , VCRFilter[:bd_library_symbol])
+      @find_item = BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
     end
 
     it "requestable for requestable item" do

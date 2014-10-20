@@ -5,14 +5,14 @@ http_interactions:
     uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
     body:
       encoding: UTF-8
-      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_FINDITEM_PATRON"}}'
+      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}}'
     headers:
       User-Agent:
       - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.0) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 14:28:01 GMT
+      - Mon, 20 Oct 2014 19:29:17 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 14:28:03 GMT
+      - Mon, 20 Oct 2014 19:29:18 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -45,13 +45,13 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"PTd7KS-T031Ub6EbmPjGjOmeErE","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"DphKTawrrjJH9hsBaqohPaQnh5I","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
         Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 14:28:03 GMT
+  recorded_at: Mon, 20 Oct 2014 19:29:18 GMT
 - request:
     method: get
-    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=PTd7KS-T031Ub6EbmPjGjOmeErE&fullRecord=0&type=open
+    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=DphKTawrrjJH9hsBaqohPaQnh5I&fullRecord=0&type=open
     body:
       encoding: UTF-8
       string: ''
@@ -61,7 +61,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 14:28:03 GMT
+      - Mon, 20 Oct 2014 19:29:18 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 14:28:03 GMT
+      - Mon, 20 Oct 2014 19:29:18 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -94,13 +94,22 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000753","Title":"SIKAP
+      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000756","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:29 PM","ISO8601DateSubmitted":"20141020152912","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 03:29 PM","ISO8601RequestStatusDate":"20141020152912"},{"RequestNumber":"JHU-99000755","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102836","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000754","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102809","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000753","Title":"SIKAP
         ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
         20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102722","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:27 AM","ISO8601RequestStatusDate":"20141020102722"},{"RequestNumber":"JHU-99000752","Title":"SIKAP
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000752","Title":"SIKAP
         ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
         20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102715","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:27 AM","ISO8601RequestStatusDate":"20141020102715"},{"RequestNumber":"JHU-99000751","Title":"SIKAP
+        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103003"},{"RequestNumber":"JHU-99000751","Title":"SIKAP
         ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
         20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102451","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
         20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000750","Title":"SIKAP
@@ -296,5 +305,5 @@ http_interactions:
         TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:04 AM","ISO8601DateSubmitted":"20141014100426","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
         14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100503"}]}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 14:28:03 GMT
+  recorded_at: Mon, 20 Oct 2014 19:29:19 GMT
 recorded_with: VCR 2.9.3

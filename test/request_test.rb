@@ -3,7 +3,7 @@ require 'borrow_direct/request'
 
 
 VCRFilter.sensitive_data! :bd_library_symbol, :bd_request
-VCRFilter.sensitive_data! :bd_finditem_patron, :bd_request
+VCRFilter.sensitive_data! :bd_patron, :bd_request
 
 
 SUCCESSFUL_ITEM_ISBN = "9810743734"
@@ -53,7 +53,7 @@ describe "Request", :vcr => {:tag => :bd_request} do
           "PartnershipId" => "BD",
           "Credentials" => {
               "LibrarySymbol" => VCRFilter[:bd_library_symbol],
-              "Barcode" => VCRFilter[:bd_finditem_patron]
+              "Barcode" => VCRFilter[:bd_patron]
           },
           "ExactSearch" => [
               {
@@ -117,7 +117,7 @@ describe "Request", :vcr => {:tag => :bd_request} do
 
     it "automatically fetches one when needed" do
       r = BorrowDirect::Request.new("/")
-      auth_id = r.need_auth_id(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      auth_id = r.need_auth_id(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol])
 
       assert_present auth_id
       assert_equal auth_id, r.auth_id
@@ -127,7 +127,7 @@ describe "Request", :vcr => {:tag => :bd_request} do
       r = BorrowDirect::Request.new("/")
 
       r.auth_id = "OLD_BAD_AUTH_ID"
-      fetched = r.fetch_auth_id!(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      fetched = r.fetch_auth_id!(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol])
 
       assert_present r.auth_id
       assert_equal fetched, r.auth_id

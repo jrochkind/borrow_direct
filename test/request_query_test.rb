@@ -3,7 +3,7 @@ require 'httpclient'
 
 
 VCRFilter.sensitive_data! :bd_library_symbol, :bd_request_query
-VCRFilter.sensitive_data! :bd_finditem_patron, :bd_request_query
+VCRFilter.sensitive_data! :bd_patron, :bd_request_query
 
 $REQUESTABLE_ITEM_ISBN     = "9797994864" # item is in BD, and can be requested
 
@@ -16,7 +16,7 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
     auth_hash = {
         "AuthenticationInformation" => {
           "LibrarySymbol" => VCRFilter[:bd_library_symbol],
-          "PatronId" => VCRFilter[:bd_finditem_patron]
+          "PatronId" => VCRFilter[:bd_patron]
         }
       } 
 
@@ -57,7 +57,7 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
 
   describe "raw request_query_request" do
     it "returns results" do
-      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol])
       response = request_query.request_query_request
 
       assert_present response      
@@ -69,7 +69,7 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
 
   describe "requests" do
     it "fetches default records" do
-      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol])
       results = request_query.requests
 
       assert_kind_of Array, results
@@ -91,7 +91,7 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
     end
 
     it "fetches full records" do
-      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_finditem_patron], VCRFilter[:bd_library_symbol])
+      request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol])
       results = request_query.requests("all", true)
 
       assert_kind_of Array, results
