@@ -4,8 +4,8 @@ require 'borrow_direct/find_item'
 
 
 
-VCRFilter.sensitive_data! :bd_library_symbol, :bd_finditem
-VCRFilter.sensitive_data! :bd_patron, :bd_finditem
+VCRFilter.sensitive_data! :bd_library_symbol
+VCRFilter.sensitive_data! :bd_patron
 
 $REQUESTABLE_ITEM_ISBN     = "9810743734" # item is in BD, and can be requested
 $LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
@@ -13,7 +13,7 @@ $NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no 
 $RETURNS_PUBFI002_ISBN     = "0109836413" # BD returns an error PUBFI002 for this one, which we want to treat as simply not available. 
 
 
-describe "FindItem", :vcr => {:tag => :bd_finditem } do
+describe "FindItem", :vcr do
   
 
 

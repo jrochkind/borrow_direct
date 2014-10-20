@@ -132,7 +132,7 @@ module BorrowDirect
       # instance when BD returns a NotFound error instead of a good
       # response. 
       def auth_id
-        hash_key_path response_hash, "Item", "AuthorizationID"
+        hash_key_path response_hash, "Item", "AuthorizationId"
       end
 
       # Can be nil in some cases if not requestable?
