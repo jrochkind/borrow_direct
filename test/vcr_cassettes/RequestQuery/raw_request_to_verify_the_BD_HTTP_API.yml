@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Thu, 16 Oct 2014 19:48:30 GMT
+      - Mon, 20 Oct 2014 14:28:01 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Thu, 16 Oct 2014 19:48:31 GMT
+      - Mon, 20 Oct 2014 14:28:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -45,13 +45,13 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"wQrvo7rNQljl5ZjvPdgCpELY66Y","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"PTd7KS-T031Ub6EbmPjGjOmeErE","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_FINDITEM_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
         Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
     http_version: 
-  recorded_at: Thu, 16 Oct 2014 19:48:31 GMT
+  recorded_at: Mon, 20 Oct 2014 14:28:03 GMT
 - request:
     method: get
-    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=wQrvo7rNQljl5ZjvPdgCpELY66Y&fullRecord=0&type=open
+    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=PTd7KS-T031Ub6EbmPjGjOmeErE&fullRecord=0&type=open
     body:
       encoding: UTF-8
       string: ''
@@ -61,7 +61,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Thu, 16 Oct 2014 19:48:31 GMT
+      - Mon, 20 Oct 2014 14:28:03 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Thu, 16 Oct 2014 19:48:31 GMT
+      - Mon, 20 Oct 2014 14:28:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -94,7 +94,25 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000741","Title":"SIKAP
+      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000753","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102722","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:27 AM","ISO8601RequestStatusDate":"20141020102722"},{"RequestNumber":"JHU-99000752","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102715","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:27 AM","ISO8601RequestStatusDate":"20141020102715"},{"RequestNumber":"JHU-99000751","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102451","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000750","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102442","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000749","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102434","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000748","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102422","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102503"},{"RequestNumber":"JHU-99000741","Title":"SIKAP
         ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
         16, 2014 01:49 PM","ISO8601DateSubmitted":"20141016134910","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
         16, 2014 01:50 PM","ISO8601RequestStatusDate":"20141016135003"},{"RequestNumber":"JHU-99000740","Title":"SIKAP
@@ -278,5 +296,5 @@ http_interactions:
         TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:04 AM","ISO8601DateSubmitted":"20141014100426","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
         14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100503"}]}}'
     http_version: 
-  recorded_at: Thu, 16 Oct 2014 19:48:32 GMT
+  recorded_at: Mon, 20 Oct 2014 14:28:03 GMT
 recorded_with: VCR 2.9.3

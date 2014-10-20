@@ -2,6 +2,7 @@ require "borrow_direct/version"
 
 require 'borrow_direct/defaults'
 require 'borrow_direct/error'
+require 'borrow_direct/util'
 
 require 'borrow_direct/authentication'
 

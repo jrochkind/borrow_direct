@@ -97,6 +97,8 @@ module BorrowDirect
     end
 
     class Response
+      include BorrowDirect::Util
+
       attr_reader :response_hash
       
       def initialize(hash)
@@ -123,6 +125,18 @@ module BorrowDirect
        end
 
        return response_hash["Item"]["Available"].to_s == "true"
+      end
+
+      # Returns the AuthorizationID returned by FindItem API call,
+      # or nil if none is available. Nil _can_ be returned, for
+      # instance when BD returns a NotFound error instead of a good
+      # response. 
+      def auth_id
+        hash_key_path response_hash, "Item", "AuthorizationID"
+      end
+
+      def pickup_locations
+        hash_key_path response_hash, "Item", "PickupLocations", "PickupLocation"
       end
 
 
