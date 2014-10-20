@@ -143,6 +143,14 @@ module BorrowDirect
       self.auth_id || fetch_auth_id!(barcode, library_symbol)
     end
 
+    # Can be used to set an already existing AuthID to be used. 
+    # Beware, we have no facility for rescuing from escpired auth ids
+    # at the moment. 
+    def with_auth_id(aid)
+      self.auth_id = aid
+      return self
+    end
+
 
 
 

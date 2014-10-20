@@ -132,7 +132,11 @@ describe "Request", :vcr => {:tag => :bd_request} do
       assert_present r.auth_id
       assert_equal fetched, r.auth_id
       refute_equal "OLD_BAD_AUTH_ID", r.auth_id
+    end
 
+    it "takes with_auth_id" do
+      r = BorrowDirect::Request.new("/").with_auth_id("OUR_AUTH_ID")
+      assert_equal "OUR_AUTH_ID", r.auth_id
     end
   end
 
