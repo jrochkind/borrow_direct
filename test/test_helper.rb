@@ -24,10 +24,13 @@ end
 
 MinitestVcr::Spec.configure!
 
+VCRFilter.sensitive_data! :bd_library_symbol
+VCRFilter.sensitive_data! :bd_patron
+
 # Silly way to not have to rewrite all our tests if we
 # temporarily disable VCR, make VCR.use_cassette a no-op
 # instead of no-such-method. 
-if ! defined? VCR
+if ! defined? VCR  
   module VCR
     def self.use_cassette(*args)
       yield

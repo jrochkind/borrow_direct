@@ -2,9 +2,6 @@ require 'test_helper'
 require 'httpclient'
 
 
-VCRFilter.sensitive_data! :bd_library_symbol, :bd_request_query
-VCRFilter.sensitive_data! :bd_patron, :bd_request_query
-
 $REQUESTABLE_ITEM_ISBN     = "9797994864" # item is in BD, and can be requested
 
 describe "RequestQuery", :vcr => {:tag => :bd_request_query} do

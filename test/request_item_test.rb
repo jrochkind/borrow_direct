@@ -6,9 +6,6 @@ require 'borrow_direct/request_item'
 
 
 
-VCRFilter.sensitive_data! :bd_library_symbol, :bd_requestitem
-VCRFilter.sensitive_data! :bd_patron, :bd_requestitem
-
 $REQUESTABLE_ITEM_ISBN     = "9797994864" # item is in BD, and can be requested
 $LOCALLY_AVAIL_ITEM_ISBN   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
 $NOT_REQUESTABLE_ITEM_ISBN = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)

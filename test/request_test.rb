@@ -2,10 +2,6 @@ require 'test_helper'
 require 'borrow_direct/request'
 
 
-VCRFilter.sensitive_data! :bd_library_symbol, :bd_request
-VCRFilter.sensitive_data! :bd_patron, :bd_request
-
-
 SUCCESSFUL_ITEM_ISBN = "9810743734"
 
 
