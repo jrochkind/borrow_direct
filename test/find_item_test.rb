@@ -136,6 +136,14 @@ describe "FindItem", :vcr => {:tag => :bd_finditem } do
       assert_equal false, @find_item.find(:isbn => $RETURNS_PUBFI002_ISBN).requestable?
     end
 
+    it "has an auth_id" do
+      assert_present @find_item.find(:isbn => $REQUESTABLE_ITEM_ISBN).auth_id
+    end
+
+    it "has nil auth_id when BD doesn't want to give us one" do
+      assert_nil @find_item.find(:isbn => $RETURNS_PUBFI002_ISBN).auth_id
+    end
+
     it "has pickup locations" do
       pickup_locations = @find_item.find(:isbn => $REQUESTABLE_ITEM_ISBN).pickup_locations
 
