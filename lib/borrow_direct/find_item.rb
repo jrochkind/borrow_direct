@@ -135,6 +135,8 @@ module BorrowDirect
         hash_key_path response_hash, "Item", "AuthorizationID"
       end
 
+      # Can be nil in some cases if not requestable?
+      # if requestable?, should be an array of Strings. 
       def pickup_locations
         hash_key_path response_hash, "Item", "PickupLocations", "PickupLocation"
       end

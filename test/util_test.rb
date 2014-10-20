@@ -20,6 +20,7 @@ describe "BorrowDirect Util" do
       }
 
       assert_equal "value", BorrowDirect::Util.hash_key_path(hash, :one, :two, :three)
+      assert_nil BorrowDirect::Util.hash_key_path(hash, :notfound)
       assert_nil BorrowDirect::Util.hash_key_path(hash, :one, :two, :notfound)
       assert_nil BorrowDirect::Util.hash_key_path(hash, :one, :notfound, :notfound)
       assert_nil BorrowDirect::Util.hash_key_path(hash, :notfound, :two, :notfound)

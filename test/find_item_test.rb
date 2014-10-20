@@ -141,7 +141,7 @@ describe "FindItem", :vcr => {:tag => :bd_finditem } do
     end
 
     it "has nil auth_id when BD doesn't want to give us one" do
-
+      assert_nil @find_item.find(:isbn => $RETURNS_PUBFI002_ISBN).auth_id
     end
 
     it "has pickup locations" do
@@ -149,6 +149,10 @@ describe "FindItem", :vcr => {:tag => :bd_finditem } do
 
       assert_present pickup_locations
       assert_kind_of Array, pickup_locations
+    end
+
+    it "has nil pickup locations when BD doesn't want to give us them" do
+      assert_nil @find_item.find(:isbn => $RETURNS_PUBFI002_ISBN).pickup_locations
     end
 
   end
