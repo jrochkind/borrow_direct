@@ -135,6 +135,10 @@ To re-run tests with live HTTP connections to BD
 Your barcode and library symbol credentials are not stored in the VCR cassettes,
 they are filtered out. 
 
+The tests are run against the BD test system, but the email address associated
+with the `BD_PATRON` will likely still get multiple emails generated to it as a result
+of testing. 
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/borrow_direct/fork )
