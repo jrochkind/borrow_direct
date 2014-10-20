@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 19:29:27 GMT
+      - Mon, 20 Oct 2014 21:52:27 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 19:29:28 GMT
+      - Mon, 20 Oct 2014 21:52:28 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -45,23 +45,23 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"GtO21ZatYgeW8D-R-5PNbJoz3do","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"X2f28Z5uL-ps7NoMMAD2uJ-0G8M","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
         Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 19:29:28 GMT
+  recorded_at: Mon, 20 Oct 2014 21:52:28 GMT
 - request:
     method: post
     uri: https://bdtest.relais-host.com/dws/item/add
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"GtO21ZatYgeW8D-R-5PNbJoz3do","PickupLocation":null,"ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
+      string: ! '{"PartnershipId":"BD","AuthorizationId":"X2f28Z5uL-ps7NoMMAD2uJ-0G8M","PickupLocation":null,"ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
     headers:
       User-Agent:
       - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.0) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 19:29:28 GMT
+      - Mon, 20 Oct 2014 21:52:28 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 19:29:30 GMT
+      - Mon, 20 Oct 2014 21:52:30 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -83,7 +83,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Request":{"RequestNumber":"JHU-99000757"}}'
+      string: ! '{"Request":{"RequestNumber":"JHU-99000770"}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 19:29:30 GMT
+  recorded_at: Mon, 20 Oct 2014 21:52:30 GMT
 recorded_with: VCR 2.9.3

@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 19:29:20 GMT
+      - Mon, 20 Oct 2014 21:51:50 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 19:29:22 GMT
+      - Mon, 20 Oct 2014 21:51:51 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -45,13 +45,13 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"CL5GEiZmRt8Cc5xCCN_23dGPiOg","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
+      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"eZpDNHXX3uci01RGknUTFeng98Y","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
         Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 19:29:22 GMT
+  recorded_at: Mon, 20 Oct 2014 21:51:51 GMT
 - request:
     method: get
-    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=CL5GEiZmRt8Cc5xCCN_23dGPiOg&fullRecord=1&type=all
+    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=eZpDNHXX3uci01RGknUTFeng98Y&fullRecord=1&type=all
     body:
       encoding: UTF-8
       string: ''
@@ -61,7 +61,7 @@ http_interactions:
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 19:29:22 GMT
+      - Mon, 20 Oct 2014 21:51:51 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 19:29:22 GMT
+      - Mon, 20 Oct 2014 21:51:51 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -94,11 +94,55 @@ http_interactions:
       - no-cache, no-store, max-age=0
     body:
       encoding: US-ASCII
-      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000756","Title":"SIKAP
+      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000767","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 05:05 PM","ISO8601DateSubmitted":"20141020170547","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 05:33 PM","ISO8601RequestStatusDate":"20141020173304"},{"RequestNumber":"JHU-99000766","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 05:05 PM","ISO8601DateSubmitted":"20141020170543","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 05:33 PM","ISO8601RequestStatusDate":"20141020173303"},{"RequestNumber":"JHU-99000765","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 05:04 PM","ISO8601DateSubmitted":"20141020170435","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 05:33 PM","ISO8601RequestStatusDate":"20141020173303"},{"RequestNumber":"JHU-99000764","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 05:03 PM","ISO8601DateSubmitted":"20141020170357","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 05:28 PM","ISO8601RequestStatusDate":"20141020172803"},{"RequestNumber":"JHU-99000763","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:45 PM","ISO8601DateSubmitted":"20141020154535","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161304"},{"RequestNumber":"JHU-99000762","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:44 PM","ISO8601DateSubmitted":"20141020154451","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161303"},{"RequestNumber":"JHU-99000761","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:44 PM","ISO8601DateSubmitted":"20141020154446","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161303"},{"RequestNumber":"JHU-99000760","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:44 PM","ISO8601DateSubmitted":"20141020154437","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161303"},{"RequestNumber":"JHU-99000759","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:30 PM","ISO8601DateSubmitted":"20141020153052","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 03:58 PM","ISO8601RequestStatusDate":"20141020155804"},{"RequestNumber":"JHU-99000758","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:30 PM","ISO8601DateSubmitted":"20141020153033","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 03:58 PM","ISO8601RequestStatusDate":"20141020155804"},{"RequestNumber":"JHU-99000757","Title":"SIKAP
+        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
+        20, 2014 03:29 PM","ISO8601DateSubmitted":"20141020152930","Publisher":"Pusat
+        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
+        20, 2014 03:53 PM","ISO8601RequestStatusDate":"20141020155304"},{"RequestNumber":"JHU-99000756","Title":"SIKAP
         ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
         20, 2014 03:29 PM","ISO8601DateSubmitted":"20141020152912","Publisher":"Pusat
         Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 03:29 PM","ISO8601RequestStatusDate":"20141020152912"},{"RequestNumber":"JHU-99000755","Title":"SIKAP
+        20, 2014 03:53 PM","ISO8601RequestStatusDate":"20141020155304"},{"RequestNumber":"JHU-99000755","Title":"SIKAP
         ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
         20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102836","Publisher":"Pusat
         Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
@@ -381,5 +425,5 @@ http_interactions:
         York","Edition":"First edition","Isbn":"9780307272591","Isbn2":"0307272591","AllowRenew":false,"AllowCancel":false,"RequestStatus":"COMPLETE","RequestStatusDate":"Apr
         15, 2014 12:52 PM","ISO8601RequestStatusDate":"20140415125223"}]}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 19:29:22 GMT
+  recorded_at: Mon, 20 Oct 2014 21:51:51 GMT
 recorded_with: VCR 2.9.3
