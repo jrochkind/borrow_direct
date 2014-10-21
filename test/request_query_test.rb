@@ -2,9 +2,13 @@ require 'test_helper'
 require 'httpclient'
 
 
-$REQUESTABLE_ITEM_ISBN     = "9797994864" # item is in BD, and can be requested
+
 
 describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
+  before do 
+    @requestable_item_isbn     = "9797994864" # item is in BD, and can be requested
+  end
+
   it "raw request to verify the BD HTTP API" do
 
     # Get the auth code

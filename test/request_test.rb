@@ -2,10 +2,12 @@ require 'test_helper'
 require 'borrow_direct/request'
 
 
-SUCCESSFUL_ITEM_ISBN = "9810743734"
 
 
 describe "Request", :vcr => {:tag => :bd_request} do
+  before do
+    @successful_item_isbn = "9810743734"
+  end
 
 
   it "raises on bad path"  do
@@ -54,7 +56,7 @@ describe "Request", :vcr => {:tag => :bd_request} do
           "ExactSearch" => [
               {
                   "Type" => "ISBN",
-                  "Value" => SUCCESSFUL_ITEM_ISBN
+                  "Value" => @successful_item_isbn
               }
           ]
       }

@@ -8,11 +8,11 @@ http_interactions:
       string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"0745649890"}]}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.0) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - ! '*/*'
       Date:
-      - Mon, 20 Oct 2014 21:53:42 GMT
+      - Tue, 21 Oct 2014 17:06:58 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 20 Oct 2014 21:53:49 GMT
+      - Tue, 21 Oct 2014 17:07:00 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -34,7 +34,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=0745649890","AuthorizationId":"Y1bGfZ4wBdGCaGRnYuuzC_ZmSzs","RequestLink":{"RequestMessage":"This
+      string: ! '{"Item":{"Available":true,"SearchTerm":"isbn=0745649890","AuthorizationId":"ZRjcyvCAvMV7hbuXkUJmSjlGeQI","RequestLink":{"RequestMessage":"This
         item is available locally"},"PickupLocations":{"PickupLocation":["*Milton
         S. Eisenhower Library","APL - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur
         Friedheim Library","Columbia Center","Harbor East","Harrison Medical Library-Bayview","Institute
@@ -45,5 +45,5 @@ http_interactions:
         Resource Center","SAIS Library","Washington Library Resource Center","Welch
         Medical Library","Wilmer Friedenwald Library"]}}}'
     http_version: 
-  recorded_at: Mon, 20 Oct 2014 21:53:49 GMT
+  recorded_at: Tue, 21 Oct 2014 17:07:00 GMT
 recorded_with: VCR 2.9.3
