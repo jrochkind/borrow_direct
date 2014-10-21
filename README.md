@@ -16,7 +16,7 @@ Some configuration at boot, perhaps in a Rails initializer:
 
 ~~~ruby
 # Uses BD Test system by defualt, if you want to use production system instead
-BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_USE
+BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_BASE
 
 # Set a default BD LibrarySymbol for your library
 BorrowDirect::Defaults.library_symbol = "YOURSYMBOL"
