@@ -102,17 +102,17 @@ BorrowDirect::GenerateQuery.new.query_url_with(:isbn => "1234435445")
 # Multiple fields can be included, their values will be treated
 # as phrase searches, and boolean AND'd together. All the fields
 # from the BorrowDirect "advanced search" are supported
-BorrowDirect::GenerateQuery.
-   new.query_url_with(:author => "John Smith", 
-                      :title => "Some Book",
-                      :keyword => "stuff",
-                      :subject => "medicine",
-                      :isbn => "1234435445")
+BorrowDirect::GenerateQuery.new.query_url_with(
+    :author => "John Smith", 
+    :title => "Some Book",
+    :keyword => "stuff",
+    :subject => "medicine",
+    :isbn => "1234435445")
 ~~~
 
 Sometimes you want to generate a search for a specific known item, and use
 an ISBN if available, otherwise an author/title search. That is one of our
-own main use cases for these deep links. The #best_known_item_query_url_with
+own main use cases for these deep links. The `#best_known_item_query_url_with`
 method is available to automatically use ISBN if available, otherwise author/title. 
 
 The GenerateQuery class can be enhanced if there is demand; to allow more
@@ -120,7 +120,7 @@ flexible searches (instead of always phrase searches with boolean AND); to or al
 sending barcode directly to BD instead of relying on a local authenticating redirect
 script. 
 
-~~~
+
 
 ### Errors
 
