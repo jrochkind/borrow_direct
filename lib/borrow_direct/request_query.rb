@@ -2,6 +2,29 @@ require 'borrow_direct'
 require 'date'
 
 module BorrowDirect
+  # Info from Relais/BD on type and status:
+  #
+  # valid 'type' values for requests:
+  #
+  #  xdays: Retrieve requests submitted within the last xdays (for example, one would include two parameters: type=xdays&xdays=7 to retrieve requests submitted within the last 7 days)
+  #  all: Retrieve all request submitted by the user
+  #  open: Retrieve all open requests i.e. requests which haven't been fulfilled yet.
+  #  allposttoweb: BD doesn't use the post-to-web application; you can ignore this.
+  #  unopenedposttoweb: You can safely ignore this.
+  #  onloan: Retrieve requests which are on loan
+  #
+  # possible RequestStatus values in results:
+  #
+  #  ENTERED: Request has been entered and yet to be processed.
+  #  IN_PROCESS: Request is being processed.
+  #  CANCELLED: Request has been cancelled.
+  #  UNFILLED: Request can't be filled.
+  #  SHIPPED: Item has been shipped.
+  #  ARTICLE_SENT: A scanned document or an electronic document has been sent (It doesn't apply to BD)
+  #  ON_LOAN: Request is on loan.
+  #  OVERDUE: Item is over due.
+  #  COMPLETE: Item has been returned and request is completed.
+  #  UNKNOWN: You should never see this; this indicates there is probably an inconsistency with the record somewhere. You probably want to flag and report this. 
   class RequestQuery < Request
     attr_reader :patron_barcode, :patron_library_symbol
 
