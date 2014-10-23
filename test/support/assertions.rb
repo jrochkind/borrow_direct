@@ -9,7 +9,7 @@ def assert_present(arg, msg = nil)
 end
 
 def assert_length(length, array, msg = nil)
-  msg ||= "Expected #{array.inspect.slice(0, 10)} to be length #{length}"
+  msg ||= "Expected #{array.inspect} to be length #{length}"
 
   assert (array.respond_to?(:length) && array.length == length), msg
 end

@@ -1,0 +1,78 @@
+require 'cgi'
+
+module BorrowDirect
+  # Generate a "deep link" to query results in BD's native
+  # HTML interface. 
+  class GenerateQuery
+    attr_accessor :url_base
+
+    # Hash from our own API argument to BD field code
+    @@fields = {
+      :keyword  => "term",
+      :title    => "ti",
+      :author   => "au",
+      :subject  => "su",
+      :isbn     => "isbn",
+      :issn     => "issn"
+    }
+
+    def initialize(url_base = nil)
+      self.url_base = (url_base || BorrowDirect::Defaults.html_base_url)
+    end
+
+    # query_with(:title => "one two", :author => "three four")
+    # valid keys are those supported by BD HTML interface:
+    #     :title, :author, :isbn, :subject, :keyword, :isbn, :issn
+    #
+    # For now, the value is always searched as a phrase, and multiple
+    # fields are always 'and'd.  We may enhance/expand later. 
+    #
+    # Returns an un-escaped query, still needs to be put into a URL
+    def query_with(options)
+      clauses = []
+
+      options.each_pair do |field, value|
+        code = @@fields[field]
+
+        raise ArgumentError.new("Don't recognize field code `#{field}`") unless code
+
+        clauses << %Q{#{code}="#{escape_query_value value}"}
+      end
+
+      return clauses.join(" and ")
+    end
+
+    # Pass in :title, :author, :isbn, etc -- if we have an isbn or issn,
+    # we'll use that alone, otherwise we'll use title and author
+    def best_known_item_query_with(options)
+      if options[:isbn]
+        return query_with(options.dup.delete_if {|k| k != :isbn})
+      elsif options[:issn]
+        return query_with(options.dup.delete_if {|k| k != :issn})
+      else
+        return query_with options
+      end
+    end
+
+    def query_url_with(options)
+      query = query_with(options)
+
+      return self.url_base + '?' + "query=#{CGI.escape query}"
+    end
+
+    def best_known_item_query_url_with(options)
+      query = best_known_item_query_with(options)
+
+      return self.url_base + '?' + "query=#{CGI.escape query}"      
+    end
+
+    # We don't really know how to escape, for now
+    # we just remove double quotes and parens, and replace with spaces. 
+    # those seem to cause problems, and that seems to work. 
+    def escape_query_value(str)
+      str.gsub(/[")()]/, ' ')
+    end
+
+
+  end
+end

@@ -11,6 +11,8 @@ require 'borrow_direct/find_item'
 require 'borrow_direct/request_item'
 require 'borrow_direct/request_query'
 
+require 'borrow_direct/generate_query'
+
 
 module BorrowDirect
 
