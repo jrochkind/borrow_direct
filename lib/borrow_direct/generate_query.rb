@@ -32,6 +32,8 @@ module BorrowDirect
       clauses = []
 
       options.each_pair do |field, value|
+        next if value.nil?
+
         code = @@fields[field]
 
         raise ArgumentError.new("Don't recognize field code `#{field}`") unless code

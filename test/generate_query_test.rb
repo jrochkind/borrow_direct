@@ -37,6 +37,27 @@ describe "GenerateQuery" do
       assert_include parts, 'ti="This is a title"'
       assert_include parts, 'au="This is an author"'
     end
+
+    it "ignores nil arguments" do
+      generate_query = BorrowDirect::GenerateQuery.new(@test_base)
+
+      url = generate_query.query_url_with(:title => "This is a title", :author => nil)
+
+      parsed_url = URI.parse(url)
+      url_query  = CGI.parse( parsed_url.query )
+
+      assert_present url_query
+
+      assert_length 1, url_query["query"]
+
+      query_text = url_query["query"].first
+
+      parts = query_text.split(" and ")
+
+      assert_length 1, parts
+
+      assert_include parts, 'ti="This is a title"'
+    end
   end
 
   describe "best_known_item_query_url_with" do
