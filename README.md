@@ -36,7 +36,7 @@ Then you can do things.
 
 ~~~ruby
 # with default generic patron set in config find_item_patron_barcode
-response = BorrowDirect::FindItem.new.find?(:isbn => "1212121212")
+response = BorrowDirect::FindItem.new.find(:isbn => "1212121212")
 # Returns a BorrowDirect::FindItem::Response
 response.requestable?  
 response.pickup_locations
