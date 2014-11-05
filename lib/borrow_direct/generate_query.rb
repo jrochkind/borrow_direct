@@ -59,13 +59,14 @@ module BorrowDirect
     def query_url_with(options)
       query = query_with(options)
 
-      return self.url_base + '?' + "query=#{CGI.escape query}"
+      return add_query_param(self.url_base, "query", query).to_s
+
     end
 
     def best_known_item_query_url_with(options)
       query = best_known_item_query_with(options)
 
-      return self.url_base + '?' + "query=#{CGI.escape query}"      
+      return add_query_param(self.url_base, "query", query).to_s
     end
 
     # We don't really know how to escape, for now
@@ -73,6 +74,20 @@ module BorrowDirect
     # those seem to cause problems, and that seems to work. 
     def escape_query_value(str)
       str.gsub(/[")()]/, ' ')
+    end
+
+    def add_query_param(uri, key, value)
+      uri = URI.parse(uri) unless uri.kind_of? URI
+
+      query_param = "#{CGI.escape key}=#{CGI.escape value}"
+
+      if uri.query
+        uri.query += "&" + query_param
+      else
+        uri.query = query_param
+      end
+      
+      return uri
     end
 
 

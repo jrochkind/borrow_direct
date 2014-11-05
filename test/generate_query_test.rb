@@ -1,3 +1,4 @@
+require 'test_helper'
 require 'uri'
 require 'cgi'
 
@@ -108,5 +109,31 @@ describe "GenerateQuery" do
       assert_include parts, 'au="This is an author"'
     end
 
+    it "can handle nil arguments" do
+      url = BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with(
+             :isbn   => nil,
+             :title  => 'the new international economic order',
+             :author => nil
+      )
+
+      query = assert_bd_query_url(url)
+
+      parts = query.split(" and ")
+
+      assert_include parts, 'ti="the new international economic order"'
+    end
+
   end
+
+  def assert_bd_query_url(url)
+    assert_present url
+
+    parsed_url = URI.parse(url)
+    url_query  = CGI.parse( parsed_url.query )
+    assert_present url_query
+    assert_length 1, url_query["query"]
+
+    return url_query["query"].first
+  end
+
 end
