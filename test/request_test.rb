@@ -76,6 +76,35 @@ describe "Request", :vcr => {:tag => :bd_request} do
     assert_equal 5, http_client.connect_timeout
   end
 
+  it "raises exception on timeout, live" do
+    request = {
+      "PartnershipId" => "BD",
+      "Credentials" => {
+          "LibrarySymbol" => VCRFilter[:bd_library_symbol],
+          "Barcode" => VCRFilter[:bd_patron]
+      },
+      "ExactSearch" => [
+          {
+              "Type" => "ISBN",
+              "Value" => @successful_item_isbn
+          }
+        ]
+      }
+    bd = BorrowDirect::Request.new("/dws/item/available")
+    # tiny timeout, it'll def timeout, and on connect no less
+    bd.timeout = 0.00001  
+    assert_raises(BorrowDirect::HttpTimeoutError) do 
+      response = bd.request( request )     
+    end
+
+    # little bit longer to get maybe a receive timeout instead
+    bd = BorrowDirect::Request.new("/dws/item/available")
+    bd.timeout = 0.10
+    assert_raises(BorrowDirect::HttpTimeoutError) do 
+      response = bd.request( request )     
+    end
+  end
+
   describe "with expected errors" do
     it "still returns result" do
       request = {
