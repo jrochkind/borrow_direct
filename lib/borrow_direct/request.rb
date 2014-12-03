@@ -90,7 +90,7 @@ module BorrowDirect
 
 
       if einfo && (! expected_error)
-        raise BorrowDirect::Error.new(einfo.message, einfo.number, @api_uri)      
+        raise BorrowDirect::Error.new(einfo.message, einfo.number)      
       elsif http_response.code != 200 && (! expected_error)
         raise BorrowDirect::HttpError.new("HTTP Error: #{http_response.code}: #{http_response.body}")
       elsif response_hash.nil?
