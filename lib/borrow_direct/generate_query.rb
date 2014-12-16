@@ -20,7 +20,7 @@ module BorrowDirect
       self.url_base = (url_base || BorrowDirect::Defaults.html_base_url)
     end
 
-    # query_with(:title => "one two", :author => "three four")
+    # build_query_with(:title => "one two", :author => "three four")
     # valid keys are those supported by BD HTML interface:
     #     :title, :author, :isbn, :subject, :keyword, :isbn, :issn
     #
@@ -28,7 +28,7 @@ module BorrowDirect
     # fields are always 'and'd.  We may enhance/expand later. 
     #
     # Returns an un-escaped query, still needs to be put into a URL
-    def query_with(options)
+    def build_query_with(options)
       clauses = []
 
       options.each_pair do |field, value|
@@ -38,7 +38,7 @@ module BorrowDirect
 
         raise ArgumentError.new("Don't recognize field code `#{field}`") unless code
 
-        clauses << %Q{#{code}="#{escape_query_value value}"}
+        clauses << %Q{#{code}="#{escape value}"}
       end
 
       return clauses.join(" and ")
@@ -48,19 +48,18 @@ module BorrowDirect
     # we'll use that alone, otherwise we'll use title and author
     def best_known_item_query_with(options)
       if options[:isbn]
-        return query_with(options.dup.delete_if {|k| k != :isbn})
+        return build_query_with(options.dup.delete_if {|k| k != :isbn})
       elsif options[:issn]
-        return query_with(options.dup.delete_if {|k| k != :issn})
+        return build_query_with(options.dup.delete_if {|k| k != :issn})
       else
-        return query_with options
+        return build_query_with options
       end
     end
 
-    def query_url_with(options)
-      query = query_with(options)
-
+    def query_url_with(arg)
+      query = arg.kind_of?(Hash) ? build_query_with(arg) : arg.to_s
+      
       return add_query_param(self.url_base, "query", query).to_s
-
     end
 
     def best_known_item_query_url_with(options)
@@ -69,11 +68,16 @@ module BorrowDirect
       return add_query_param(self.url_base, "query", query).to_s
     end
 
+    # Escape a query value. 
     # We don't really know how to escape, for now
     # we just remove double quotes and parens, and replace with spaces. 
     # those seem to cause problems, and that seems to work. 
-    def escape_query_value(str)
+    def self.escape(str)
       str.gsub(/[")()]/, ' ')
+    end
+    # Instance method version for convenience. 
+    def escape(str)
+      self.class.escape(str)
     end
 
     def add_query_param(uri, key, value)

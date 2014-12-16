@@ -61,6 +61,23 @@ describe "GenerateQuery" do
     end
   end
 
+  describe "with string arg" do
+    it "generates supplied query" do
+      generate_query = BorrowDirect::GenerateQuery.new(@test_base)
+
+      query = %Q{isbn="#{BorrowDirect::GenerateQuery.escape('1212')}" and (ti="#{BorrowDirect::GenerateQuery.escape('foo')}" or ti="#{BorrowDirect::GenerateQuery.escape('bar')}")}
+
+      url = generate_query.query_url_with(query)
+
+      parsed_url = URI.parse(url)
+      url_query  = CGI.parse( parsed_url.query )
+      assert_present url_query
+      assert_length 1, url_query["query"]
+
+      assert_equal query, url_query["query"].first
+    end
+  end
+
   describe "best_known_item_query_url_with" do
     it "uses only isbn when available" do
       generate_query = BorrowDirect::GenerateQuery.new(@test_base)

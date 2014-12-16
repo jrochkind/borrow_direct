@@ -110,17 +110,23 @@ BorrowDirect::GenerateQuery.new.query_url_with(
     :isbn => "1234435445")
 ~~~
 
-Sometimes you want to generate a search for a specific known item, and use
-an ISBN if available, otherwise an author/title search. That is one of our
-own main use cases for these deep links. The `#best_known_item_query_url_with`
-method is available to automatically use ISBN if available, otherwise author/title. 
+Or specify your own query passed as a string, possibly a complex one
+using BD's undocumented syntax that you figure out. Use `
+BorrowDirect::GenerateQuery.escape` to escape values, but don't CGI escape the input. 
 
-The GenerateQuery class can be enhanced if there is demand; to allow more
-flexible searches (instead of always phrase searches with boolean AND); to or allow
+~~~ruby
+query = %Q{isbn="#{BorrowDirect::GenerateQuery.escape('1212')}" and (ti="#{BorrowDirect::GenerateQuery.escape('foo')}" or ti="#{BorrowDirect::GenerateQuery.escape('bar')}")}
+BorrowDirect::GenerateQuery.new.query_url_with query
+~~~
+
+Sometimes you want to generate a search for a specific known item, and use
+an ISBN if available, otherwise an author/title search. Use `#best_known_item_query_url_with`
+to use logic recommended by this gem (and evolving) for the best way to execute this search. 
+
+The GenerateQuery class can be enhanced if there is demand; to allow less
+manual means of constructing more flexible structured queries;  or to allow
 sending barcode directly to BD instead of relying on a local authenticating redirect
 script. 
-
-
 
 ### Errors
 
