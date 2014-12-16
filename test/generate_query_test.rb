@@ -79,7 +79,7 @@ describe "GenerateQuery" do
   end
 
   describe "best_known_item_query_url_with" do
-    it "uses only isbn when available" do
+    it "uses isbn and title-author" do
       generate_query = BorrowDirect::GenerateQuery.new(@test_base)
 
       url = generate_query.best_known_item_query_url_with(:isbn => "OUR_ISBN", :title => "This is a title", :author => "This is an author")
@@ -95,14 +95,10 @@ describe "GenerateQuery" do
 
       query_text = url_query["query"].first
 
-      parts = query_text.split(" and ")
-
-      assert_length 1, parts
-
-      assert_include parts, 'isbn="OUR_ISBN"'      
+      assert_equal %Q{isbn="OUR_ISBN" or (ti="This is a title" and au="This is an author")}, query_text
     end
 
-    it "uses author and title when it has to" do
+    it "uses author and title without isbn" do
       generate_query = BorrowDirect::GenerateQuery.new(@test_base)
 
       url = generate_query.best_known_item_query_url_with(:title => "This is a title", :author => "This is an author")
@@ -118,26 +114,34 @@ describe "GenerateQuery" do
 
       query_text = url_query["query"].first
 
-      parts = query_text.split(" and ")
+      assert_equal %Q{(ti="This is a title" and au="This is an author")}, query_text
 
-      assert_length 2, parts
-
-      assert_include parts, 'ti="This is a title"'
-      assert_include parts, 'au="This is an author"'
     end
 
-    it "can handle nil arguments" do
+    it "can handle only title" do
       url = BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with(
              :isbn   => nil,
              :title  => 'the new international economic order',
              :author => nil
       )
 
-      query = assert_bd_query_url(url)
+      query_text = assert_bd_query_url(url)
 
-      parts = query.split(" and ")
+      assert_equal %Q{(ti="the new international economic order")}, query_text
+    end
 
-      assert_include parts, 'ti="the new international economic order"'
+    it "raises for empty query" do
+      assert_raises(ArgumentError) do
+        BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with({})
+      end
+
+      assert_raises(ArgumentError) do
+        BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with()
+      end
+
+      assert_raises(ArgumentError) do
+        BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with(nil)
+      end
     end
 
   end

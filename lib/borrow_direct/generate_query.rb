@@ -44,17 +44,7 @@ module BorrowDirect
       return clauses.join(" and ")
     end
 
-    # Pass in :title, :author, :isbn, etc -- if we have an isbn or issn,
-    # we'll use that alone, otherwise we'll use title and author
-    def best_known_item_query_with(options)
-      if options[:isbn]
-        return build_query_with(options.dup.delete_if {|k| k != :isbn})
-      elsif options[:issn]
-        return build_query_with(options.dup.delete_if {|k| k != :issn})
-      else
-        return build_query_with options
-      end
-    end
+
 
     def query_url_with(arg)
       query = arg.kind_of?(Hash) ? build_query_with(arg) : arg.to_s
@@ -63,7 +53,29 @@ module BorrowDirect
     end
 
     def best_known_item_query_url_with(options)
-      query = best_known_item_query_with(options)
+      raise ArgumentError.new("Need a Hash argument, got #{options.inspect}") unless options.kind_of?(Hash)
+
+      alt_queries = []
+
+      if options[:isbn]
+        alt_queries << build_query_with(:isbn => options[:isbn])
+      end
+
+      au_ti_parts = []
+      if options[:title]
+        au_ti_parts << build_query_with(:title => options[:title])
+      end
+      if options[:author]
+        au_ti_parts << build_query_with(:author => options[:author])
+      end
+
+      alt_queries << ('(' + au_ti_parts.join(" and ") + ')') if au_ti_parts.length > 0
+
+      if alt_queries.empty?
+        raise ArgumentError.new("Not enough information supplied to construct query: #{options.inspect}")
+      end
+
+      query = alt_queries.join(" or ")
 
       return add_query_param(self.url_base, "query", query).to_s
     end

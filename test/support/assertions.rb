@@ -17,7 +17,7 @@ end
 def assert_include(collection, item, msg = nil)
   assert_respond_to(collection, :include?, "The collection must respond to :include?.")
     
-  msg ||= "#{collection.inspect.slice(0,10)} expected to include\#{item}"
+  msg ||= "#{collection.inspect} expected to include #{item.inspect}"
 
   assert collection.include?(item), msg
 end
