@@ -118,13 +118,21 @@ module BorrowDirect
         end
 
        # Items that are available locally, and thus not requestable via BD, can
-       # only be found by looking at the RequestMessage, bah
-       h = response_hash["Item"]["RequestLink"]
-       if h && h["RequestMessage"] == "This item is available locally"
+       # only be found by looking at the RequestMessage, bah       
+       if locally_available?
          return false
        end
 
        return response_hash["Item"]["Available"].to_s == "true"
+      end
+
+      # BD thinks the item is locally available at patron's home library,
+      # and it is not requestable for that reason. 
+      # Items that are available locally, and thus not requestable via BD, can
+      # only be found by looking at the RequestMessage, bah       
+      def locally_available?
+       h = response_hash["Item"]["RequestLink"]
+       return !! (h && h["RequestMessage"] == "This item is available locally")
       end
 
       # Returns the AuthorizationID returned by FindItem API call,

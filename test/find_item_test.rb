@@ -121,6 +121,10 @@ describe "FindItem", :vcr do
       assert_equal false, @find_item.find(:isbn => @locally_avail_item_isbn).requestable?
     end
 
+    it "knows locally_available?" do
+      assert_equal true, @find_item.find(:isbn => @locally_avail_item_isbn).locally_available?
+    end
+
     it "not requestable for item that does not exist in BD" do
       assert_equal false, @find_item.find(:isbn => "NO_SUCH_THING").requestable?
     end
