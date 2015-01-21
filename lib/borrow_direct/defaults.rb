@@ -14,7 +14,7 @@ module BorrowDirect
   #      BorrowDirect::Defaults.find_item_patron_barcode = "99999999999"
   class Defaults
     TEST_API_BASE         = "https://bdtest.relais-host.com/"
-    PRODUCTION_API_BASE   = "NOT_YET_AVAILABLE"
+    PRODUCTION_API_BASE   = "https://borrow-direct.relaisd2d.com/"
 
     TEST_HTML_BASE        = "https://bdtest.relaisd2d.com/service-proxy?command=query"
     PRODUCTION_HTML_BASE  = "https://borrow-direct.relaisd2d.com/service-proxy?command=query"
