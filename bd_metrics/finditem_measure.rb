@@ -34,6 +34,7 @@ finder.timeout = timeout
 i = 0
 
 printresults = lambda do
+  times.sort!
   min       = times[0]
   tenth     = times[(times.count / 10) - 1]
   median    = times[(times.count / 2) - 1]
@@ -44,8 +45,8 @@ printresults = lambda do
   max       = times[times.count - 1]
 
   puts "\n\n"
-  puts "tested #{i} isbns, with timeout #{timeout}s, delaying #{delay} seconds between FindItem api requests"
-  puts "timing min: #{min}; 10th %ile: #{tenth}; median: #{median}; 75th %ile: #{seventyfifth}; 90th %ile: #{ninetieth}; 99th %ile: #{ninetyninth}; max: #{max}"
+  puts "tested #{i} identifiers, with timeout #{timeout}s, delaying #{delay} seconds between FindItem api requests"
+  puts "timing min: #{min.round(1)}s; 10th %ile: #{tenth.round(1)}s; median: #{median.round(1)}s; 75th %ile: #{seventyfifth.round(1)}s; 90th %ile: #{ninetieth.round(1)}s; 99th %ile: #{ninetyninth.round(1)}s; max: #{max.round(1)}s"
   puts "    error count: #{errors.count}"
   puts "    timeout count: #{timeouts.count}"
 end
@@ -85,7 +86,6 @@ identifiers.each do |id|
   elapsed = Time.now - start
 
   times << elapsed
-  times.sort!
 
   if i % 10 == 0
     printresults.call
