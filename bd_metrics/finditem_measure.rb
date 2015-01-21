@@ -33,20 +33,42 @@ finder.timeout = timeout
 
 i = 0
 
+stats = lambda do |times|
+  h = OpenStruct.new
+
+  h.min       = times[0]
+  h.tenth     = times[(times.count / 10) - 1]
+  h.median    = times[(times.count / 2) - 1]
+  h.seventyfifth = times[(times.count - (times.count / 4)) - 1]
+  h.ninetieth = times[(times.count - (times.count / 10)) - 1]
+  h.ninetyninth = times[(times.count - (times.count / 100)) - 1]
+  h.max       = times[times.count - 1]
+
+  # now without the ones that were timeouts
+  times1 = times.delete_if {|t| t >= timeout}
+  h1 = OpenStruct.new
+  h1.min       = times[0]
+  h1.tenth     = times[(times.count / 10) - 1]
+  h1.median    = times[(times.count / 2) - 1]
+  h1.seventyfifth = times[(times.count - (times.count / 4)) - 1]
+  h1.ninetieth = times[(times.count - (times.count / 10)) - 1]
+  h1.ninetyninth = times[(times.count - (times.count / 100)) - 1]
+  h1.max       = times[times.count - 1]
+
+  return [h, h1]
+end
+
 printresults = lambda do
   times.sort!
-  min       = times[0]
-  tenth     = times[(times.count / 10) - 1]
-  median    = times[(times.count / 2) - 1]
-  seventyfifth = times[(times.count - (times.count / 4)) - 1]
-  ninetieth = times[(times.count - (times.count / 10)) - 1]
-  ninetyninth = times[(times.count - (times.count / 100)) - 1]
 
-  max       = times[times.count - 1]
+  (t, t1) = stats.call(times)
+
+  
 
   puts "\n\n"
   puts "tested #{i} identifiers, with timeout #{timeout}s, delaying #{delay} seconds between FindItem api requests"
-  puts "timing min: #{min.round(1)}s; 10th %ile: #{tenth.round(1)}s; median: #{median.round(1)}s; 75th %ile: #{seventyfifth.round(1)}s; 90th %ile: #{ninetieth.round(1)}s; 99th %ile: #{ninetyninth.round(1)}s; max: #{max.round(1)}s"
+  puts "timing distribution (inc. timeouts) min: #{t.min.round(1)}s; 10th %ile: #{t.tenth.round(1)}s; median: #{t.median.round(1)}s; 75th %ile: #{t.seventyfifth.round(1)}s; 90th %ile: #{t.ninetieth.round(1)}s; 99th %ile: #{t.ninetyninth.round(1)}s; max: #{t.max.round(1)}s"
+  puts "timing distribution (W/O timeouts) min: #{t1.min.round(1)}s; 10th %ile: #{t1.tenth.round(1)}s; median: #{t1.median.round(1)}s; 75th %ile: #{t1.seventyfifth.round(1)}s; 90th %ile: #{t1.ninetieth.round(1)}s; 99th %ile: #{t1.ninetyninth.round(1)}s; max: #{t1.max.round(1)}s"  
   puts "    error count: #{errors.count}"
   puts "    timeout count: #{timeouts.count}"
 end
