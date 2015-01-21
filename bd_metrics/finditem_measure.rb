@@ -1,33 +1,75 @@
 #!/usr/bin/env ruby
 
+# Quick and dirty script to do some testing. 
+
 # ruby -Ilib:test ./bd_metrics/finditem_measure.rb
 
 require 'borrow_direct'
 require 'borrow_direct/find_item'
 
-key        = ARGV[0] || "isbn"
-sourcefile = ARGV[1] || File.expand_path("../#{key}.txt", __FILE__)
+key = "isbn"
+sourcefile = ARGV[0] || File.expand_path("../isbn-bd-test-200.txt", __FILE__)
 
-puts "#{key}: #{sourcefile}"
+# How long to wait n BD before giving up. 
+timeout = 20
 
-identifiers = File.readlines(sourcefile).shuffle
+# Range of how long to wait between requests, in seconds. Actual
+# delay each time randomly chosen from this range. 
+# wait one to 7 minutes. 
+delay = 60..420
 
+puts "#{ENV['BD_LIBRARY_SYMBOL']}: #{key}: #{sourcefile}"
+
+identifiers = File.readlines(sourcefile)   #.shuffle
+ 
 puts "  #{identifiers.count} total input identifiers"
 
-times = []
-errors = []
-finder = BorrowDirect::FindItem.new(ENV["BD_FINDITEM_PATRON"], ENV["BD_LIBRARY_SYMBOL"])
+times     = []
+errors    = []
+timeouts  = []
+
+finder = BorrowDirect::FindItem.new(ENV["BD_PATRON"], ENV["BD_LIBRARY_SYMBOL"])
+finder.timeout = timeout
+
+i = 0
+
+printresults = lambda do
+  min       = times[0]
+  tenth     = times[(times.count / 10) - 1]
+  median    = times[(times.count / 2) - 1]
+  seventyfifth = times[(times.count - (times.count / 4)) - 1]
+  ninetieth = times[(times.count - (times.count / 10)) - 1]
+  ninetyninth = times[(times.count - (times.count / 100)) - 1]
+
+  max       = times[times.count - 1]
+
+  puts "\n\n"
+  puts "tested #{i} isbns, with timeout #{timeout}s, delaying #{delay} seconds between FindItem api requests"
+  puts "timing min: #{min}; 10th %ile: #{tenth}; median: #{median}; 75th %ile: #{seventyfifth}; 90th %ile: #{ninetieth}; 99th %ile: #{ninetyninth}; max: #{max}"
+  puts "    error count: #{errors.count}"
+  puts "    timeout count: #{timeouts.count}"
+end
 
 
 at_exit do
-  puts "\n\nERRORS: "
+  printresults.call
+
+  puts "\n\n\nAll errors: "
   errors.each do |arr|
     puts arr.inspect
   end
+
+  puts "\n\n\nAll timeouts: "
+  timeouts.each do |arr|
+    puts arr.inspect
+  end
+
+  puts "\n\n\n"
+
 end
 
-i = 0
 identifiers.each do |id|
+  print "."
   id = id.chomp
   i = i + 1
 
@@ -35,6 +77,8 @@ identifiers.each do |id|
 
   begin
     finder.find_item_request(key => id)
+  rescue BorrowDirect::HttpTimeoutError => e
+    timeouts << [key, id, e]
   rescue BorrowDirect::Error => e
     errors << [key, id, e]
   end
@@ -44,18 +88,11 @@ identifiers.each do |id|
   times.sort!
 
   if i % 10 == 0
-    min       = times[0]
-    tenth     = times[(times.count / 10) - 1]
-    median    = times[(times.count / 2) - 1]
-    seventyfifth = times[(times.count - (times.count / 4)) - 1]
-    ninetieth = times[(times.count - (times.count / 10)) - 1]
-    ninetyninth = times[(times.count - (times.count / 100)) - 1]
-
-    max       = times[times.count - 1]
-
-    puts "i==#{i}; min: #{min}; 10th %ile: #{tenth}; median: #{median}; 75th %ile: #{seventyfifth}; 90th %ile: #{ninetieth}; 99th %ile: #{ninetyninth}; max: #{max}"
-    puts "    errors: #{errors.count}"
+    printresults.call
   end
+
+  print "w"
+  sleep rand(delay)
 
 end
 
