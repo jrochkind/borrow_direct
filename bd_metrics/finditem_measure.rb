@@ -6,6 +6,7 @@
 
 require 'borrow_direct'
 require 'borrow_direct/find_item'
+require 'date'
 
 key = "isbn"
 sourcefile = ARGV[0] || File.expand_path("../isbn-bd-test-200.txt", __FILE__)
@@ -18,7 +19,7 @@ timeout = 20
 # wait one to 7 minutes. 
 delay = 60..420
 
-puts "#{ENV['BD_LIBRARY_SYMBOL']}: #{key}: #{sourcefile}"
+puts "#{ENV['BD_LIBRARY_SYMBOL']}: #{key}: #{sourcefile}: #{Time.now.localtime}"
 
 identifiers = File.readlines(sourcefile)   #.shuffle
  
@@ -75,9 +76,14 @@ end
 
 
 at_exit do
+  puts "\n\n\n"
+
+  puts "Finished at: #{Time.now.localtime}\n\n"
+
   printresults.call
 
-  puts "\n\n\nAll errors: "
+
+  puts "All errors: "
   errors.each do |arr|
     puts arr.inspect
   end
