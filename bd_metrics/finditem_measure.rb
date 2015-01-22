@@ -46,7 +46,7 @@ stats = lambda do |times|
   h.max       = times[times.count - 1]
 
   # now without the ones that were timeouts
-  times1 = times.delete_if {|t| t >= timeout || (timeout - t) > 0.01}
+  times1 = times.find_all {|t| !(t >= timeout || (timeout - t) > 0.01)}
   h1 = OpenStruct.new
   h1.min       = times[0]
   h1.tenth     = times[(times.count / 10) - 1]
