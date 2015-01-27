@@ -64,31 +64,33 @@ printresults = lambda do
 
   (t, t1) = stats.call(times)
 
-  
-
-  puts "\n\n"
-  puts "tested #{i} identifiers, with timeout #{timeout}s, delaying #{delay} seconds between FindItem api requests"
-  puts "timing distribution (inc. timeouts) min: #{t.min.round(1)}s; 10th %ile: #{t.tenth.round(1)}s; median: #{t.median.round(1)}s; 75th %ile: #{t.seventyfifth.round(1)}s; 90th %ile: #{t.ninetieth.round(1)}s; 99th %ile: #{t.ninetyninth.round(1)}s; max: #{t.max.round(1)}s"
-  puts "timing distribution (W/O timeouts) min: #{t1.min.round(1)}s; 10th %ile: #{t1.tenth.round(1)}s; median: #{t1.median.round(1)}s; 75th %ile: #{t1.seventyfifth.round(1)}s; 90th %ile: #{t1.ninetieth.round(1)}s; 99th %ile: #{t1.ninetyninth.round(1)}s; max: #{t1.max.round(1)}s"  
+  puts "\n"
+  puts "tested #{i} identifiers, with timeout #{timeout}s, delaying #{delay} seconds between FindItem api requests\n\n"
+  puts "timing distribution (inc. timeouts) min: #{t.min.round(1)}s; 10th %ile: #{t.tenth.round(1)}s; median: #{t.median.round(1)}s; 75th %ile: #{t.seventyfifth.round(1)}s; 90th %ile: #{t.ninetieth.round(1)}s; 99th %ile: #{t.ninetyninth.round(1)}s; max: #{t.max.round(1)}s\n\n"
+  puts "timing distribution (W/O timeouts) min: #{t1.min.round(1)}s; 10th %ile: #{t1.tenth.round(1)}s; median: #{t1.median.round(1)}s; 75th %ile: #{t1.seventyfifth.round(1)}s; 90th %ile: #{t1.ninetieth.round(1)}s; 99th %ile: #{t1.ninetyninth.round(1)}s; max: #{t1.max.round(1)}s\n\n"  
   puts "    error count: #{errors.count}"
   puts "    timeout count: #{timeouts.count}"
+  puts "\n"
 end
 
 
 at_exit do
   puts "\n\n\n"
 
+  puts "Finished: #{ENV['BD_LIBRARY_SYMBOL']}: #{key}: #{sourcefile}: #{Time.now.localtime}"
+
+
   puts "Finished at: #{Time.now.localtime}\n\n"
 
   printresults.call
 
 
-  puts "All errors: "
+  puts "\nAll errors: "
   errors.each do |arr|
     puts arr.inspect
   end
 
-  puts "\n\n\nAll timeouts: "
+  puts "\nAll timeouts: "
   timeouts.each do |arr|
     puts arr.inspect
   end
