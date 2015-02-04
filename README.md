@@ -119,6 +119,7 @@ query = %Q{isbn="#{BorrowDirect::GenerateQuery.escape('1212')}" and (ti="#{Borro
 BorrowDirect::GenerateQuery.new.query_url_with query
 ~~~
 
+(*Experimental, hasn't been working out well, may remove) 
 Sometimes you want to generate a search for a specific known item, and use
 an ISBN if available, otherwise an author/title search. Use `#best_known_item_query_url_with`
 to use logic recommended by this gem (and evolving) for the best way to execute this search. 
