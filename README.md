@@ -119,14 +119,14 @@ query = %Q{isbn="#{BorrowDirect::GenerateQuery.escape('1212')}" and (ti="#{Borro
 BorrowDirect::GenerateQuery.new.query_url_with query
 ~~~
 
-Sometimes you want to generate a search for a specific known item, and use
-an ISBN if available, otherwise an author/title search. Use `#best_known_item_query_url_with`
-to use logic recommended by this gem (and evolving) for the best way to execute this search. 
+For the common case of doing an author-title keyword search, this gem has some suggested
+normalization it applies to author and title, to maximize chances of succesful hits.
+(limiting to 5 words in title, searching on main title only not subtitle, etc.)
 
-The GenerateQuery class can be enhanced if there is demand; to allow less
-manual means of constructing more flexible structured queries;  or to allow
-sending barcode directly to BD instead of relying on a local authenticating redirect
-script. 
+~~~ruby
+BorrowDirect::GenerateQuery.new.normalized_author_title_query(:title => some_title, :author => some_author)
+~~~
+
 
 ### Errors
 

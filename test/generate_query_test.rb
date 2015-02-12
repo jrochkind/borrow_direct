@@ -1,3 +1,5 @@
+# Encoding: UTF-8
+
 require 'test_helper'
 require 'uri'
 require 'cgi'
@@ -78,70 +80,48 @@ describe "GenerateQuery" do
     end
   end
 
-  describe "best_known_item_query_url_with" do
-    it "uses isbn and title-author" do
-      generate_query = BorrowDirect::GenerateQuery.new(@test_base)
-
-      url = generate_query.best_known_item_query_url_with(:isbn => "OUR_ISBN", :title => "This is a title", :author => "This is an author")
-
-      assert url.start_with? @test_base
-
-      parsed_url = URI.parse(url)
-      url_query  = CGI.parse( parsed_url.query )
-
-      assert_present url_query
-
-      assert_length 1, url_query["query"]
-
-      query_text = url_query["query"].first
-
-      assert_equal %Q{isbn="OUR_ISBN" or (ti="This is a title" and au="This is an author")}, query_text
+  describe "#normalized_author_title_params" do
+    before do
+      @generator = BorrowDirect::GenerateQuery.new(@test_base)
+    end
+    it "raises without good arguments" do
+      assert_raises(ArgumentError) {@generator.normalized_author_title_params(nil)}
+      assert_raises(ArgumentError) {@generator.normalized_author_title_params({}) }
+      assert_raises(ArgumentError) {@generator.normalized_author_title_params({:title => nil}) }
+      assert_raises(ArgumentError) {@generator.normalized_author_title_params({:title => ""}) }
     end
 
-    it "uses author and title without isbn" do
-      generate_query = BorrowDirect::GenerateQuery.new(@test_base)
-
-      url = generate_query.best_known_item_query_url_with(:title => "This is a title", :author => "This is an author")
-
-      assert url.start_with? @test_base
-
-      parsed_url = URI.parse(url)
-      url_query  = CGI.parse( parsed_url.query )
-
-      assert_present url_query
-
-      assert_length 1, url_query["query"]
-
-      query_text = url_query["query"].first
-
-      assert_equal %Q{(ti="This is a title" and au="This is an author")}, query_text
-
+    it "passes through simple author and title" do
+      author ="John Smith"
+      title = "Some Book"
+      assert_equal( {:title => "some book", :author => author}, @generator.normalized_author_title_params(:author => author, :title => title))
     end
 
-    it "can handle only title" do
-      url = BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with(
-             :isbn   => nil,
-             :title  => 'the new international economic order',
-             :author => nil
-      )
-
-      query_text = assert_bd_query_url(url)
-
-      assert_equal %Q{(ti="the new international economic order")}, query_text
+    it "works with just a title" do
+      title  = "Some Book"
+      expected = {:title => "some book"}
+      assert_equal expected, @generator.normalized_author_title_params(:title => title)
+      assert_equal expected, @generator.normalized_author_title_params(:title => title, :author => nil)
+      assert_equal expected, @generator.normalized_author_title_params(:title => title, :author => "")
     end
 
-    it "raises for empty query" do
-      assert_raises(ArgumentError) do
-        BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with({})
-      end
+    it "title remove trailing parens" do
+      title = "A Book (really bad one)"
 
-      assert_raises(ArgumentError) do
-        BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with()
-      end
+      assert_equal( {:title => "a book"}, @generator.normalized_author_title_params(:title => title))
+    end
 
-      assert_raises(ArgumentError) do
-        BorrowDirect::GenerateQuery.new(@html_query_base_url).best_known_item_query_url_with(nil)
-      end
+    it "title strip subtitles" do
+      assert_equal({:title => "a book"}, @generator.normalized_author_title_params(:title => "A Book: Subtitle"))
+      assert_equal({:title => "a book"}, @generator.normalized_author_title_params(:title => "A Book; and more"))
+    end
+
+    it "limit to first 5 words" do
+      assert_equal({:title => "one two's three four five"}, @generator.normalized_author_title_params(:title => "One Two's Three Four Five Six Seven"))
+    end
+
+    it "okay with unicode, strip punct" do
+      assert_equal({:title => "el revolución"}, @generator.normalized_author_title_params(:title => "El   Revolución!: Cuban poster art"))
     end
 
   end
