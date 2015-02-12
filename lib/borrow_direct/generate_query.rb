@@ -63,30 +63,31 @@ module BorrowDirect
       # Symbolize keys please
       #options = options.inject({}){ |h, (k, v)| hash.merge( (k.respond_to?(:to_sym) ? k.to_sym : k) => v )  }
 
-      unless options.has_key?(:title) && ! (options[:title].nil? || options[:title].empty?)
-        raise ArgumentError.new("Need at least a :title param") 
-      end
-
-      title           = options[:title].dup
+      title           = options[:title].dup  if options[:title]
       author          = options[:author].dup if options[:author]
 
-      # Normalize title in various ways.
-
-      
-
       # We don't do any normalization to author at present. 
-      results = {
-        :title => normalized_title(title, :max_title_words => options[:max_title_words])
-      }
+      title = normalized_title(title, :max_title_words => options[:max_title_words])
+
+      results = {}
+      results[:title] = title if title && ! title.empty?
       results[:author] = author if author && ! author.empty?
+      
       return results
     end
 
+    # :title, :author and optionally :max_title_words. 
+    #
+    # Returns a query with a suggested normalized author and title
+    # for best BD search. May return just BD base URL if no author/title
+    # given. 
     def normalized_author_title_query(options)
       return self.query_url_with self.normalized_author_title_params(options)
     end
 
     def normalized_title(title, args = {})
+      return "" if title.nil? || title.empty?
+
       max_title_words = args[:max_title_words] || 5
  
       # Remove all things in parens at the END of the title, they tend

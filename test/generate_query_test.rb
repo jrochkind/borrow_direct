@@ -86,9 +86,6 @@ describe "GenerateQuery" do
     end
     it "raises without good arguments" do
       assert_raises(ArgumentError) {@generator.normalized_author_title_params(nil)}
-      assert_raises(ArgumentError) {@generator.normalized_author_title_params({}) }
-      assert_raises(ArgumentError) {@generator.normalized_author_title_params({:title => nil}) }
-      assert_raises(ArgumentError) {@generator.normalized_author_title_params({:title => ""}) }
     end
 
     it "passes through simple author and title" do
