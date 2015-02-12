@@ -124,6 +124,11 @@ describe "GenerateQuery" do
       assert_equal({:title => "el revolución"}, @generator.normalized_author_title_params(:title => "El   Revolución!: Cuban poster art"))
     end
 
+    it "full normalized_author_title_query" do
+      url = @generator.normalized_author_title_query(:title => "A Book: Subtitle", :author => "Smith, John" )
+      query = assert_bd_query_url(url)
+    end
+
   end
 
   def assert_bd_query_url(url)
