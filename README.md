@@ -127,7 +127,6 @@ normalization it applies to author and title, to maximize chances of succesful h
 BorrowDirect::GenerateQuery.new.normalized_author_title_query(:title => some_title, :author => some_author)
 ~~~
 
-
 ### Errors
 
 In error conditions, a BorrowDirect::Error may be thrown -- including request timeouts when
