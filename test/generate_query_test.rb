@@ -91,7 +91,7 @@ describe "GenerateQuery" do
     it "passes through simple author and title" do
       author ="John Smith"
       title = "Some Book"
-      assert_equal( {:title => "some book", :author => author}, @generator.normalized_author_title_params(:author => author, :title => title))
+      assert_equal( {:title => "some book", :author => 'john smith'}, @generator.normalized_author_title_params(:author => author, :title => title))
     end
 
     it "works with just a title" do
@@ -121,10 +121,16 @@ describe "GenerateQuery" do
       assert_equal({:title => "el revolución"}, @generator.normalized_author_title_params(:title => "El   Revolución!: Cuban poster art"))
     end
 
+    it "normalizes author to what looks like last name" do
+      assert_equal({:title => "book", :author => "scott"}, @generator.normalized_author_title_params(:title => "Book", :author => "Scott, James C"))
+    end
+
     it "full normalized_author_title_query" do
       url = @generator.normalized_author_title_query(:title => "A Book: Subtitle", :author => "Smith, John" )
       query = assert_bd_query_url(url)
     end
+
+
 
   end
 

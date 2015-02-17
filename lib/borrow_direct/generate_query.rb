@@ -66,8 +66,9 @@ module BorrowDirect
       title           = options[:title].dup  if options[:title]
       author          = options[:author].dup if options[:author]
 
-      # We don't do any normalization to author at present. 
-      title = normalized_title(title, :max_title_words => options[:max_title_words])
+      
+      title  = normalized_title(title, :max_title_words => options[:max_title_words])
+      author = normalized_author(author)
 
       results = {}
       results[:title] = title if title && ! title.empty?
@@ -115,6 +116,20 @@ module BorrowDirect
       end
 
       return title
+    end
+
+    # Lowercase, and try to get just the last name out of something
+    # that looks like a cataloging authorized heading. 
+    def normalized_author(author)
+      return "" if author.nil? || author.empty?
+
+      author = author.downcase
+      # Just take everything before the comma if we have one
+      if author =~ /\A(.*),/
+        author = $1
+      end
+
+      return author
     end
 
     
