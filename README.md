@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/borrow_direct.svg)](http://badge.fury.io/rb/borrow_direct)
 [![Build Status](https://travis-ci.org/jrochkind/borrow_direct.svg)](https://travis-ci.org/jrochkind/borrow_direct)
 
 # BorrowDirect
