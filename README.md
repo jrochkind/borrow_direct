@@ -3,8 +3,6 @@
 
 # BorrowDirect
 
-EXPERIMENTAL WORK IN PROGRESS, MAY HAVE UNSTABLE API
-
 Ruby tools for programmatic access to BorrowDirect consortial system, powered by Relais D2D software. 
 
 Using API as well as deep-linking to search results and possibly other stuff. 
