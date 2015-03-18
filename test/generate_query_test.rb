@@ -145,6 +145,11 @@ describe "GenerateQuery" do
       assert_equal "x & y", @generator.normalized_title("x & y")
     end
 
+    it "normalizes by attribution from author" do
+      assert_equal "edward foster", @generator.normalized_author("edited by Edward Foster")
+      assert_equal "edward foster", @generator.normalized_author("by Edward Foster")
+    end
+
 
 
   end

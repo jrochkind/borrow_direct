@@ -130,6 +130,8 @@ module BorrowDirect
 
     # Lowercase, and try to get just the last name out of something
     # that looks like a cataloging authorized heading. 
+    #
+    # Try to remove leading 'by' stuff when we're getting a 245c
     def normalized_author(author)
       return "" if author.nil? || author.empty?
 
@@ -138,6 +140,8 @@ module BorrowDirect
       if author =~ /\A(.*),/
         author = $1
       end
+
+      author.gsub!(/\A.*by\s*/, '')
 
       return author
     end
