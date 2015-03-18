@@ -130,6 +130,17 @@ describe "GenerateQuery" do
       query = assert_bd_query_url(url)
     end
 
+    it "handles combining diacritics" do
+      # Some of the code we started with had a problem with combining diacritics. 
+      a_acute_combined = [97, 204, 129].pack("c*").force_encoding("UTF-8")
+
+      orig_title = "Vel#{a_acute_combined}squez's stuff...."
+
+      normalized_title = @generator.normalized_title(orig_title)
+
+      assert_equal "vel#{a_acute_combined}squez's stuff", normalized_title
+    end
+
 
 
   end

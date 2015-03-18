@@ -99,9 +99,19 @@ module BorrowDirect
       # before the first colon OR semi-colon
       title.sub!(/[\:\;](.*)$/, '')
 
-      # remove any remaining non-alphanumeric, excepting apostrophe, replacing
-      # with space. The punctuation doesn't help our queries. 
-      title.gsub!(/[^[:alnum:][:space:]\']/, ' ')
+
+      # We want to remove anything that isn't a letter, number, or apostrophe.
+      # Other punctuation and weird chars don't help our query.
+      # We want to do it in a way that's unicode-aware.
+      #
+      # This is harder than expected, as ruby regex unicode-aware character
+      # classes don't seem to handle combining diacritics well.
+      #
+      # This crazy way does it, replace anything that matches unicode
+      # space (may include more than just ascii ' ') or punct class, unless it's an apostrophe --
+      # and replaces them with plain ascii space. (apostrophes are allowed to make it through,
+      # for possessive use)
+      title.gsub!(/[[:space:][:punct:]&&[^\']]/, ' ')
 
       # compress any remaining whitespace
       title.strip!
