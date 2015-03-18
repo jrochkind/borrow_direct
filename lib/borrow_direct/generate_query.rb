@@ -108,10 +108,10 @@ module BorrowDirect
       # classes don't seem to handle combining diacritics well.
       #
       # This crazy way does it, replace anything that matches unicode
-      # space (may include more than just ascii ' ') or punct class, unless it's an apostrophe --
-      # and replaces them with plain ascii space. (apostrophes are allowed to make it through,
-      # for possessive use)
-      title.gsub!(/[[:space:][:punct:]&&[^\']]/, ' ')
+      # space (may include more than just ascii ' ') or punct class, unless 
+      # it's an apostrophe or an ampersand, which are allowed --
+      # and replaces them with plain ascii space.
+      title.gsub!(/[[:space:][:punct:]&&[^\'\&]]/, ' ')
 
       # compress any remaining whitespace
       title.strip!

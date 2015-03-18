@@ -141,6 +141,10 @@ describe "GenerateQuery" do
       assert_equal "vel#{a_acute_combined}squez's stuff", normalized_title
     end
 
+    it "allows ampersands" do
+      assert_equal "x & y", @generator.normalized_title("x & y")
+    end
+
 
 
   end
