@@ -4,6 +4,8 @@ module BorrowDirect
   # Generate a "deep link" to query results in BD's native
   # HTML interface. 
   class GenerateQuery
+    PUNCT_STRIP_REGEX = /[[:space:]\)\(\]\[\;\:\.\,\\\/\"\<\>\!]/
+
     attr_accessor :url_base
 
     # Hash from our own API argument to BD field code
@@ -103,7 +105,7 @@ module BorrowDirect
       # We want to remove some punctuation that is better
       # turned into a space in the query. Along with
       # any kind of unicode space, why not. 
-      title.gsub!(/[[:space:]\)\(\]\[\;\:\.\,\\\/\"\<\>\!]/, ' ')
+      title.gsub!(PUNCT_STRIP_REGEX, ' ')
 
       # compress any remaining whitespace
       title.strip!
@@ -125,15 +127,28 @@ module BorrowDirect
     #
     # Try to remove leading 'by' stuff when we're getting a 245c
     def normalized_author(author)
+
       return "" if author.nil? || author.empty?
 
       author = author.downcase
-      # Just take everything before the comma if we have one
-      if author =~ /\A(.*),/
+      # Just take everything before the comma if we have one --
+      # or before an "and", for stripping individuals out of 245c
+      # multiples. 
+      if author =~ /\A(.*)(,|\sand\s)/
         author = $1
       end
 
+
       author.gsub!(/\A.*by\s*/, '')
+
+      # We want to remove some punctuation that is better
+      # turned into a space in the query. Along with
+      # any kind of unicode space, why not. 
+      author.gsub!(PUNCT_STRIP_REGEX, ' ')
+
+      # compress any remaining whitespace
+      author.strip!
+      author.gsub!(/\s+/, ' ')
 
       return author
     end

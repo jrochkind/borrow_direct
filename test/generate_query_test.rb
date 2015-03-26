@@ -149,11 +149,20 @@ describe "GenerateQuery" do
       assert_equal "x & y", @generator.normalized_title("x & y")
     end
 
-    it "normalizes by attribution from author" do
+
+    it "gets author reasonably out of some 245c type things" do
       assert_equal "edward foster", @generator.normalized_author("edited by Edward Foster")
       assert_equal "edward foster", @generator.normalized_author("by Edward Foster")
-    end
 
+      assert_equal "leonard diepeveen", @generator.normalized_author("edited by Leonard Diepeveen.")
+
+      assert_equal "amalia avramidou", @generator.normalized_author("edited by Amalia Avramidou and Denise Demetriou.")
+      assert_equal "james elkins", @generator.normalized_author("edited by James Elkins and Robert Williams.")
+
+      # Hmm, should we really be stripping those periods? Not sure, but seems
+      # to do okay in searching. 
+      assert_equal "h a shapiro", @generator.normalized_author("edited by H.A. Shapiro.")
+    end
 
 
   end
