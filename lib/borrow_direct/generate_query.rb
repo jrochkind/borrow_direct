@@ -100,18 +100,10 @@ module BorrowDirect
       title.sub!(/[\:\;](.*)$/, '')
 
 
-      # We want to remove anything that isn't a letter, number, or apostrophe.
-      # Other punctuation and weird chars don't help our query.
-      # We want to do it in a way that's unicode-aware.
-      #
-      # This is harder than expected, as ruby regex unicode-aware character
-      # classes don't seem to handle combining diacritics well.
-      #
-      # This crazy way does it, replace anything that matches unicode
-      # space (may include more than just ascii ' ') or punct class, unless 
-      # it's an apostrophe or an ampersand, which are allowed --
-      # and replaces them with plain ascii space.
-      title.gsub!(/[[:space:][:punct:]&&[^\'\&]]/, ' ')
+      # We want to remove some punctuation that is better
+      # turned into a space in the query. Along with
+      # any kind of unicode space, why not. 
+      title.gsub!(/[[:space:]\)\(\]\[\;\:\.\,\\\/\"\<\>\!]/, ' ')
 
       # compress any remaining whitespace
       title.strip!
