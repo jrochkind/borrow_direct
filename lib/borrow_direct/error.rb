@@ -13,5 +13,11 @@ module BorrowDirect
   end
 
   class HttpError < Error ; end
-  class HttpTimeoutError < HttpError ; end
+  class HttpTimeoutError < HttpError
+    attr_reader :timeout
+    def initialize(msg, timeout=nil)
+      @timeout = timeout
+      super(msg)
+    end
+  end
 end

@@ -93,16 +93,18 @@ describe "Request", :vcr => {:tag => :bd_request} do
     bd = BorrowDirect::Request.new("/dws/item/available")
     # tiny timeout, it'll def timeout, and on connect no less
     bd.timeout = 0.00001  
-    assert_raises(BorrowDirect::HttpTimeoutError) do 
+    timeout_error = assert_raises(BorrowDirect::HttpTimeoutError) do 
       response = bd.request( request )     
     end
+    assert_equal bd.timeout, timeout_error.timeout 
 
     # little bit longer to get maybe a receive timeout instead
     bd = BorrowDirect::Request.new("/dws/item/available")
     bd.timeout = 0.10
-    assert_raises(BorrowDirect::HttpTimeoutError) do 
+    timeout_error = assert_raises(BorrowDirect::HttpTimeoutError) do 
       response = bd.request( request )     
     end
+    assert_equal bd.timeout, timeout_error.timeout 
   end
 
   describe "with expected errors" do

@@ -102,7 +102,7 @@ module BorrowDirect
       return response_hash
     rescue HTTPClient::ReceiveTimeoutError, HTTPClient::ConnectTimeoutError, HTTPClient::SendTimeoutError => e
       elapsed = Time.now - start_time
-      raise BorrowDirect::HttpTimeoutError.new("Timeout after #{elapsed.round(1)}s connecting to BorrowDirect server at #{@api_base}")
+      raise BorrowDirect::HttpTimeoutError.new("Timeout after #{elapsed.round(1)}s connecting to BorrowDirect server at #{@api_base}", self.timeout)
     end
 
     def http_client
