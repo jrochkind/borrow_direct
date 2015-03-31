@@ -162,6 +162,9 @@ describe "GenerateQuery" do
       # Hmm, should we really be stripping those periods? Not sure, but seems
       # to do okay in searching. 
       assert_equal "h a shapiro", @generator.normalized_author("edited by H.A. Shapiro.")
+
+      assert_equal "john smith", @generator.normalized_author("john smith, editor, mike brown, editor")
+      assert_equal "john smith", @generator.normalized_author("by john smith; with help from mike brown")
     end
 
 

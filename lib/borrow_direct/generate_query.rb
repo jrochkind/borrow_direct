@@ -131,10 +131,10 @@ module BorrowDirect
       return "" if author.nil? || author.empty?
 
       author = author.downcase
-      # Just take everything before the comma if we have one --
+      # Just take everything before the comma/semicolon if we have one --
       # or before an "and", for stripping individuals out of 245c
       # multiples. 
-      if author =~ /\A(.*)(,|\sand\s)/
+      if author =~ /\A([^,;]*)(,|\sand\s|;)/
         author = $1
       end
 
