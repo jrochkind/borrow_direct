@@ -10,6 +10,7 @@ module BorrowDirect
   #     # optional and use a default patron barcode
   #
   # You can also use #find_item_request to get the raw BD response as a ruby hash
+  #
   class FindItem < Request
     attr_reader :patron_barcode, :patron_library_symbol
 
@@ -56,7 +57,7 @@ module BorrowDirect
         raise ArgumentError.new("Missing valid search type and value: '#{options}'")
       end
 
-      request exact_search_request_hash(search_type, search_value)
+      request exact_search_request_hash(search_type, search_value), need_auth_id(self.patron_barcode, self.patron_library_symbol)
     end
 
     # need to send a key and value for a valid exact_search type
@@ -79,10 +80,6 @@ module BorrowDirect
 
       hash = {
           "PartnershipId" => Defaults.partnership_id,
-          "Credentials" => {
-              "LibrarySymbol" => self.patron_library_symbol,
-              "Barcode" => self.patron_barcode
-          },
           "ExactSearch" => []
       }
 

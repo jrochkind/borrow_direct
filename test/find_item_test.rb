@@ -4,7 +4,7 @@ require 'borrow_direct/find_item'
 
 
 
-describe "FindItem", :vcr do
+describe "FindItem", :vcr => {:tag => :bd_finditem }do
   before do
     @requestable_item_isbn     = "9810743734" # item is in BD, and can be requested
     @locally_avail_item_isbn   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
@@ -39,9 +39,12 @@ describe "FindItem", :vcr do
       finder = BorrowDirect::FindItem.new("barcodeX", "libraryX")
       hash   = finder.send(:exact_search_request_hash, :isbn, "2")
 
+
       assert_equal BorrowDirect::Defaults.partnership_id, hash["PartnershipId"]
-      assert_equal "barcodeX", hash["Credentials"]["Barcode"]
-      assert_equal "libraryX", hash["Credentials"]["LibrarySymbol"]
+      
+      # These aren't there anymore. 
+      #assert_equal "barcodeX", hash["Credentials"]["Barcode"]
+      #assert_equal "libraryX", hash["Credentials"]["LibrarySymbol"]
 
       assert_equal "ISBN", hash["ExactSearch"].first["Type"]
       assert_equal "2", hash["ExactSearch"].first["Value"]

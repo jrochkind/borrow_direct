@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/available
+    uri: https://bdtest.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","Credentials":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Barcode":"DUMMY_BD_PATRON"},"ExactSearch":[{"Type":"ISBN","Value":"NO_SUCH_THING"}]}'
+      string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Tue, 21 Oct 2014 17:06:04 GMT
+      - Wed, 29 Jul 2015 18:19:27 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,44 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 21 Oct 2014 17:06:16 GMT
+      - Wed, 29 Jul 2015 18:19:28 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '269'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"AuthorizationId":"JamgTMWzCCviK6M7Qm6u5dWsNFs","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+    http_version: 
+  recorded_at: Wed, 29 Jul 2015 18:19:28 GMT
+- request:
+    method: post
+    uri: https://bdtest.relais-host.com/dws/item/available?aid=JamgTMWzCCviK6M7Qm6u5dWsNFs
+    body:
+      encoding: UTF-8
+      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"NO_SUCH_THING"}]}'
+    headers:
+      User-Agent:
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 29 Jul 2015 18:19:28 GMT
+      Content-Type:
+      - application/json
+      Accept-Language:
+      - en
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.1
+      Date:
+      - Wed, 29 Jul 2015 18:19:38 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -33,18 +70,10 @@ http_interactions:
       Connection:
       - keep-alive
     body:
-      encoding: US-ASCII
-      string: ! '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"yhIaAAsllFzfvgmqRPbFU2AbiPI","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","ButtonLabel":"Request","RequestMessage":"Borrow
+      encoding: UTF-8
+      string: '{"Item":{"Available":false,"SearchTerm":"isbn=NO_SUCH_THING","AuthorizationId":"JamgTMWzCCviK6M7Qm6u5dWsNFs","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book&sid=Relais&rft.title=Boys%20and%20their%20toys%20-%20understanding%20men%20by%20understanding%20their%20relationship%20with%20gadgets&rft.aufirst=Bill&rft.aulast=Adler&rft.date=c2007&rft.pub=AMACOM&rft.place=New%20York","ButtonLabel":"Request","ButtonPrefix":"rft","RequestMessage":"Borrow
         Direct cannot fill this request at this time.  Please request through Interlibrary
-        Loan."},"PickupLocations":{"PickupLocation":["*Milton S. Eisenhower Library","APL
-        - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur Friedheim Library","Columbia
-        Center","Harbor East","Harrison Medical Library-Bayview","Institute of the
-        History of Medicine","JH Medical Campus Office (faculty and staff)","JHMI
-        Pickup - Armstrong 306","JHMI Pickup - BSPH E4643","JHMI Pickup - Hampton
-        House 9th floor","JHMI Pickup - PCTB 115-116","JHMI Pickup - School of Nursing
-        313","JHU Homewood Office (faculty and grad students)","Montgomery Library
-        Resource Center","SAIS Library","Washington Library Resource Center","Welch
-        Medical Library","Wilmer Friedenwald Library"]}}}'
+        Loan."}}}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 17:06:16 GMT
+  recorded_at: Wed, 29 Jul 2015 18:19:38 GMT
 recorded_with: VCR 2.9.3
