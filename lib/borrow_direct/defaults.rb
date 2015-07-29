@@ -22,6 +22,7 @@ module BorrowDirect
     class << self
       attr_accessor :api_base, :partnership_id, :find_item_patron_barcode, :library_symbol
       attr_accessor :html_base_url
+      attr_accessor :api_key
 
       # used for HTTPClient send, connection, AND receive timeouts, so
       # theoretically could take 3x this, but unlikely, usually it's just
@@ -33,6 +34,8 @@ module BorrowDirect
     self.partnership_id = "BD"
     self.timeout        = 30
     self.html_base_url  = TEST_HTML_BASE
+
+    self.api_key        = nil
 
   end
 end

@@ -9,16 +9,23 @@ module BorrowDirect
   class Authentication < Request
     attr_reader :patron_barcode, :patron_library_symbol
 
-    @@api_path = "/portal-service/user/authentication/patron"
+    @@api_path = "/portal-service/user/authentication"
 
     # BorrowDirect::Authentication.new(barcode)
     # BorrowDirect::Authentication.new(barcode, library_symbol)
     def initialize(patron_barcode, 
-                   patron_library_symbol = Defaults.library_symbol)
+                   patron_library_symbol = Defaults.library_symbol,
+                   api_key = Defaults.api_key)
       super(@@api_path)
 
       @patron_barcode = patron_barcode
       @patron_library_symbol = patron_library_symbol
+
+      @api_key = api_key
+
+      unless @api_key
+        raise ArgumentError, "BorrowDirect::Authentication requires an api key as third paramter or set in BorrowDirect::Defaults.api_key"
+      end
     end
 
     # Returns raw Hash results of the Authentication request
@@ -34,8 +41,8 @@ module BorrowDirect
     def get_auth_id
       response = authentication_request
 
-      if response["Authentication"] && response["Authentication"]["AuthnUserInfo"] && response["Authentication"]["AuthnUserInfo"]["AId"]
-        return response["Authentication"]["AuthnUserInfo"]["AId"]
+      if response["AuthorizationId"]
+        return response["AuthorizationId"]
       else
         raise BorrowDirect::Error.new("Could not obtain AId from Authorization API call: #{response.inspect}")
       end
@@ -43,10 +50,11 @@ module BorrowDirect
 
     def authentication_request_hash(patron_barcode, library_symbol)
       {
-        "AuthenticationInformation" => {
-          "LibrarySymbol" => library_symbol,
-          "PatronId" => patron_barcode
-        }
+        "ApiKey"        => @api_key,
+        "PartnershipId" => BorrowDirect::Defaults.partnership_id,
+        "UserGroup"     => "patron",
+        "LibrarySymbol" => library_symbol,
+        "PatronId"      => patron_barcode
       } 
     end
 

@@ -32,42 +32,61 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
   end
 
   it "Makes a request succesfully" do
-    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol], VCRFilter[:bd_api_key])
     response = bd.authentication_request
 
     assert_present response
-    assert_present response["Authentication"]["AuthnUserInfo"]["AId"]
+    assert_present response["AuthorizationId"]
   end
 
+
+
   it "Raises for bad library symbol" do
-    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , "BAD_SYMBOL")
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , "BAD_SYMBOL", VCRFilter[:bd_api_key])
     assert_raises(BorrowDirect::Error) do
       bd.authentication_request
     end
   end
 
   it "Raises for bad patron barcode" do
-    bd = BorrowDirect::Authentication.new("BAD_BARCODE", VCRFilter[:bd_library_symbol])
+    bd = BorrowDirect::Authentication.new("BAD_BARCODE", VCRFilter[:bd_library_symbol], VCRFilter[:bd_api_key])
     assert_raises(BorrowDirect::Error) do
       bd.authentication_request
     end
   end
 
+  it "Raises with no api_key" do
+    assert_raises(ArgumentError) do
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+    end
+  end
+
   describe "get_auth_id" do
     it "returns an auth_id for a good request" do
-      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol], VCRFilter[:bd_api_key])
       assert_present bd.get_auth_id
     end
 
+    it "returns auth_id with API key from defaults" do
+      begin
+        BorrowDirect::Defaults.api_key = VCRFilter[:bd_api_key]
+
+        bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+        assert_present bd.get_auth_id
+      rescue
+        BorrowDirect::Defaults.api_key = nil
+      end
+    end
+
     it "raises for a bad library symbol" do
-      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , "BAD_SYMBOL")
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , "BAD_SYMBOL", VCRFilter[:bd_api_key])
       assert_raises(BorrowDirect::Error) do
         bd.get_auth_id
       end
     end
 
     it "raises for a bad patron barcode" do
-      bd = BorrowDirect::Authentication.new("BAD_BARCODE", VCRFilter[:bd_library_symbol])
+      bd = BorrowDirect::Authentication.new("BAD_BARCODE", VCRFilter[:bd_library_symbol], VCRFilter[:bd_api_key])
       assert_raises(BorrowDirect::Error) do
         bd.get_auth_id
       end

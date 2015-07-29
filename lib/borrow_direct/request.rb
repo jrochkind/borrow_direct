@@ -179,6 +179,11 @@ module BorrowDirect
         return OpenStruct.new(:number => e["Problem"]["Code"], :message => e["Problem"]["Message"])
       end
 
+      # And yet another way!
+      if hash && (e = hash["Problem"])
+        return OpenStruct.new(:number => e["Code"], :message => e["Message"])
+      end
+
       return nil    
     end
   end
