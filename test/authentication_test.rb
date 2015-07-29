@@ -32,7 +32,7 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
   end
 
   it "Makes a request succesfully" do
-    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol], VCRFilter[:bd_api_key])
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
     response = bd.authentication_request
 
     assert_present response
@@ -56,8 +56,15 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
   end
 
   it "Raises with no api_key" do
-    assert_raises(ArgumentError) do
-      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+    begin
+      orig_api_key = BorrowDirect::Defaults.api_key 
+      BorrowDirect::Defaults.api_key = nil
+
+      assert_raises(ArgumentError) do
+        bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+      end
+    rescue
+      BorrowDirect::Defaults.api_key = orig_api_key      
     end
   end
 
@@ -69,12 +76,13 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
 
     it "returns auth_id with API key from defaults" do
       begin
+        orig_api_key = BorrowDirect::Defaults.api_key
         BorrowDirect::Defaults.api_key = VCRFilter[:bd_api_key]
 
         bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
         assert_present bd.get_auth_id
       rescue
-        BorrowDirect::Defaults.api_key = nil
+        BorrowDirect::Defaults.api_key = orig_api_key
       end
     end
 

@@ -62,7 +62,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 16:34:25 GMT
+      - Wed, 29 Jul 2015 17:02:29 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -75,7 +75,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 16:34:27 GMT
+      - Wed, 29 Jul 2015 17:02:30 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -87,5 +87,5 @@ http_interactions:
       string: '{"Problem":{"Code":"PUBAN003","Message":"Authentication failed[NCIP_MSG:Unknown
         User - #Unknown borrower barcode - please refer to the circulation desk.]"}}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 16:34:27 GMT
+  recorded_at: Wed, 29 Jul 2015 17:02:30 GMT
 recorded_with: VCR 2.9.3

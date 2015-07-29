@@ -61,7 +61,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 16:34:30 GMT
+      - Wed, 29 Jul 2015 17:02:32 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 16:34:31 GMT
+      - Wed, 29 Jul 2015 17:02:32 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -86,5 +86,5 @@ http_interactions:
       string: '{"ApiKeyOk":false,"Problem":{"Code":"PUBAZ006","Message":"Invalid API
         key"}}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 16:34:31 GMT
+  recorded_at: Wed, 29 Jul 2015 17:02:32 GMT
 recorded_with: VCR 2.9.3
