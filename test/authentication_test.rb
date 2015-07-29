@@ -32,7 +32,7 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
   end
 
   it "Makes a request succesfully" do
-    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+    bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol], VCRFilter[:bd_api_key])
     response = bd.authentication_request
 
     assert_present response
