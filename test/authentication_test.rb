@@ -75,15 +75,8 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
     end
 
     it "returns auth_id with API key from defaults" do
-      begin
-        orig_api_key = BorrowDirect::Defaults.api_key
-        BorrowDirect::Defaults.api_key = VCRFilter[:bd_api_key]
-
-        bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
-        assert_present bd.get_auth_id
-      rescue
-        BorrowDirect::Defaults.api_key = orig_api_key
-      end
+      bd = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+      assert_present bd.get_auth_id
     end
 
     it "raises for a bad library symbol" do
