@@ -12,33 +12,20 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
   it "raw request to verify the BD HTTP API" do
 
     # Get the auth code
-
-    auth_uri = BorrowDirect::Defaults.api_base.chomp("/") + "/portal-service/user/authentication/patron"
-    auth_hash = {
-        "AuthenticationInformation" => {
-          "LibrarySymbol" => VCRFilter[:bd_library_symbol],
-          "PatronId" => VCRFilter[:bd_patron]
-        }
-      } 
-
-    headers = { "Content-Type" => "application/json", 
-        "User-Agent" => "ruby borrow_direct gem #{BorrowDirect::VERSION} (HTTPClient #{HTTPClient::VERSION}) https://github.com/jrochkind/borrow_direct", 
-        "Accept-Language" => "en"
-      }
-    http = HTTPClient.new
-    response = http.post auth_uri, JSON.generate(auth_hash), headers
-    response_hash = JSON.parse response.body
-    auth_id = response_hash["Authentication"]["AuthnUserInfo"]["AId"]
-
+    auth_id = BorrowDirect::Authentication.new(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol]).get_auth_id
     
     # Now use it to make a RequestQuery request. Note, BD API requires
     # you to use the same User-Agent you used to receive the auth id. 
-
 
       query = {
         "aid" => auth_id,
         "type" => "open",
         "fullRecord" => "0"
+      }
+
+      headers = { "Content-Type" => "application/json",
+        "User-Agent" => "ruby borrow_direct gem #{BorrowDirect::VERSION} (HTTPClient #{HTTPClient::VERSION}) https://github.com/jrochkind/borrow_direct",
+        "Accept-Language" => "en"
       }
 
       uri = BorrowDirect::Defaults.api_base.chomp("/") + "/portal-service/request/query/my"            
@@ -52,8 +39,7 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
       response_hash = JSON.parse http_response.body
 
       assert_present response_hash
-      assert_present response_hash["QueryResult"]
-      assert_kind_of Array, response_hash["QueryResult"]["MyRequestRecords"]      
+      assert_kind_of Array, response_hash["MyRequestRecords"]
   end
 
   describe "raw request_query_request" do
@@ -63,8 +49,8 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
 
       assert_present response      
       assert_kind_of Hash, response
-      assert_present response["QueryResult"]["MyRequestRecords"]
-      assert_kind_of Array, response["QueryResult"]["MyRequestRecords"]
+      assert_present response["MyRequestRecords"]
+      assert_kind_of Array, response["MyRequestRecords"]
     end
   end
 
@@ -85,10 +71,12 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
         assert_includes [true, false], item.send(key)
       end
 
-      [:request_status_date, :date_submitted].each do |key|
-        assert_present item.send(key)
-        assert_kind_of DateTime, item.send(key)
-      end
+      # Huh, records don't seem to reliably have these, so we
+      # can't test for them, bah. 
+      #[:request_status_date, :date_submitted].each do |key|
+      #  assert_present item.send(key)
+      #  assert_kind_of DateTime, item.send(key)
+      #end
     end
 
     it "fetches full records" do

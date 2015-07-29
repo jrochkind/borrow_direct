@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
+    uri: https://bdtest.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
-      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}}'
+      string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Tue, 21 Oct 2014 17:05:47 GMT
+      - Wed, 29 Jul 2015 18:48:54 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,43 +25,31 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 21 Oct 2014 17:05:48 GMT
+      - Wed, 29 Jul 2015 18:48:55 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '269'
       Connection:
       - keep-alive
-      Set-Cookie:
-      - visited=yes
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Language:
-      - en
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store, max-age=0
     body:
-      encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"o8r15Sr0mcdZ7ZG14EUYaXpkTws","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
-        Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
+      encoding: UTF-8
+      string: '{"AuthorizationId":"ar4tjk76cI-ofeqjQ4S9-LZz2wM","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 17:05:48 GMT
+  recorded_at: Wed, 29 Jul 2015 18:48:55 GMT
 - request:
     method: get
-    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=o8r15Sr0mcdZ7ZG14EUYaXpkTws&fullRecord=1&type=all
+    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=ar4tjk76cI-ofeqjQ4S9-LZz2wM&fullRecord=1&type=all
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Tue, 21 Oct 2014 17:05:48 GMT
+      - Wed, 29 Jul 2015 18:48:55 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,408 +62,446 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 21 Oct 2014 17:05:48 GMT
+      - Wed, 29 Jul 2015 18:48:55 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '48323'
       Connection:
       - keep-alive
-      Set-Cookie:
-      - visited=yes
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Language:
-      - en
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store, max-age=0
     body:
-      encoding: US-ASCII
-      string: ! '{"QueryResult":{"MyRequestRecords":[{"RequestNumber":"JHU-99000780","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        21, 2014 01:05 PM","ISO8601DateSubmitted":"20141021130542","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        21, 2014 01:05 PM","ISO8601RequestStatusDate":"20141021130542"},{"RequestNumber":"JHU-99000779","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        21, 2014 01:05 PM","ISO8601DateSubmitted":"20141021130534","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        21, 2014 01:05 PM","ISO8601RequestStatusDate":"20141021130534"},{"RequestNumber":"JHU-99000778","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        21, 2014 01:05 PM","ISO8601DateSubmitted":"20141021130527","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        21, 2014 01:05 PM","ISO8601RequestStatusDate":"20141021130527"},{"RequestNumber":"JHU-99000777","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 06:27 PM","ISO8601DateSubmitted":"20141020182756","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:53 PM","ISO8601RequestStatusDate":"20141020185304"},{"RequestNumber":"JHU-99000776","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 06:27 PM","ISO8601DateSubmitted":"20141020182719","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:53 PM","ISO8601RequestStatusDate":"20141020185304"},{"RequestNumber":"JHU-99000775","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 06:26 PM","ISO8601DateSubmitted":"20141020182611","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:53 PM","ISO8601RequestStatusDate":"20141020185304"},{"RequestNumber":"JHU-99000774","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 06:26 PM","ISO8601DateSubmitted":"20141020182601","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:53 PM","ISO8601RequestStatusDate":"20141020185303"},{"RequestNumber":"JHU-99000773","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 06:25 PM","ISO8601DateSubmitted":"20141020182543","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:53 PM","ISO8601RequestStatusDate":"20141020185303"},{"RequestNumber":"JHU-99000772","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 06:25 PM","ISO8601DateSubmitted":"20141020182522","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:53 PM","ISO8601RequestStatusDate":"20141020185303"},{"RequestNumber":"JHU-99000771","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:54 PM","ISO8601DateSubmitted":"20141020175411","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:18 PM","ISO8601RequestStatusDate":"20141020181804"},{"RequestNumber":"JHU-99000770","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:52 PM","ISO8601DateSubmitted":"20141020175230","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:18 PM","ISO8601RequestStatusDate":"20141020181804"},{"RequestNumber":"JHU-99000769","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:52 PM","ISO8601DateSubmitted":"20141020175227","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:18 PM","ISO8601RequestStatusDate":"20141020181804"},{"RequestNumber":"JHU-99000768","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:52 PM","ISO8601DateSubmitted":"20141020175215","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 06:18 PM","ISO8601RequestStatusDate":"20141020181804"},{"RequestNumber":"JHU-99000767","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:05 PM","ISO8601DateSubmitted":"20141020170547","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 05:33 PM","ISO8601RequestStatusDate":"20141020173304"},{"RequestNumber":"JHU-99000766","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:05 PM","ISO8601DateSubmitted":"20141020170543","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 05:33 PM","ISO8601RequestStatusDate":"20141020173303"},{"RequestNumber":"JHU-99000765","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:04 PM","ISO8601DateSubmitted":"20141020170435","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 05:33 PM","ISO8601RequestStatusDate":"20141020173303"},{"RequestNumber":"JHU-99000764","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 05:03 PM","ISO8601DateSubmitted":"20141020170357","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 05:28 PM","ISO8601RequestStatusDate":"20141020172803"},{"RequestNumber":"JHU-99000763","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:45 PM","ISO8601DateSubmitted":"20141020154535","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161304"},{"RequestNumber":"JHU-99000762","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:44 PM","ISO8601DateSubmitted":"20141020154451","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161303"},{"RequestNumber":"JHU-99000761","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:44 PM","ISO8601DateSubmitted":"20141020154446","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161303"},{"RequestNumber":"JHU-99000760","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:44 PM","ISO8601DateSubmitted":"20141020154437","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 04:13 PM","ISO8601RequestStatusDate":"20141020161303"},{"RequestNumber":"JHU-99000759","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:30 PM","ISO8601DateSubmitted":"20141020153052","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 03:58 PM","ISO8601RequestStatusDate":"20141020155804"},{"RequestNumber":"JHU-99000758","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:30 PM","ISO8601DateSubmitted":"20141020153033","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 03:58 PM","ISO8601RequestStatusDate":"20141020155804"},{"RequestNumber":"JHU-99000757","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:29 PM","ISO8601DateSubmitted":"20141020152930","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 03:53 PM","ISO8601RequestStatusDate":"20141020155304"},{"RequestNumber":"JHU-99000756","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 03:29 PM","ISO8601DateSubmitted":"20141020152912","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 03:53 PM","ISO8601RequestStatusDate":"20141020155304"},{"RequestNumber":"JHU-99000755","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102836","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000754","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:28 AM","ISO8601DateSubmitted":"20141020102809","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000753","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102722","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103004"},{"RequestNumber":"JHU-99000752","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:27 AM","ISO8601DateSubmitted":"20141020102715","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:30 AM","ISO8601RequestStatusDate":"20141020103003"},{"RequestNumber":"JHU-99000751","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102451","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000750","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102442","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000749","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102434","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102504"},{"RequestNumber":"JHU-99000748","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        20, 2014 10:24 AM","ISO8601DateSubmitted":"20141020102422","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        20, 2014 10:25 AM","ISO8601RequestStatusDate":"20141020102503"},{"RequestNumber":"JHU-99000741","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 01:49 PM","ISO8601DateSubmitted":"20141016134910","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 01:50 PM","ISO8601RequestStatusDate":"20141016135003"},{"RequestNumber":"JHU-99000740","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 01:49 PM","ISO8601DateSubmitted":"20141016134902","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 01:45 PM","ISO8601RequestStatusDate":"20141016134503"},{"RequestNumber":"JHU-99000739","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 01:48 PM","ISO8601DateSubmitted":"20141016134803","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 01:45 PM","ISO8601RequestStatusDate":"20141016134503"},{"RequestNumber":"JHU-99000738","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 01:47 PM","ISO8601DateSubmitted":"20141016134757","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 01:45 PM","ISO8601RequestStatusDate":"20141016134503"},{"RequestNumber":"JHU-99000735","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 09:14 AM","ISO8601DateSubmitted":"20141016091430","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 09:15 AM","ISO8601RequestStatusDate":"20141016091503"},{"RequestNumber":"JHU-99000734","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 09:10 AM","ISO8601DateSubmitted":"20141016091035","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 09:10 AM","ISO8601RequestStatusDate":"20141016091004"},{"RequestNumber":"JHU-99000733","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 09:10 AM","ISO8601DateSubmitted":"20141016091024","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 09:10 AM","ISO8601RequestStatusDate":"20141016091004"},{"RequestNumber":"JHU-99000732","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        16, 2014 09:10 AM","ISO8601DateSubmitted":"20141016091019","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        16, 2014 09:10 AM","ISO8601RequestStatusDate":"20141016091004"},{"RequestNumber":"JHU-99000731","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:50 PM","ISO8601DateSubmitted":"20141015145040","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:50 PM","ISO8601RequestStatusDate":"20141015145004"},{"RequestNumber":"JHU-99000730","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:50 PM","ISO8601DateSubmitted":"20141015145031","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:50 PM","ISO8601RequestStatusDate":"20141015145004"},{"RequestNumber":"JHU-99000729","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:50 PM","ISO8601DateSubmitted":"20141015145019","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:50 PM","ISO8601RequestStatusDate":"20141015145004"},{"RequestNumber":"JHU-99000728","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:48 PM","ISO8601DateSubmitted":"20141015144842","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000727","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:48 PM","ISO8601DateSubmitted":"20141015144837","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000726","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:48 PM","ISO8601DateSubmitted":"20141015144829","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000725","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:47 PM","ISO8601DateSubmitted":"20141015144742","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000724","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:47 PM","ISO8601DateSubmitted":"20141015144737","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000723","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 02:47 PM","ISO8601DateSubmitted":"20141015144724","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 02:45 PM","ISO8601RequestStatusDate":"20141015144504"},{"RequestNumber":"JHU-99000722","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 01:58 PM","ISO8601DateSubmitted":"20141015135828","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 01:55 PM","ISO8601RequestStatusDate":"20141015135503"},{"RequestNumber":"JHU-99000721","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 01:57 PM","ISO8601DateSubmitted":"20141015135724","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 01:55 PM","ISO8601RequestStatusDate":"20141015135503"},{"RequestNumber":"JHU-99000720","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        15, 2014 01:57 PM","ISO8601DateSubmitted":"20141015135717","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        15, 2014 01:55 PM","ISO8601RequestStatusDate":"20141015135503"},{"RequestNumber":"JHU-99000719","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:53 PM","ISO8601DateSubmitted":"20141014155353","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:50 PM","ISO8601RequestStatusDate":"20141014155004"},{"RequestNumber":"JHU-99000718","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:43 PM","ISO8601DateSubmitted":"20141014154313","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:40 PM","ISO8601RequestStatusDate":"20141014154004"},{"RequestNumber":"JHU-99000717","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:38 PM","ISO8601DateSubmitted":"20141014153820","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:35 PM","ISO8601RequestStatusDate":"20141014153504"},{"RequestNumber":"JHU-99000716","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:34 PM","ISO8601DateSubmitted":"20141014153457","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:35 PM","ISO8601RequestStatusDate":"20141014153503"},{"RequestNumber":"JHU-99000715","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:33 PM","ISO8601DateSubmitted":"20141014153336","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:30 PM","ISO8601RequestStatusDate":"20141014153003"},{"RequestNumber":"JHU-99000714","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:19 PM","ISO8601DateSubmitted":"20141014151913","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:20 PM","ISO8601RequestStatusDate":"20141014152003"},{"RequestNumber":"JHU-99000713","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:07 PM","ISO8601DateSubmitted":"20141014150736","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:05 PM","ISO8601RequestStatusDate":"20141014150503"},{"RequestNumber":"JHU-99000712","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 03:06 PM","ISO8601DateSubmitted":"20141014150642","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 03:05 PM","ISO8601RequestStatusDate":"20141014150503"},{"RequestNumber":"JHU-99000711","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 01:18 PM","ISO8601DateSubmitted":"20141014131827","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 01:15 PM","ISO8601RequestStatusDate":"20141014131504"},{"RequestNumber":"JHU-99000710","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 01:17 PM","ISO8601DateSubmitted":"20141014131748","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 01:15 PM","ISO8601RequestStatusDate":"20141014131504"},{"RequestNumber":"JHU-99000709","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 01:04 PM","ISO8601DateSubmitted":"20141014130429","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 01:05 PM","ISO8601RequestStatusDate":"20141014130503"},{"RequestNumber":"JHU-99000708","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 01:03 PM","ISO8601DateSubmitted":"20141014130353","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 01:00 PM","ISO8601RequestStatusDate":"20141014130003"},{"RequestNumber":"JHU-99000707","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:51 PM","ISO8601DateSubmitted":"20141014125109","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:50 PM","ISO8601RequestStatusDate":"20141014125003"},{"RequestNumber":"JHU-99000706","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:50 PM","ISO8601DateSubmitted":"20141014125030","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:50 PM","ISO8601RequestStatusDate":"20141014125003"},{"RequestNumber":"JHU-99000705","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:35 PM","ISO8601DateSubmitted":"20141014123553","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:35 PM","ISO8601RequestStatusDate":"20141014123503"},{"RequestNumber":"JHU-99000704","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:35 PM","ISO8601DateSubmitted":"20141014123507","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:35 PM","ISO8601RequestStatusDate":"20141014123503"},{"RequestNumber":"JHU-99000703","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:11 PM","ISO8601DateSubmitted":"20141014121109","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:10 PM","ISO8601RequestStatusDate":"20141014121004"},{"RequestNumber":"JHU-99000702","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:10 PM","ISO8601DateSubmitted":"20141014121045","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:10 PM","ISO8601RequestStatusDate":"20141014121004"},{"RequestNumber":"JHU-99000701","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:01 PM","ISO8601DateSubmitted":"20141014120135","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:00 PM","ISO8601RequestStatusDate":"20141014120004"},{"RequestNumber":"JHU-99000700","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 12:01 PM","ISO8601DateSubmitted":"20141014120111","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 12:00 PM","ISO8601RequestStatusDate":"20141014120004"},{"RequestNumber":"JHU-99000699","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:52 AM","ISO8601DateSubmitted":"20141014115216","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:50 AM","ISO8601RequestStatusDate":"20141014115004"},{"RequestNumber":"JHU-99000698","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:51 AM","ISO8601DateSubmitted":"20141014115134","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:50 AM","ISO8601RequestStatusDate":"20141014115003"},{"RequestNumber":"JHU-99000697","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:16 AM","ISO8601DateSubmitted":"20141014111651","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:15 AM","ISO8601RequestStatusDate":"20141014111504"},{"RequestNumber":"JHU-99000696","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:15 AM","ISO8601DateSubmitted":"20141014111541","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:15 AM","ISO8601RequestStatusDate":"20141014111504"},{"RequestNumber":"JHU-99000695","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:11 AM","ISO8601DateSubmitted":"20141014111110","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:10 AM","ISO8601RequestStatusDate":"20141014111004"},{"RequestNumber":"JHU-99000694","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:10 AM","ISO8601DateSubmitted":"20141014111020","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:10 AM","ISO8601RequestStatusDate":"20141014111004"},{"RequestNumber":"JHU-99000693","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 11:04 AM","ISO8601DateSubmitted":"20141014110422","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:05 AM","ISO8601RequestStatusDate":"20141014110504"},{"RequestNumber":"JHU-99000692","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:59 AM","ISO8601DateSubmitted":"20141014105920","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 11:00 AM","ISO8601RequestStatusDate":"20141014110004"},{"RequestNumber":"JHU-99000691","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:56 AM","ISO8601DateSubmitted":"20141014105638","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:55 AM","ISO8601RequestStatusDate":"20141014105504"},{"RequestNumber":"JHU-99000690","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:54 AM","ISO8601DateSubmitted":"20141014105455","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:55 AM","ISO8601RequestStatusDate":"20141014105504"},{"RequestNumber":"JHU-99000689","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:54 AM","ISO8601DateSubmitted":"20141014105410","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:55 AM","ISO8601RequestStatusDate":"20141014105504"},{"RequestNumber":"JHU-99000688","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:53 AM","ISO8601DateSubmitted":"20141014105312","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:50 AM","ISO8601RequestStatusDate":"20141014105004"},{"RequestNumber":"JHU-99000687","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:52 AM","ISO8601DateSubmitted":"20141014105241","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:50 AM","ISO8601RequestStatusDate":"20141014105004"},{"RequestNumber":"JHU-99000686","Title":"SIKAP
-        ANARKISTIS DAN TINDAK KEKERASAN MASYARAKAT DALAM IKLIM DEMOKRASI","DateSubmitted":"Oct
-        14, 2014 10:50 AM","ISO8601DateSubmitted":"20141014105029","Publisher":"Pusat
-        Penelitian Kemasyarakatan dan Kebudayaan, Lembaga Ilmu Pengetahuan Indonesia","PublicationType":"B","PublicationDate":"2009","PublicationPlace":"Jakarta","Isbn":"9789797994860","Isbn2":"9797994864","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:50 AM","ISO8601RequestStatusDate":"20141014105004"},{"RequestNumber":"JHU-99000685","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:46 AM","ISO8601DateSubmitted":"20141014104621","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:45 AM","ISO8601RequestStatusDate":"20141014104504"},{"RequestNumber":"JHU-99000684","Title":"A
-        TRIBUTE TO FOO CHEE SAN : MOMENTS AND MILESTONES","DateSubmitted":"Oct 14,
-        2014 10:36 AM","ISO8601DateSubmitted":"20141014103635","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:35 AM","ISO8601RequestStatusDate":"20141014103504"},{"RequestNumber":"JHU-99000683","Title":"A
-        TRIBUTE TO FOO CHEE SAN : MOMENTS AND MILESTONES","DateSubmitted":"Oct 14,
-        2014 10:36 AM","ISO8601DateSubmitted":"20141014103616","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:35 AM","ISO8601RequestStatusDate":"20141014103503"},{"RequestNumber":"JHU-99000682","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:25 AM","ISO8601DateSubmitted":"20141014102547","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:25 AM","ISO8601RequestStatusDate":"20141014102503"},{"RequestNumber":"JHU-99000681","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:11 AM","ISO8601DateSubmitted":"20141014101135","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:10 AM","ISO8601RequestStatusDate":"20141014101003"},{"RequestNumber":"JHU-99000680","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:10 AM","ISO8601DateSubmitted":"20141014101031","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:10 AM","ISO8601RequestStatusDate":"20141014101003"},{"RequestNumber":"JHU-99000679","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:06 AM","ISO8601DateSubmitted":"20141014100642","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100504"},{"RequestNumber":"JHU-99000678","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:06 AM","ISO8601DateSubmitted":"20141014100619","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100503"},{"RequestNumber":"JHU-99000677","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Oct 14, 2014 10:04 AM","ISO8601DateSubmitted":"20141014100426","Publisher":"Nanyang
-        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Oct
-        14, 2014 10:05 AM","ISO8601RequestStatusDate":"20141014100503"},{"RequestNumber":"JHU-99000401","Title":"BAD
-        MONKEY","Author":"Hiaasen, Carl","DateSubmitted":"Apr 10, 2014 10:06 AM","ISO8601DateSubmitted":"20140410100651","DueDate":"Apr
-        14, 2014 03:41 PM","ISO8601DueDate":"20140414154107","Publisher":"Knopf","PublicationType":"B","PublicationDate":"2013","PublicationPlace":"New
-        York","Edition":"First edition","Isbn":"9780307272591","Isbn2":"0307272591","AllowRenew":false,"AllowCancel":false,"RequestStatus":"COMPLETE","RequestStatusDate":"Apr
-        15, 2014 12:52 PM","ISO8601RequestStatusDate":"20140415125223"}]}}'
+      encoding: UTF-8
+      string: '{"MyRequestRecordOverflow":true,"MyRequestRecords":[{"RequestNumber":"JHU-99003093","Title":"A
+        FEMINIST GLOSSARY OF HUMAN GEOGRAPHY","DateSubmitted":"Jun 27, 2015 03:08
+        PM","ISO8601DateSubmitted":"20150627150856","Publisher":"Arnold","PublicationType":"B","PublicationDate":"1999","PublicationPlace":"London
+        ;","Isbn":"0340706597","Isbn2":"0340706597","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jun
+        27, 2015 03:10 PM","ISO8601RequestStatusDate":"20150627151004"},{"RequestNumber":"JHU-99002540","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 14, 2015
+        01:44 PM","ISO8601DateSubmitted":"20150414134437","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        14, 2015 01:45 PM","ISO8601RequestStatusDate":"20150414134503"},{"RequestNumber":"JHU-99002539","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 14, 2015
+        01:35 PM","ISO8601DateSubmitted":"20150414133556","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        14, 2015 01:40 PM","ISO8601RequestStatusDate":"20150414134004"},{"RequestNumber":"JHU-99002537","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 13, 2015
+        05:47 PM","ISO8601DateSubmitted":"20150413174726","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        13, 2015 05:50 PM","ISO8601RequestStatusDate":"20150413175003"},{"RequestNumber":"JHU-99002536","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 13, 2015
+        03:12 PM","ISO8601DateSubmitted":"20150413151239","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        13, 2015 03:15 PM","ISO8601RequestStatusDate":"20150413151503"},{"RequestNumber":"JHU-99002531","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Apr 06, 2015 02:19
+        PM","ISO8601DateSubmitted":"20150406141919","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        07, 2015 04:04 PM","ISO8601RequestStatusDate":"20150407160401"},{"RequestNumber":"JHU-99001118","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Apr 01, 2015 12:01
+        PM","ISO8601DateSubmitted":"20150401120115","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        01, 2015 12:05 PM","ISO8601RequestStatusDate":"20150401120504"},{"RequestNumber":"JHU-99001117","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 01, 2015
+        11:06 AM","ISO8601DateSubmitted":"20150401110603","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        01, 2015 11:10 AM","ISO8601RequestStatusDate":"20150401111004"},{"RequestNumber":"JHU-99001116","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 01, 2015
+        10:54 AM","ISO8601DateSubmitted":"20150401105422","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        01, 2015 10:55 AM","ISO8601RequestStatusDate":"20150401105504"},{"RequestNumber":"JHU-99001115","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 01, 2015
+        10:49 AM","ISO8601DateSubmitted":"20150401104954","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        01, 2015 10:50 AM","ISO8601RequestStatusDate":"20150401105004"},{"RequestNumber":"JHU-99001114","Title":"REVOLUTION
+        AND EVOLUTION IN THE TWENTIETH CENTURY","Author":"Boggs, James","DateSubmitted":"Mar
+        30, 2015 08:28 PM","ISO8601DateSubmitted":"20150330202811","Publisher":"Monthly
+        Review Press","PublicationType":"B","PublicationDate":"1974","PublicationPlace":"New
+        York","Isbn":"0853453225","Isbn2":"0853453225","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        30, 2015 08:30 PM","ISO8601RequestStatusDate":"20150330203003"},{"RequestNumber":"JHU-99001113","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 30, 2015 02:03
+        PM","ISO8601DateSubmitted":"20150330140317","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300128789 (ELECT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        30, 2015 02:05 PM","ISO8601RequestStatusDate":"20150330140503"},{"RequestNumber":"JHU-99001111","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 30, 2015 11:11
+        AM","ISO8601DateSubmitted":"20150330111131","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300128789 (ELECT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"IN_PROCESS"},{"RequestNumber":"JHU-99001110","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 30, 2015 11:10
+        AM","ISO8601DateSubmitted":"20150330111053","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300128789 (ELECT","Isbn2":"9780300128789 (EL","AllowRenew":false,"AllowCancel":true,"RequestStatus":"IN_PROCESS"},{"RequestNumber":"JHU-99001077","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 25, 2015 03:17
+        PM","ISO8601DateSubmitted":"20150325151707","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        25, 2015 03:20 PM","ISO8601RequestStatusDate":"20150325152004"},{"RequestNumber":"JHU-99001076","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 25, 2015 02:34
+        PM","ISO8601DateSubmitted":"20150325143452","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        25, 2015 02:35 PM","ISO8601RequestStatusDate":"20150325143503"},{"RequestNumber":"JHU-99001068","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 23, 2015 12:19
+        PM","ISO8601DateSubmitted":"20150323121905","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300128789 (ELECT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        23, 2015 12:20 PM","ISO8601RequestStatusDate":"20150323122003"},{"RequestNumber":"JHU-99001067","Title":"RETHINKING
+        DEMOCRATIC ACCOUNTABILITY","Author":"Behn, Robert D","DateSubmitted":"Mar
+        21, 2015 02:13 PM","ISO8601DateSubmitted":"20150321141344","Publisher":"Brookings
+        Institution Press","PublicationType":"B","PublicationDate":"c2001","PublicationPlace":"Washington,
+        D.C","Isbn":"0815708629 (CLOTH","Isbn2":"0815708610 (PBK.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        21, 2015 02:15 PM","ISO8601RequestStatusDate":"20150321141504"},{"RequestNumber":"JHU-99001066","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 19, 2015 05:00
+        PM","ISO8601DateSubmitted":"20150319170010","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300128789 (ELECT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        19, 2015 05:00 PM","ISO8601RequestStatusDate":"20150319170004"},{"RequestNumber":"JHU-99001051","Title":"ET
+        TU, BABE","Author":"Leyner, Mark","DateSubmitted":"Mar 18, 2015 07:45 PM","ISO8601DateSubmitted":"20150318194501","Publisher":"Vintage
+        Books","PublicationType":"B","PublicationDate":"1993","PublicationPlace":"New
+        York","Edition":"1st Vintage contempo","Isbn":"0679745068","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99001050","Title":"ON NATURE AND
+        LANGUAGE","Author":"Chomsky, Noam","DateSubmitted":"Mar 18, 2015 05:29 PM","ISO8601DateSubmitted":"20150318172919","Publisher":"Cambridge
+        University Press","PublicationType":"B","PublicationDate":"2002","PublicationPlace":"Cambridge
+        ;","Isbn":"0521815487","Isbn2":"052101624X (PB.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        18, 2015 05:30 PM","ISO8601RequestStatusDate":"20150318173004"},{"RequestNumber":"JHU-99001048","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 18, 2015 02:19
+        PM","ISO8601DateSubmitted":"20150318141928","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300128789 (ELECT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        18, 2015 02:20 PM","ISO8601RequestStatusDate":"20150318142003"},{"RequestNumber":"JHU-99001047","Title":"SEEING
+        THROUGH RACE","Author":"Berger, Martin A","DateSubmitted":"Mar 18, 2015 02:07
+        PM","ISO8601DateSubmitted":"20150318140738","Publisher":"University of California
+        Press","PublicationType":"B","PublicationDate":"c2011","PublicationPlace":"Berkeley","Isbn":"9780520268630
+        (CL","Isbn2":"0520268636 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        18, 2015 02:10 PM","ISO8601RequestStatusDate":"20150318141003"},{"RequestNumber":"JHU-99001046","Title":"THE
+        DEVELOPMENT READER","Author":"Chari, Sharad","DateSubmitted":"Mar 18, 2015
+        02:06 PM","ISO8601DateSubmitted":"20150318140611","Publisher":"Routledge","PublicationType":"B","PublicationDate":"2008","PublicationPlace":"London
+        ;","Isbn":"9780415415040 (HA","Isbn2":"9780415415057 (SO","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        18, 2015 02:10 PM","ISO8601RequestStatusDate":"20150318141003"},{"RequestNumber":"JHU-99001042","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 18, 2015 12:34
+        PM","ISO8601DateSubmitted":"20150318123404","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","Isbn2":"0300128789 (ELECT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        18, 2015 12:35 PM","ISO8601RequestStatusDate":"20150318123504"},{"RequestNumber":"JHU-99001039","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Mar 17, 2015
+        04:14 PM","ISO8601DateSubmitted":"20150317161449","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        17, 2015 04:15 PM","ISO8601RequestStatusDate":"20150317161504"},{"RequestNumber":"JHU-99001035","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 16, 2015 12:52
+        PM","ISO8601DateSubmitted":"20150316125211","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300128789 (ELECT","Isbn2":"9780300128789 (EL","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        16, 2015 12:55 PM","ISO8601RequestStatusDate":"20150316125503"},{"RequestNumber":"JHU-99001034","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Mar 16, 2015
+        12:49 PM","ISO8601DateSubmitted":"20150316124954","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        16, 2015 12:50 PM","ISO8601RequestStatusDate":"20150316125003"},{"RequestNumber":"JHU-99001026","Title":"LOST
+        FATHERS","DateSubmitted":"Mar 08, 2015 06:35 PM","ISO8601DateSubmitted":"20150308183556","Publisher":"St.
+        Martins Press","PublicationType":"B","PublicationDate":"1998","PublicationPlace":"New
+        York","Edition":"1st ed","Isbn":"0312211074","Isbn2":"0312224710 (PBK.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
+        08, 2015 06:40 PM","ISO8601RequestStatusDate":"20150308184004"},{"RequestNumber":"JHU-99001012","Title":"MEDICAL
+        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
+        26, 2015 12:56 PM","ISO8601DateSubmitted":"20150226125601","Publisher":"ASQ
+        Quality Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Milwaukee,
+        Wis","Isbn":"9780873898164 (HB","Isbn2":"0873898168 (HBK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        26, 2015 01:00 PM","ISO8601RequestStatusDate":"20150226130004"},{"RequestNumber":"JHU-99001011","Title":"MEDICAL
+        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
+        26, 2015 12:51 PM","ISO8601DateSubmitted":"20150226125105","Publisher":"ASQ
+        Quality Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Milwaukee,
+        Wis","Isbn":"9780873898164 (HB","Isbn2":"0873898168 (HBK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        26, 2015 12:55 PM","ISO8601RequestStatusDate":"20150226125504"},{"RequestNumber":"JHU-99001007","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
+        03:58 PM","ISO8601DateSubmitted":"20150224155826","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 04:00 PM","ISO8601RequestStatusDate":"20150224160003"},{"RequestNumber":"JHU-99001006","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
+        03:55 PM","ISO8601DateSubmitted":"20150224155529","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1987","PublicationPlace":"New
+        York","Edition":"1st ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155504"},{"RequestNumber":"JHU-99001005","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
+        03:55 PM","ISO8601DateSubmitted":"20150224155513","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155504"},{"RequestNumber":"JHU-99001004","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
+        03:54 PM","ISO8601DateSubmitted":"20150224155459","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155503"},{"RequestNumber":"JHU-99001003","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
+        03:52 PM","ISO8601DateSubmitted":"20150224155255","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155503"},{"RequestNumber":"JHU-99001002","Title":"MEDICAL
+        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
+        24, 2015 03:42 PM","ISO8601DateSubmitted":"20150224154200","Publisher":"ASQ
+        Quality Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Milwaukee,
+        Wis","Isbn":"9780873898164 (HB","Isbn2":"0873898168 (HBK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 03:45 PM","ISO8601RequestStatusDate":"20150224154504"},{"RequestNumber":"JHU-99001001","Title":"THE
+        ESSENTIAL CHOMSKY","Author":"Chomsky, Noam","DateSubmitted":"Feb 23, 2015
+        10:12 PM","ISO8601DateSubmitted":"20150223221244","Publisher":"New Press","PublicationType":"B","PublicationDate":"2008","PublicationPlace":"New
+        York","Isbn":"9781595583222 (HB","Isbn2":"159558322X (HBK.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 05:00 AM","ISO8601RequestStatusDate":"20150224050004"},{"RequestNumber":"JHU-99001000","Title":"THE
+        ESSENTIAL CHOMSKY","Author":"Chomsky, Noam","DateSubmitted":"Feb 23, 2015
+        10:10 PM","ISO8601DateSubmitted":"20150223221012","Publisher":"New Press","PublicationType":"B","PublicationDate":"2008","PublicationPlace":"New
+        York","Isbn":"9781595581891 (PB","Isbn2":"1595581898 (PBK.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        24, 2015 05:00 AM","ISO8601RequestStatusDate":"20150224050004"},{"RequestNumber":"JHU-99000999","Title":"MEDICAL
+        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
+        23, 2015 04:24 PM","ISO8601DateSubmitted":"20150223162427","Publisher":"ASQ
+        Quality Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Milwaukee,
+        Wis","Isbn":"9780873898164 (HB","Isbn2":"0873898168 (HBK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        23, 2015 04:25 PM","ISO8601RequestStatusDate":"20150223162504"},{"RequestNumber":"JHU-99000998","Title":"MEDICAL
+        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
+        23, 2015 04:12 PM","ISO8601DateSubmitted":"20150223161214","Publisher":"ASQ
+        Quality Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Milwaukee,
+        Wis","Isbn":"9780873898164 (HB","Isbn2":"0873898168 (HBK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        23, 2015 04:15 PM","ISO8601RequestStatusDate":"20150223161503"},{"RequestNumber":"JHU-99000995","Title":"MEDICAL
+        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
+        23, 2015 12:41 PM","ISO8601DateSubmitted":"20150223124118","Publisher":"ASQ
+        Quality Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Milwaukee,
+        Wis","Isbn":"9780873898164 (HB","Isbn2":"0873898168 (HBK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        23, 2015 12:45 PM","ISO8601RequestStatusDate":"20150223124504"},{"RequestNumber":"JHU-99000983","Title":"THE
+        DEVELOPMENT READER","Author":"Chari, Sharad","DateSubmitted":"Feb 19, 2015
+        12:04 PM","ISO8601DateSubmitted":"20150219120448","Publisher":"Routledge","PublicationType":"B","PublicationDate":"2008","PublicationPlace":"London
+        ;","Isbn":"9780415415040 (HA","Isbn2":"9780415415057 (SO","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        19, 2015 12:05 PM","ISO8601RequestStatusDate":"20150219120504"},{"RequestNumber":"JHU-99000982","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 18, 2015
+        09:42 PM","ISO8601DateSubmitted":"20150218214223","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        18, 2015 09:45 PM","ISO8601RequestStatusDate":"20150218214503"},{"RequestNumber":"JHU-99000971","Title":"BLACK
+        BLIZZARD","Author":"Tatsumi, Yoshihiro","DateSubmitted":"Feb 13, 2015 10:14
+        AM","ISO8601DateSubmitted":"20150213101459","Publisher":"Drawn & Quarterly
+        ;","PublicationType":"B","PublicationDate":"2010","PublicationPlace":"Montréal","Edition":"1st
+        ed","Isbn":"9781770460126","Isbn2":"1770460128","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        13, 2015 10:15 AM","ISO8601RequestStatusDate":"20150213101503"},{"RequestNumber":"JHU-99000970","Title":"BLACK
+        BLIZZARD","Author":"Tatsumi, Yoshihiro","DateSubmitted":"Feb 13, 2015 10:14
+        AM","ISO8601DateSubmitted":"20150213101445","Publisher":"Drawn & Quarterly
+        ;","PublicationType":"B","PublicationDate":"2010","PublicationPlace":"Montréal","Edition":"1st
+        ed","Isbn":"9781770460126","Isbn2":"1770460128","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        13, 2015 10:15 AM","ISO8601RequestStatusDate":"20150213101503"},{"RequestNumber":"JHU-99000956","Title":"BLACK
+        BLIZZARD","Author":"Tatsumi, Yoshihiro","DateSubmitted":"Feb 12, 2015 02:06
+        PM","ISO8601DateSubmitted":"20150212140618","Publisher":"Drawn & Quarterly
+        ;","PublicationType":"B","PublicationDate":"2010","PublicationPlace":"Montréal","Edition":"1st
+        ed","Isbn":"9781770460126","Isbn2":"1770460128","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        12, 2015 02:10 PM","ISO8601RequestStatusDate":"20150212141003"},{"RequestNumber":"JHU-99000949","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 11:01 AM","ISO8601DateSubmitted":"20150212110103","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        12, 2015 11:05 AM","ISO8601RequestStatusDate":"20150212110504"},{"RequestNumber":"JHU-99000948","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 10:57 AM","ISO8601DateSubmitted":"20150212105749","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        12, 2015 11:00 AM","ISO8601RequestStatusDate":"20150212110004"},{"RequestNumber":"JHU-99000947","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 10:51 AM","ISO8601DateSubmitted":"20150212105148","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        12, 2015 10:55 AM","ISO8601RequestStatusDate":"20150212105504"},{"RequestNumber":"JHU-99000946","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 10:34 AM","ISO8601DateSubmitted":"20150212103437","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        12, 2015 10:35 AM","ISO8601RequestStatusDate":"20150212103504"},{"RequestNumber":"JHU-99000943","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 05, 2015
+        10:11 AM","ISO8601DateSubmitted":"20150205101139","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        05, 2015 10:15 AM","ISO8601RequestStatusDate":"20150205101504"},{"RequestNumber":"JHU-99000942","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 04, 2015
+        04:39 PM","ISO8601DateSubmitted":"20150204163952","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        04, 2015 04:40 PM","ISO8601RequestStatusDate":"20150204164004"},{"RequestNumber":"JHU-99000941","Title":"THE
+        WESTERN ILLUSION OF HUMAN NATURE","Author":"Sahlins, Marshall David","DateSubmitted":"Feb
+        04, 2015 10:57 AM","ISO8601DateSubmitted":"20150204105752","Publisher":"Prickly
+        Paradigm Press","PublicationType":"B","PublicationDate":"c2008","PublicationPlace":"Chicago,
+        Il","Isbn":"9780979405723 (PB","Isbn2":"0979405726 (PBK.","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000940","Title":"THE WESTERN
+        ILLUSION OF HUMAN NATURE","Author":"Sahlins, Marshall David","DateSubmitted":"Feb
+        04, 2015 10:51 AM","ISO8601DateSubmitted":"20150204105104","Publisher":"Prickly
+        Paradigm Press","PublicationType":"B","PublicationDate":"c2008","PublicationPlace":"Chicago,
+        Il","Isbn":"9780979405723 (PB","Isbn2":"0979405726 (PBK.","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000939","Title":"PEOPLE WITHOUT
+        GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03, 2015 04:58
+        PM","ISO8601DateSubmitted":"20150203165844","Publisher":"Kahn & Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161 (KAHN","Isbn2":"0939306093 (LEFT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 05:00 PM","ISO8601RequestStatusDate":"20150203170004"},{"RequestNumber":"JHU-99000938","Title":"PEOPLE
+        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
+        2015 04:56 PM","ISO8601DateSubmitted":"20150203165647","Publisher":"Kahn &
+        Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161","Isbn2":"0939306093 (US)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 05:00 PM","ISO8601RequestStatusDate":"20150203170004"},{"RequestNumber":"JHU-99000937","Title":"PEOPLE
+        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
+        2015 04:49 PM","ISO8601DateSubmitted":"20150203164938","Publisher":"Kahn &
+        Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161","Isbn2":"0939306093 (US)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 04:50 PM","ISO8601RequestStatusDate":"20150203165004"},{"RequestNumber":"JHU-99000936","Title":"PEOPLE
+        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
+        2015 03:30 PM","ISO8601DateSubmitted":"20150203153057","Publisher":"Kahn &
+        Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161 (KAHN","Isbn2":"0939306093 (LEFT","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 03:35 PM","ISO8601RequestStatusDate":"20150203153504"},{"RequestNumber":"JHU-99000935","Title":"PEOPLE
+        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
+        2015 03:26 PM","ISO8601DateSubmitted":"20150203152653","Publisher":"Kahn &
+        Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161","Isbn2":"0939306093 (US)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 03:30 PM","ISO8601RequestStatusDate":"20150203153004"},{"RequestNumber":"JHU-99000934","Title":"PEOPLE
+        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
+        2015 02:45 PM","ISO8601DateSubmitted":"20150203144532","Publisher":"Kahn &
+        Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161","Isbn2":"0939306093 (US)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 02:50 PM","ISO8601RequestStatusDate":"20150203145003"},{"RequestNumber":"JHU-99000933","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Feb 03, 2015 02:23 PM","ISO8601DateSubmitted":"20150203142350","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000932","Title":"A TRIBUTE TO
+        FOO CHEE SAN","DateSubmitted":"Feb 03, 2015 02:23 PM","ISO8601DateSubmitted":"20150203142341","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000931","Title":"PEOPLE WITHOUT
+        GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03, 2015 12:15
+        PM","ISO8601DateSubmitted":"20150203121525","Publisher":"Kahn & Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161","Isbn2":"0939306093 (US)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 12:20 PM","ISO8601RequestStatusDate":"20150203122003"},{"RequestNumber":"JHU-99000930","Title":"PEOPLE
+        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
+        2015 12:08 PM","ISO8601DateSubmitted":"20150203120858","Publisher":"Kahn &
+        Averill ;","PublicationType":"B","PublicationDate":"1990","PublicationPlace":"London","Edition":"Completely
+        rev. ed","Isbn":"1871082161","Isbn2":"0939306093 (US)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        03, 2015 12:10 PM","ISO8601RequestStatusDate":"20150203121003"},{"RequestNumber":"JHU-99000929","Title":"ANARCHY
+        IN ACTION","Author":"Ward, Colin","DateSubmitted":"Feb 02, 2015 06:22 PM","ISO8601DateSubmitted":"20150202182216","Publisher":"Allen
+        and Unwin","PublicationType":"B","PublicationDate":"1973","PublicationPlace":"London","Isbn":"0043210155","Isbn2":"0043210163
+        (PBK.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        02, 2015 06:25 PM","ISO8601RequestStatusDate":"20150202182503"},{"RequestNumber":"JHU-99000928","Title":"THE
+        WESTERN ILLUSION OF HUMAN NATURE","Author":"Sahlins, Marshall David","DateSubmitted":"Feb
+        02, 2015 06:18 PM","ISO8601DateSubmitted":"20150202181820","Publisher":"Prickly
+        Paradigm Press","PublicationType":"B","PublicationDate":"c2008","PublicationPlace":"Chicago,
+        Il","Isbn":"9780979405723 (PB","Isbn2":"0979405726 (PBK.","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000927","Title":"SEEING LIKE
+        A STATE","Author":"Scott, James C","DateSubmitted":"Feb 02, 2015 06:04 PM","ISO8601DateSubmitted":"20150202180442","Publisher":"Yale
+        University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        02, 2015 06:05 PM","ISO8601RequestStatusDate":"20150202180504"},{"RequestNumber":"JHU-99000924","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Feb 02, 2015 11:53
+        AM","ISO8601DateSubmitted":"20150202115351","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        02, 2015 11:55 AM","ISO8601RequestStatusDate":"20150202115504"},{"RequestNumber":"JHU-99000923","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Feb 02, 2015 11:53
+        AM","ISO8601DateSubmitted":"20150202115310","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300070160 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        02, 2015 11:55 AM","ISO8601RequestStatusDate":"20150202115504"},{"RequestNumber":"JHU-99000921","Title":"TAHRIR
+        SQUARE","Author":"Grn̲dahl, Mia","DateSubmitted":"Feb 02, 2015 09:30 AM","ISO8601DateSubmitted":"20150202093008","Publisher":"American
+        University in Cairo Press","PublicationType":"B","PublicationDate":"2011","PublicationPlace":"Cairo
+        ;","Isbn":"9789774165115 (PB","Isbn2":"977416511X (PBK.)","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
+        02, 2015 09:30 AM","ISO8601RequestStatusDate":"20150202093004"},{"RequestNumber":"JHU-99000914","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 11:49 AM","ISO8601DateSubmitted":"20150126114927","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        26, 2015 11:50 AM","ISO8601RequestStatusDate":"20150126115004"},{"RequestNumber":"JHU-99000913","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 11:48 AM","ISO8601DateSubmitted":"20150126114842","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        26, 2015 11:50 AM","ISO8601RequestStatusDate":"20150126115004"},{"RequestNumber":"JHU-99000912","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 11:46 AM","ISO8601DateSubmitted":"20150126114621","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        26, 2015 11:45 AM","ISO8601RequestStatusDate":"20150126114503"},{"RequestNumber":"JHU-99000909","Title":"THE
+        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 10:40 AM","ISO8601DateSubmitted":"20150126104022","Publisher":"Carolina
+        Academic Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"Durham,
+        N.C","Isbn":"9781594606458 (AL","Isbn2":"1594606455 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        26, 2015 10:40 AM","ISO8601RequestStatusDate":"20150126104004"},{"RequestNumber":"JHU-99000901","Title":"SEEING
+        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Jan 21, 2015 01:32
+        PM","ISO8601DateSubmitted":"20150121133258","Publisher":"Yale University Press","PublicationType":"B","PublicationDate":"c1998","PublicationPlace":"New
+        Haven","Isbn":"0300128789 (ELECT","Isbn2":"9780300128789 (EL","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000898","Title":"ANARCHISM;
+        FROM THEORY TO PRACTICE","Author":"Gu©♭rin, Daniel","DateSubmitted":"Jan 20,
+        2015 09:01 PM","ISO8601DateSubmitted":"20150120210159","Publisher":"Monthly
+        Review Press","PublicationType":"B","PublicationDate":"1970","PublicationPlace":"New
+        York","Isbn":"0853451281","Isbn2":"0853451753 (PBK.)","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000896","Title":"A TRIBUTE TO
+        FOO CHEE SAN","DateSubmitted":"Jan 14, 2015 04:00 PM","ISO8601DateSubmitted":"20150114160029","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000895","Title":"WE WILL SHOOT
+        BACK","Author":"Umoja, Akinyele Omowale","DateSubmitted":"Jan 13, 2015 08:14
+        PM","ISO8601DateSubmitted":"20150113201402","PublicationType":"B","Isbn":"9780814725245
+        (CL","Isbn2":"0814725244 (CL :","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        13, 2015 08:15 PM","ISO8601RequestStatusDate":"20150113201504"},{"RequestNumber":"JHU-99000890","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Jan 08, 2015
+        10:20 AM","ISO8601DateSubmitted":"20150108102023","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        08, 2015 10:25 AM","ISO8601RequestStatusDate":"20150108102504"},{"RequestNumber":"JHU-99000880","Title":"CLOUDS
+        THICK, WHEREABOUTS UNKNOWN","DateSubmitted":"Dec 22, 2014 03:41 PM","ISO8601DateSubmitted":"20141222154129","Publisher":"Columbia
+        University Press","PublicationType":"B","PublicationDate":"c2010","PublicationPlace":"New
+        York","Isbn":"9780231150385 (CL","Isbn2":"0231150385 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
+        05, 2015 02:40 PM","ISO8601RequestStatusDate":"20150105144004"},{"RequestNumber":"JHU-99000878","Title":"MONKEY
+        HUNTING","Author":"Garca̕, Cristina","DateSubmitted":"Dec 15, 2014 12:23 PM","ISO8601DateSubmitted":"20141215122327","Publisher":"A.A.
+        Knopf","PublicationType":"B","PublicationDate":"2003","PublicationPlace":"New
+        York","Edition":"1st ed","Isbn":"0375410562 (ALK.","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
+        15, 2014 12:25 PM","ISO8601RequestStatusDate":"20141215122503"},{"RequestNumber":"JHU-99000876","Title":"ART
+        IN THEORY, 1900-1990","DateSubmitted":"Dec 11, 2014 04:46 PM","ISO8601DateSubmitted":"20141211164618","Publisher":"Blackwell","PublicationType":"B","PublicationDate":"1993","PublicationPlace":"Oxford,
+        UK ;","Isbn":"0631165746 (HB :","Isbn2":"0631165754 (PB :","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
+        11, 2014 04:50 PM","ISO8601RequestStatusDate":"20141211165003"},{"RequestNumber":"JHU-99000875","Title":"ANARCHISM","Author":"Goldman,
+        Emma","DateSubmitted":"Dec 10, 2014 05:29 PM","ISO8601DateSubmitted":"20141210172946","Publisher":"Dover
+        Publications","PublicationType":"B","PublicationDate":"[1969]","PublicationPlace":"New
+        York","Isbn":"0486224848","Isbn2":"0486224849","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
+        10, 2014 05:30 PM","ISO8601RequestStatusDate":"20141210173004"},{"RequestNumber":"JHU-99000874","Title":"STICK
+        TO DRAWING COMICS, MONKEY BRAIN!","Author":"Adams, Scott","DateSubmitted":"Dec
+        10, 2014 04:27 PM","ISO8601DateSubmitted":"20141210162712","Publisher":"Portfolio","PublicationType":"B","PublicationDate":"2007","PublicationPlace":"New
+        York","Isbn":"9781591841852","Isbn2":"1591841852","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000873","Title":"INDONESIA ETC","Author":"Pisani,
+        Elizabeth","DateSubmitted":"Dec 10, 2014 04:00 PM","ISO8601DateSubmitted":"20141210160005","PublicationType":"B","Edition":"First
+        edition","Isbn":"9780393088588 (HA","Isbn2":"0393088588 (HARDC","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
+        10, 2014 04:00 PM","ISO8601RequestStatusDate":"20141210160004"},{"RequestNumber":"JHU-99000872","Title":"INDONESIA
+        ETC","Author":"Pisani, Elizabeth","DateSubmitted":"Dec 10, 2014 03:04 PM","ISO8601DateSubmitted":"20141210150430","PublicationType":"B","Edition":"First
+        edition","Isbn":"9780393088588 (HA","Isbn2":"0393088588 (HARDC","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
+        10, 2014 03:05 PM","ISO8601RequestStatusDate":"20141210150504"},{"RequestNumber":"JHU-99000837","Title":"BOOKS
+        AND RELIGIOUS DEVOTION","Author":"Westphall, Allan F","DateSubmitted":"Nov
+        25, 2014 01:36 PM","ISO8601DateSubmitted":"20141125133611","Publisher":"The
+        Pennsylvania State University Press","PublicationType":"B","PublicationDate":"[2014]","PublicationPlace":"University
+        Park, Pennsylvania","Isbn":"9780271064048 (CL","Isbn2":"0271064048 (CLOTH","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        25, 2014 01:40 PM","ISO8601RequestStatusDate":"20141125134003"},{"RequestNumber":"JHU-99000836","Title":"ENGLAND
+        AND ROME IN THE EARLY MIDDLE AGES","DateSubmitted":"Nov 25, 2014 01:34 PM","ISO8601DateSubmitted":"20141125133444","Publisher":"Turnout,
+        Belgium","PublicationType":"B","PublicationDate":"2014","Isbn":"9782503541693","Isbn2":"2503541690","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        25, 2014 01:35 PM","ISO8601RequestStatusDate":"20141125133503"},{"RequestNumber":"JHU-99000835","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Nov 25, 2014
+        01:06 PM","ISO8601DateSubmitted":"20141125130635","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        25, 2014 01:10 PM","ISO8601RequestStatusDate":"20141125131003"},{"RequestNumber":"JHU-99000833","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Nov 24, 2014
+        02:03 PM","ISO8601DateSubmitted":"20141124140314","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"c1988","PublicationPlace":"New
+        York","Edition":"1st American ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        24, 2014 02:05 PM","ISO8601RequestStatusDate":"20141124140504"},{"RequestNumber":"JHU-99000830","Title":"THE
+        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Nov 19, 2014
+        12:29 PM","ISO8601DateSubmitted":"20141119122926","Publisher":"Weidenfeld
+        & Nicolson","PublicationType":"B","PublicationDate":"1988, c1987","PublicationPlace":"New
+        York","Edition":"1st Amer. ed","Isbn":"155584197X","Isbn2":"155584197X","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        19, 2014 12:30 PM","ISO8601RequestStatusDate":"20141119123004"},{"RequestNumber":"JHU-99000829","Title":"INDONESIA
+        BETRAYED","Author":"Collins, Elizabeth Fuller","DateSubmitted":"Nov 19, 2014
+        11:43 AM","ISO8601DateSubmitted":"20141119114319","Publisher":"University
+        of Hawaii Press","PublicationType":"B","PublicationDate":"c2007","PublicationPlace":"Honolulu","Isbn":"9780824831158
+        (HA","Isbn2":"0824831152 (HARDC","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
+        04, 2015 05:05 PM","ISO8601RequestStatusDate":"20150404170507"},{"RequestNumber":"JHU-99000828","Title":"ART
+        IN THEORY, 1900-1990","DateSubmitted":"Nov 19, 2014 11:38 AM","ISO8601DateSubmitted":"20141119113855","Publisher":"Blackwell","PublicationType":"B","PublicationDate":"1993","PublicationPlace":"Oxford,
+        UK ;","Isbn":"0631165746 (HB :","Isbn2":"0631165754 (PB :","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        19, 2014 11:40 AM","ISO8601RequestStatusDate":"20141119114004"},{"RequestNumber":"JHU-99000827","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Nov 18, 2014 05:16 PM","ISO8601DateSubmitted":"20141118171647","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000826","Title":"A TRIBUTE TO
+        FOO CHEE SAN","DateSubmitted":"Nov 18, 2014 04:54 PM","ISO8601DateSubmitted":"20141118165418","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000825","Title":"A TRIBUTE TO
+        FOO CHEE SAN","DateSubmitted":"Nov 18, 2014 04:49 PM","ISO8601DateSubmitted":"20141118164957","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000824","Title":"INDONESIA ETC","Author":"Pisani,
+        Elizabeth","DateSubmitted":"Nov 18, 2014 02:46 PM","ISO8601DateSubmitted":"20141118144646","PublicationType":"B","Edition":"First
+        edition","Isbn":"9780393088588 (HA","Isbn2":"0393088588 (HARDC","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
+        18, 2014 02:50 PM","ISO8601RequestStatusDate":"20141118145003"},{"RequestNumber":"JHU-99000823","Title":"A
+        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Nov 17, 2014 04:34 PM","ISO8601DateSubmitted":"20141117163445","Publisher":"Nanyang
+        Academy of Fine Arts","PublicationType":"B","PublicationDate":"[2012]","PublicationPlace":"Singapore","Isbn":"9789810743734","Isbn2":"9810743734","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"},{"RequestNumber":"JHU-99000822","Title":"JONATHAN MONK
+        : LESS IS MORE THAN ONE HUNDRED INDIAN BICYCLES (WITH WORDS FROM RIRKRIT TIRAVANIJA
+        AND A SILVER SHADOW)","Author":"Monk, Jonathan","DateSubmitted":"Nov 17, 2014
+        03:50 PM","ISO8601DateSubmitted":"20141117155059","Publisher":"CAC Málaga","PublicationType":"B","PublicationDate":"[2013]","PublicationPlace":"Málaga","Isbn":"849408366X","Isbn2":"9788494083662","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
+        automatically moved"}]}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 17:05:48 GMT
+  recorded_at: Wed, 29 Jul 2015 18:48:55 GMT
 recorded_with: VCR 2.9.3

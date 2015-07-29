@@ -68,7 +68,7 @@ module BorrowDirect
 
       results = []
 
-      response["QueryResult"]["MyRequestRecords"].each do |item_hash|        
+      response["MyRequestRecords"].each do |item_hash|        
         results << BorrowDirect::RequestQuery::Item.new(item_hash)
       end
 
@@ -89,11 +89,16 @@ module BorrowDirect
         # basic record values
         @request_number = hash["RequestNumber"]
         @title          = hash["Title"]
-        @date_submitted = DateTime.iso8601 hash["ISO8601DateSubmitted"]
+        if hash["ISO8601DateSubmitted"]
+          @date_submitted = DateTime.iso8601 hash["ISO8601DateSubmitted"]
+        end
         @allow_renew    = hash["AllowRenew"]
         @allow_cancel   = hash["AllowCancel"]
         @request_status = hash["RequestStatus"]
-        @request_status_date = DateTime.iso8601 hash["ISO8601RequestStatusDate"]
+
+        if hash["ISO8601RequestStatusDate"]
+          @request_status_date = DateTime.iso8601 hash["ISO8601RequestStatusDate"]
+        end
 
         # full record values
         @publicaition_type  = hash["PublicationType"]
