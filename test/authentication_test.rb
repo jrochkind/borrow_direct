@@ -6,14 +6,15 @@ require 'httpclient'
 describe "Authentication", :vcr => {:tag => :bd_auth} do
   describe "raw request to verify HTTP api" do
     it "works" do
-      uri = BorrowDirect::Defaults.api_base.chomp("/") + "/portal-service/user/authentication/patron"
+      uri = BorrowDirect::Defaults.api_base.chomp("/") + "/portal-service/user/authentication"
 
 
       request_hash = {
-        "AuthenticationInformation" => {
-          "LibrarySymbol" => VCRFilter[:bd_library_symbol],
-          "PatronId" => VCRFilter[:bd_patron]
-        }
+        "ApiKey"        => VCRFilter[:bd_api_key],
+        "PartnershipId" => BorrowDirect::Defaults.partnership_id,
+        "UserGroup"     => "patron",
+        "LibrarySymbol" => VCRFilter[:bd_library_symbol],
+        "PatronId"      => VCRFilter[:bd_patron]
       } 
 
       http = HTTPClient.new
@@ -26,7 +27,7 @@ describe "Authentication", :vcr => {:tag => :bd_auth} do
 
       assert_present response_hash
 
-      assert_present response_hash["Authentication"]["AuthnUserInfo"]["AId"]
+      assert_present response_hash["AuthorizationId"]
     end
   end
 

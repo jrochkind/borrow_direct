@@ -26,6 +26,7 @@ MinitestVcr::Spec.configure!
 
 VCRFilter.sensitive_data! :bd_library_symbol
 VCRFilter.sensitive_data! :bd_patron
+VCRFilter.sensitive_data! :bd_api_key
 
 # Silly way to not have to rewrite all our tests if we
 # temporarily disable VCR, make VCR.use_cassette a no-op
