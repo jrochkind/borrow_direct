@@ -71,9 +71,10 @@ BorrowDirect::RequestQuery.new(patron_barcode).requests("open")
 
 ### AuthID's
 
-For BD api that requires an AuthorizationID (RequestItem and RequestQuery), our ruby
-API still accepts a barcode. The ruby code will make a separate request to retrieve
-the AuthorizationID behind the scenes. 
+All BD API's will requires an AuthorizationID as of late summer/fall 2015. 
+Our ruby API still accepts a barcode/library symbol pair instead, with both values possibly
+coming from configured local deaults. The ruby code will make a separate request to retrieve
+the AuthorizationID behind the scenes, so it can use it. 
 
 If you already have an AuthorizationID, you can set it to avoid this, but at the moment
 we have no code to rescue from expired authorization ID's (and if we did, depending on
