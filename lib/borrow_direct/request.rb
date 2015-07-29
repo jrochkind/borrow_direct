@@ -55,22 +55,30 @@ module BorrowDirect
       @http_method = :post
     end
 
-    def request(hash)
+    # First param is request hash, will be query param for GET or JSON body for POST
+    # Second param is optional AuthenticationID used by BD system -- if given,
+    # will be added to URI as "?aid=$AID", even for POST. Yep, that's Relais
+    # documented protocol eg https://relais.atlassian.net/wiki/display/ILL/Find+Item
+    def request(hash, aid = nil)
       http = http_client
 
       
-      # Mostly for debugging, store these
-      @last_request_uri = @api_uri
+      uri = @api_uri
+      if aid
+        uri += "?aid=#{CGI.escape aid}"
+      end
 
+      # Mostly for debugging, store these
+      @last_request_uri = uri
 
       start_time = Time.now
 
       if self.http_method == :post
         @last_request_json = json_request = JSON.generate(hash)        
-        http_response = http.post @api_uri, json_request, self.request_headers
+        http_response = http.post uri, json_request, self.request_headers
       elsif self.http_method == :get
         @last_request_query_params = hash
-        http_response = http.get @api_uri, hash, self.request_headers
+        http_response = http.get uri, hash, self.request_headers
       else
         raise ArgumentError.new("BorrowDirect::Request only understands http_method :get and :post, not `#{self.http_method}`")
       end

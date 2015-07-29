@@ -2,17 +2,54 @@
 http_interactions:
 - request:
     method: post
+    uri: https://bdtest.relais-host.com/portal-service/user/authentication
+    body:
+      encoding: UTF-8
+      string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
+    headers:
+      User-Agent:
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 29 Jul 2015 18:08:04 GMT
+      Content-Type:
+      - application/json
+      Accept-Language:
+      - en
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.1
+      Date:
+      - Wed, 29 Jul 2015 18:08:05 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '269'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"AuthorizationId":"oZoR5jAZjTfAO4Ys0RUBc4VonSE","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+    http_version: 
+  recorded_at: Wed, 29 Jul 2015 18:08:05 GMT
+- request:
+    method: post
     uri: https://bdtest.relais-host.com/no/such/path
     body:
       encoding: UTF-8
-      string: ! '{"foo":"bar"}'
+      string: '{"foo":"bar"}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Tue, 21 Oct 2014 17:06:01 GMT
+      - Wed, 29 Jul 2015 18:08:05 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,29 +62,29 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 21 Oct 2014 17:06:01 GMT
+      - Wed, 29 Jul 2015 18:08:05 GMT
       Content-Type:
       - text/html; charset=UTF-8
-      Content-Length:
-      - '1605'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
-      Etag:
-      - ! '"5411bb96-645"'
     body:
-      encoding: US-ASCII
-      string: ! "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<link
-        rel=\"icon\" href=\"/img/favicon-3.13.4-HOTFIX-RELEASE.ico\" type=\"image/x-icon\"
-        />\n<link rel=\"shortcut icon\" href=\"/img/favicon-3.13.4-HOTFIX-RELEASE.ico\"
-        type=\"image/x-icon\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/jquery-ui-1.10.3.custom.css\"
-        />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/portalUI-Core-3.13.4-HOTFIX-RELEASE.css\"
-        />\n<script type=\"text/javascript\" src=\"/js/head.core.min-v1.0.2.js\"></script>\n<script
-        type=\"text/javascript\" src=\"/js/portalAir-3.13.4-HOTFIX-RELEASE.js\"></script>\n<title></title>\n</head>\n<body>\n\t<div
-        id=\"divPage\">\n\t\t<div id=\"divHeader\">\n\t\t\t<div id=\"Header\">&nbsp;
-        </div>\n\t\t\t<div id=\"ErrorMenu\">&nbsp; </div>\n\t\t</div>\n\t\t\n\t\t<div
-        id=\"divContent\">\n\t\t\t<div id=\"Error404\">&nbsp; </div>\n\t\t</div> <!--
-        End div Content -->\n\t\t\n\t\t<div id=\"divFooter\">\n\t\t\t<div id=\"Footer\">&nbsp;
-        </div>\n\t\t</div>\n\n\t</div> <!-- End DivPage -->\n\n\t<script>\n\thead.js(\"/js/portalComponent-3.13.4-HOTFIX-RELEASE.js\",\"/htc/commonCompObj-3.13.4-HOTFIX-RELEASE.js\",\"/err/htc/errorMenuCompObj-3.13.4-HOTFIX-RELEASE.js\",\"/err/htc/error404CompObj-3.13.4-HOTFIX-RELEASE.js\",\"/htc/headerCompObj-3.13.4-HOTFIX-RELEASE.js\");\n\t\n\thead.js(\"/js/jquery.min-v1.10.1.js\",\"/js/jquery.ui.min-v1.10.3.js\",\"/js/jquery.dataset-v0.1.0.js\",\"/js/URI-v1.13.1.js\",\"/js/sessionstorage.js\",\"/js/jquery.timer.js\",\n\t\"/js/portalService-3.13.4-HOTFIX-RELEASE.js\",\"/js/portalForm-3.13.4-HOTFIX-RELEASE.js\",\"/js/portalUI-Core-3.13.4-HOTFIX-RELEASE.js\",\"/err/htc/errorBLL-3.13.4-HOTFIX-RELEASE.js\",function(){\n\t\tportalError.setUpOp404();\n\t});\n\t</script>\n</body>\n</html>"
+      encoding: UTF-8
+      string: <!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible"
+        content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1,
+        maximum-scale=1, user-scalable=no"><link rel="icon" href="/img/favicon-6.14.34-RC.ico"
+        type="image/x-icon"/><link rel="shortcut icon" href="/img/favicon-6.14.34-RC.ico"
+        type="image/x-icon"/><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/><script
+        type="text/javascript" src="/js/head.core.min-v1.0.3.js"></script><script
+        type="text/javascript" src="/js/portalAir-6.14.34-RC.js"></script><script>head.load("/js/portalComponent-6.14.34-RC.js","/htc/commonCompObj-6.14.34-RC.js","/err/htc/errorMenuCompObj-6.14.34-RC.js","/err/htc/error404CompObj-6.14.34-RC.js","/htc/placeHolderCompObj-6.14.34-RC.js");head.load("/js/jquery.min-v1.11.1.js","/js/jquery.ui.min-v1.11.0.js","/js/jquery.dataset-v0.1.0.js","/js/underscore-v1.7.0.js","/js/stringjs.min-v2.2.0.js","/js/URI-v1.13.2.js","/js/sessionstorage.js","/js/jquery.timer.js","/js/sanitizeHTMLComponentData-6.14.34-RC.js","/js/portalService-6.14.34-RC.js","/js/portalForm-6.14.34-RC.js","/js/portalUI-Core-6.14.34-RC.js","/err/htc/errorBLL-6.14.34-RC.js");</script><!--[if
+        lt IE 9]><script type="text/javascript" src="/js/html5Shiv-v3.7.0.js"></script><script
+        type="text/javascript" src="/js/respond-v1.4.2.js"></script><![endif]--></head><body><div
+        id="divPage"><div id="divTopBanner"><div class="component" id="TopBannerPlaceHolder">&nbsp;
+        </div></div><div id="divHeader"><div id="Header">&nbsp; </div></div><div id="divHorizontalMenu"><div
+        id="ErrorMenu">&nbsp; </div></div><div id="divContent"><div id="Error404">&nbsp;
+        </div></div><div id="divFooter"><div id="Footer">&nbsp; </div></div><div id="divBottomBanner"><div
+        class="component" id="BottomBannerPlaceHolder">&nbsp; </div></div></div><script>head.ready(function(){portalError.setUpOp404();diController.processOps(diController.opList);});</script></body></html>
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 17:06:01 GMT
+  recorded_at: Wed, 29 Jul 2015 18:08:05 GMT
 recorded_with: VCR 2.9.3

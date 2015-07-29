@@ -19,7 +19,7 @@ VCR.configure do |c|
 
   # BD API requests tend to have their distinguishing
   # features in a POSTed JSON request body
-  c.default_cassette_options = { :match_requests_on => [:method, :uri, :body] }
+  c.default_cassette_options = { :match_requests_on => [:method, VCR.request_matchers.uri_without_param(:aid), :body] }
 end
 
 MinitestVcr::Spec.configure!
@@ -27,6 +27,8 @@ MinitestVcr::Spec.configure!
 VCRFilter.sensitive_data! :bd_library_symbol
 VCRFilter.sensitive_data! :bd_patron
 VCRFilter.sensitive_data! :bd_api_key
+
+BorrowDirect::Defaults.api_key = VCRFilter[:bd_api_key]
 
 # Silly way to not have to rewrite all our tests if we
 # temporarily disable VCR, make VCR.use_cassette a no-op

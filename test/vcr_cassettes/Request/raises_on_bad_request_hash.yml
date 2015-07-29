@@ -2,17 +2,54 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/available
+    uri: https://bdtest.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
-      string: ! '{"foo":"bar"}'
+      string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Tue, 21 Oct 2014 17:05:58 GMT
+      - Wed, 29 Jul 2015 18:07:57 GMT
+      Content-Type:
+      - application/json
+      Accept-Language:
+      - en
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.1
+      Date:
+      - Wed, 29 Jul 2015 18:07:58 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '269'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"AuthorizationId":"SEp15tFMRCmDa0T2CkaLTh8vUGQ","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+    http_version: 
+  recorded_at: Wed, 29 Jul 2015 18:07:58 GMT
+- request:
+    method: post
+    uri: https://bdtest.relais-host.com/dws/item/available?aid=SEp15tFMRCmDa0T2CkaLTh8vUGQ
+    body:
+      encoding: UTF-8
+      string: '{"foo":"bar"}'
+    headers:
+      User-Agent:
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
+      Accept:
+      - "*/*"
+      Date:
+      - Wed, 29 Jul 2015 18:07:58 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,39 +62,17 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 21 Oct 2014 17:05:58 GMT
+      - Wed, 29 Jul 2015 18:07:58 GMT
       Content-Type:
-      - text/html; charset=ISO-8859-1
-      Content-Length:
-      - '306'
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
-      Cache-Control:
-      - must-revalidate,no-cache,no-store
     body:
-      encoding: US-ASCII
-      string: ! '<html>
-
-        <head>
-
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-        <title>Error 400 Bad Request</title>
-
-        </head>
-
-        <body><h2>HTTP ERROR 400</h2>
-
-        <p>Problem accessing /dws/item/available. Reason:
-
-        <pre>    Bad Request</pre></p><hr><i><small>Powered by Jetty://</small></i><hr/>
-
-
-        </body>
-
-        </html>
-
-'
+      encoding: UTF-8
+      string: '{"Error":{"ErrorNumber":"PUBFI001","ErrorMessage":"PartnershipId is
+        required"}}'
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 17:05:58 GMT
+  recorded_at: Wed, 29 Jul 2015 18:07:58 GMT
 recorded_with: VCR 2.9.3
