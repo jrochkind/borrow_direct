@@ -17,6 +17,35 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     @pickup_location           = "Some location" # BD seems to allow anything, which is disturbing
   end
 
+  it "raw RequestItem sanity check", :vcr => {:record => :all} do
+    findable = BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find(:isbn => @requestable_item_isbn)
+
+    assert findable.requestable?
+
+    pickup = findable.pickup_locations.first
+    aid    = findable.auth_id
+
+    uri = BorrowDirect::Defaults.api_base.chomp("/") + "/dws/item/add?aid=#{CGI.escape aid}"
+
+    request_hash = {
+      "PartnershipId" => BorrowDirect::Defaults.partnership_id,
+      "PickupLocation" => pickup,
+      "ExactSearch" => [
+        {"Type":"ISBN","Value": @requestable_item_isbn}
+      ]
+    } 
+
+    http = HTTPClient.new
+    response = http.post uri, JSON.generate(request_hash), {"Content-Type" => "application/json", "User-Agent" => "ruby borrow_direct gem (#{BorrowDirect::VERSION}) https://github.com/jrochkind/borrow_direct", "Accept-Language" => "en"}
+
+    assert_equal 200, response.code
+    assert_present response.body
+
+    response_hash = JSON.parse response.body
+
+    assert_present response_hash
+  end
+
 
 
   it "raises on no search critera" do
@@ -80,7 +109,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
   end
 
-  describe "with pickup location and requestable item" do
+  describe "with pickup location and requestable item", :vcr => {:record => :all} do
     it "still works" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(@pickup_location, :isbn => @requestable_item_isbn)
 

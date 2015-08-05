@@ -55,7 +55,7 @@ module BorrowDirect
         raise ArgumentError.new("Missing valid search type and value: '#{options}'")
       end
 
-      request exact_search_request_hash(pickup_location, search_type, search_value)
+      request exact_search_request_hash(pickup_location, search_type, search_value), need_auth_id(self.patron_barcode, self.patron_library_symbol)
     end
 
     # Pass in a BD exact search and pickup location eg
@@ -97,8 +97,6 @@ module BorrowDirect
     def exact_search_request_hash(pickup_location, type, value)
       hash = {
           "PartnershipId" => Defaults.partnership_id,
-          "AuthorizationId" => need_auth_id(self.patron_barcode, self.patron_library_symbol),
-          "PickupLocation" => pickup_location,
           "ExactSearch" => [
               {
                   "Type" => type.to_s.upcase,
