@@ -108,7 +108,7 @@ describe "Request", :vcr => {:tag => :bd_request } do
   describe "with expected errors" do
     it "still returns result" do
       request = {
-          "PartnershipId" => "BAD_ID",
+          "PartnershipId" => "BD",
           "ExactSearch" => [
               {
                   "Type" => "BADBAD",
