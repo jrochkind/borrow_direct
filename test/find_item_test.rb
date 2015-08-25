@@ -8,7 +8,7 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
   before do
     @requestable_item_isbn     = "9810743734" # item is in BD, and can be requested
     @locally_avail_item_isbn   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
-    @not_requestable_item_isbn = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
+    @not_requestable_item_isbn = "9780143037248" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
     @returns_PUBFI002_ISBN     = "0109836413" # BD returns an error PUBFI002 for this one, which we want to treat as simply not available. 
   end
   
@@ -142,11 +142,7 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
 
     it "has an auth_id" do
       assert_present @find_item.find(:isbn => @requestable_item_isbn).auth_id
-    end
-
-    it "has nil auth_id when BD doesn't want to give us one" do
-      assert_nil @find_item.find(:isbn => @returns_PUBFI002_ISBN).auth_id
-    end
+    end    
 
     it "has pickup locations" do
       pickup_locations = @find_item.find(:isbn => @requestable_item_isbn).pickup_locations

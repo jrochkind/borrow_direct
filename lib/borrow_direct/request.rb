@@ -61,7 +61,6 @@ module BorrowDirect
     # documented protocol eg https://relais.atlassian.net/wiki/display/ILL/Find+Item
     def request(hash, aid = nil)
       http = http_client
-
       
       uri = @api_uri
       if aid
@@ -91,7 +90,7 @@ module BorrowDirect
       rescue JSON::ParserError => json_parse_exception
         nil
       end
-      
+
       # will be nil if we have none
       einfo = error_info(response_hash)
       expected_error = (einfo && self.expected_error_codes.include?(einfo.number))
@@ -189,7 +188,8 @@ module BorrowDirect
 
       # And yet another way!
       if hash && (e = hash["Problem"])
-        return OpenStruct.new(:number => e["Code"], :message => e["Message"])
+        # Code/Message appear unpredictably at different keys? 
+        return OpenStruct.new(:number => e["ErrorCode"] || e["Code"], :message => e["ErrorMessage"] || e["Message"])
       end
 
       return nil    

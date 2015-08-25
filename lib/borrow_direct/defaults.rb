@@ -13,7 +13,7 @@ module BorrowDirect
   # To set a default generic patron barcode to use for FindItem requests
   #      BorrowDirect::Defaults.find_item_patron_barcode = "99999999999"
   class Defaults
-    TEST_API_BASE         = "https://bdtest.relais-host.com/"
+    TEST_API_BASE         = "https://rc.relais-host.com/"
     PRODUCTION_API_BASE   = "https://borrow-direct.relais-host.com/"
 
     TEST_HTML_BASE        = "https://bdtest.relaisd2d.com/service-proxy?command=query"

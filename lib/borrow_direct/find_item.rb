@@ -25,7 +25,7 @@ module BorrowDirect
       @patron_barcode        = patron_barcode
       @patron_library_symbol = patron_library_symbol
 
-      # BD sometimes unpredictably returns this error when it means
+      # BD sometimes unpredictably returns one of these errors when it means
       # "no results", other times it doens't. We don't want to raise on it. 
       self.expected_error_codes << "PUBFI002"
     end
@@ -66,7 +66,7 @@ module BorrowDirect
     # Returns a BorrowDirect::FindItem::Response object, from which you
     # can find out requestability, list of pickup locations, etc. 
     def find(options)
-      BorrowDirect::FindItem::Response.new find_item_request(options)
+      BorrowDirect::FindItem::Response.new find_item_request(options), self.auth_id
     end
 
     protected
@@ -98,8 +98,9 @@ module BorrowDirect
 
       attr_reader :response_hash
       
-      def initialize(hash)
+      def initialize(hash, auth_id)
         @response_hash = hash
+        @auth_id = auth_id
       end
 
 
@@ -120,7 +121,7 @@ module BorrowDirect
          return false
        end
 
-       return response_hash["Item"]["Available"].to_s == "true"
+       return response_hash["Available"].to_s == "true"
       end
 
       # BD thinks the item is locally available at patron's home library,
@@ -128,22 +129,19 @@ module BorrowDirect
       # Items that are available locally, and thus not requestable via BD, can
       # only be found by looking at the RequestMessage, bah       
       def locally_available?
-       h = response_hash["Item"]["RequestLink"]
-       return !! (h && h["RequestMessage"] == "This item is available locally")
+        h = response_hash["RequestLink"]
+        # Message seems to sometimes have period sometimes not. 
+        return !! (h && h["RequestMessage"] =~ /\AThis item is available locally\.?\Z/)
       end
-
-      # Returns the AuthorizationID returned by FindItem API call,
-      # or nil if none is available. Nil _can_ be returned, for
-      # instance when BD returns a NotFound error instead of a good
-      # response. 
+      
       def auth_id
-        hash_key_path response_hash, "Item", "AuthorizationId"
+        @auth_id
       end
 
       # Can be nil in some cases if not requestable?
       # if requestable?, should be an array of Strings. 
       def pickup_locations
-        hash_key_path response_hash, "Item", "PickupLocations", "PickupLocation"
+        response_hash["PickupLocation"]
       end
 
 
