@@ -10,6 +10,7 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
     @locally_avail_item_isbn   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
     @not_requestable_item_isbn = "9780143037248" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
     @returns_PUBFI002_ISBN     = "0109836413" # BD returns an error PUBFI002 for this one, which we want to treat as simply not available. 
+    @not_in_BD_at_all_isbn     = "1898989898" # Not in BD at all, made up ISBN, invalid. 
   end
   
 
@@ -117,7 +118,7 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
     end
 
     it "requestable with multiple items if at least one is requestable" do
-      assert_equal true, @find_item.find(:isbn => [@requestable_item_isbn, "NO_SUCH_ISBN"]).requestable?
+      assert_equal true, @find_item.find(:isbn => [@requestable_item_isbn, @not_in_BD_at_all_isbn]).requestable?
     end
 
     it "not requestable for locally available item" do
@@ -129,7 +130,7 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
     end
 
     it "not requestable for item that does not exist in BD" do
-      assert_equal false, @find_item.find(:isbn => "NO_SUCH_THING").requestable?
+      assert_equal false, @find_item.find(:isbn => @not_in_BD_at_all_isbn).requestable?
     end
 
     it "not requestable for item that no libraries will lend" do

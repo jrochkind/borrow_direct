@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication
+    uri: https://rc.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
       string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 18:18:45 GMT
+      - Tue, 25 Aug 2015 20:46:47 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 18:18:46 GMT
+      - Tue, 25 Aug 2015 20:46:48 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,22 +34,22 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"XjAynQFMAZQqSBF4zTSxgBqOhfY","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"1fIxntLAkmc7_FWG2v1r0e-tCqc","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 18:18:46 GMT
+  recorded_at: Tue, 25 Aug 2015 20:46:48 GMT
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/available?aid=XjAynQFMAZQqSBF4zTSxgBqOhfY
+    uri: https://rc.relais-host.com/dws/item/available?aid=1fIxntLAkmc7_FWG2v1r0e-tCqc
     body:
       encoding: UTF-8
-      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
+      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"9780143037248"}]}'
     headers:
       User-Agent:
       - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 18:18:46 GMT
+      - Tue, 25 Aug 2015 20:46:48 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 18:18:47 GMT
+      - Tue, 25 Aug 2015 20:46:49 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -71,9 +71,9 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Item":{"Available":false,"SearchTerm":"isbn=1441190090","AuthorizationId":"XjAynQFMAZQqSBF4zTSxgBqOhfY","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book&sid=Relais&rft.title=Chomsky%20-%20a%20guide%20for%20the%20perplexed&rft.aufirst=John&rft.aulast=Collins&rft.isbn=9781441190093%20%28electronic%20bk.%29&rft.isbn=1441190090%20%28electronic%20bk.%29&rft.date=c2008&rft.pub=Continuum&rft.place=London%20%3B","ButtonLabel":"Request","ButtonPrefix":"rft","RequestMessage":"Borrow
+      string: '{"Available":false,"SearchTerm":"isbn=9780143037248","RequestLink":{"ButtonLink":"http://findit.library.jhu.edu/resolve?genre=Book&sid=BD&rft.title=A%20field%20guide%20to%20getting%20lost&rft.aufirst=Rebecca&rft.aulast=Solnit&rft.date=2006%2C%20c2005&rft.isbn=0143037242\n&rft.isbn=9780143037248&rft.pub=Penguin&rft.place=New%20York","ButtonLabel":"Request","RequestMessage":"Borrow
         Direct cannot fill this request at this time.  Please request through Interlibrary
-        Loan."}}}'
+        Loan."}}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 18:18:47 GMT
+  recorded_at: Tue, 25 Aug 2015 20:46:49 GMT
 recorded_with: VCR 2.9.3

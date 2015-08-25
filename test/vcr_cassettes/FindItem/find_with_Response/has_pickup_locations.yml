@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication
+    uri: https://rc.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
       string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 18:19:19 GMT
+      - Tue, 25 Aug 2015 20:46:34 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 18:19:21 GMT
+      - Tue, 25 Aug 2015 20:46:35 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"CAIV6KkmeowkE6DZwbTDZptTxGg","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"vGNNAomWCGXBx7a2FpJWC2NeTY0","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 18:19:21 GMT
+  recorded_at: Tue, 25 Aug 2015 20:46:35 GMT
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/available?aid=CAIV6KkmeowkE6DZwbTDZptTxGg
+    uri: https://rc.relais-host.com/dws/item/available?aid=vGNNAomWCGXBx7a2FpJWC2NeTY0
     body:
       encoding: UTF-8
       string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"9810743734"}]}'
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 18:19:21 GMT
+      - Tue, 25 Aug 2015 20:46:35 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 18:19:21 GMT
+      - Tue, 25 Aug 2015 20:46:36 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -71,15 +71,27 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Item":{"Available":true,"SearchTerm":"isbn=9810743734","AuthorizationId":"CAIV6KkmeowkE6DZwbTDZptTxGg","PickupLocations":{"PickupLocation":["*Milton
-        S. Eisenhower Library","APL - EP STUDENTS - Ed Center","APL STAFF - Room 5-17","Arthur
-        Friedheim Library","Columbia Center","Harbor East","Harrison Medical Library-Bayview","Institute
-        of the History of Medicine","JH Medical Campus Office (faculty and staff)","JHMI
-        Pickup - Armstrong 306","JHMI Pickup - BSPH E4643","JHMI Pickup - Hampton
-        House 9th floor","JHMI Pickup - PCTB 115-116","JHMI Pickup - School of Nursing
-        313","JHU Homewood Office (faculty and grad students)","Montgomery Library
-        Resource Center","SAIS Library","Washington Library Resource Center","Welch
-        Medical Library","Wilmer Friedenwald Library"]}}}'
+      string: '{"Available":true,"SearchTerm":"isbn=9810743734","RequestLink":{"ButtonLink":"AddRequest","ButtonLabel":"Request","RequestMessage":"Request
+        this item"},"PickupLocation":[{"PickupLocationCode":"E","PickupLocationDescription":"*Milton
+        S. Eisenhower Library"},{"PickupLocationCode":"A","PickupLocationDescription":"Arthur
+        Friedheim Library"},{"PickupLocationCode":"B","PickupLocationDescription":"Columbia
+        Center"},{"PickupLocationCode":"C","PickupLocationDescription":"Harbor East"},{"PickupLocationCode":"D","PickupLocationDescription":"Montgomery
+        Library Resource Center"},{"PickupLocationCode":"F","PickupLocationDescription":"JHU
+        Homewood Office (faculty and grad students)"},{"PickupLocationCode":"G","PickupLocationDescription":"Washington
+        Library Resource Center"},{"PickupLocationCode":"H","PickupLocationDescription":"APL
+        - EP STUDENTS - Ed Center"},{"PickupLocationCode":"I","PickupLocationDescription":"APL
+        STAFF - Room 5-17"},{"PickupLocationCode":"J","PickupLocationDescription":"SAIS
+        Library"},{"PickupLocationCode":"K","PickupLocationDescription":"Harrison
+        Medical Library-Bayview"},{"PickupLocationCode":"L","PickupLocationDescription":"Institute
+        of the History of Medicine"},{"PickupLocationCode":"M","PickupLocationDescription":"JHMI
+        Pickup - Hampton House 9th floor"},{"PickupLocationCode":"N","PickupLocationDescription":"JHMI
+        Pickup - BSPH E4643"},{"PickupLocationCode":"O","PickupLocationDescription":"JHMI
+        Pickup - School of Nursing 313"},{"PickupLocationCode":"P","PickupLocationDescription":"JH
+        Medical Campus Office (faculty and staff)"},{"PickupLocationCode":"Q","PickupLocationDescription":"JHMI
+        Pickup - Armstrong 306"},{"PickupLocationCode":"R","PickupLocationDescription":"JHMI
+        Pickup - PCTB 115-116"},{"PickupLocationCode":"S","PickupLocationDescription":"Welch
+        Medical Library"},{"PickupLocationCode":"T","PickupLocationDescription":"Wilmer
+        Friedenwald Library"}]}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 18:19:21 GMT
+  recorded_at: Tue, 25 Aug 2015 20:46:36 GMT
 recorded_with: VCR 2.9.3
