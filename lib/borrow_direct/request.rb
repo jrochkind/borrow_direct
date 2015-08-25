@@ -186,6 +186,11 @@ module BorrowDirect
         return OpenStruct.new(:number => e["Problem"]["Code"], :message => e["Problem"]["Message"])
       end
 
+      # And one more for Auth errors! With no error number, hooray. 
+      if hash && (e = hash["AuthorizationState"]) && e["State"] == "failed"
+        return OpenStruct.new(:number => nil, :message => "AuthorizationState: State: failed")
+      end
+
       # And yet another way!
       if hash && (e = hash["Problem"])
         # Code/Message appear unpredictably at different keys? 
