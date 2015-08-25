@@ -48,6 +48,25 @@ describe "Request", :vcr => {:tag => :bd_request } do
     refute_nil e.bd_code
   end
 
+  it "gets BD error info from a bad AID" do
+    request = {
+        "PartnershipId" => "BD",
+        "ExactSearch" => [
+            {
+                "Type" => "ISBN",
+                "Value" => @successful_item_isbn
+            }
+        ]
+    }
+
+    e = assert_raises(BorrowDirect::Error) do
+      response = BorrowDirect::Request.new("/dws/item/available").request( request, "bad_aid" )      
+    end
+
+    refute_nil e
+    assert_equal "PUBFI003", e.bd_code
+  end
+
   it "can make a succesful request with AID" do
       request = {
           "PartnershipId" => "BD",
