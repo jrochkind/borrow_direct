@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
+    uri: https://rc.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
-      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}}'
+      string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.9.0 (HTTPClient 2.5.3.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Wed, 05 Nov 2014 16:52:54 GMT
+      - Mon, 31 Aug 2015 19:33:57 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,43 +25,31 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 05 Nov 2014 16:52:55 GMT
+      - Mon, 31 Aug 2015 19:33:58 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '269'
       Connection:
       - keep-alive
-      Set-Cookie:
-      - visited=yes
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Language:
-      - en
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store, max-age=0
     body:
-      encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"r6vckYjDR6PfQzuCiT5w2qT1VP0","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
-        Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
+      encoding: UTF-8
+      string: '{"AuthorizationId":"sqVmPuOs1q4vTeH0-Irgw3W-_CQ","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 05 Nov 2014 16:52:55 GMT
+  recorded_at: Mon, 31 Aug 2015 19:33:58 GMT
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/add
+    uri: https://rc.relais-host.com/dws/item/add?aid=sqVmPuOs1q4vTeH0-Irgw3W-_CQ
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"r6vckYjDR6PfQzuCiT5w2qT1VP0","PickupLocation":null,"ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
+      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.9.0 (HTTPClient 2.5.3.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Wed, 05 Nov 2014 16:52:55 GMT
+      - Mon, 31 Aug 2015 19:33:58 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 05 Nov 2014 16:52:58 GMT
+      - Mon, 31 Aug 2015 19:33:59 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -82,10 +70,10 @@ http_interactions:
       Connection:
       - keep-alive
     body:
-      encoding: US-ASCII
-      string: ! '{"Request":{"RequestLink":{"ButtonLabel":"Request","ButtonLink":"http://findit.library.jhu.edu/resolve?genre=book","RequestMessage":"Borrow
+      encoding: UTF-8
+      string: '{"RequestLink":{"ButtonLabel":"Request","ButtonLink":"http://findit.library.jhu.edu/resolve?genre=Book&sid=BD&rft.title=Chomsky&rft.aufirst=John&rft.aulast=Collins&rft.date=%E2%84%97%E2%99%AD2008&rft.isbn=9781441190093%20%28electronic%20bk.%29\n&rft.isbn=1441190090%20%28electronic%20bk.%29&rft.pub=Continuum&rft.place=London%20%3B","RequestMessage":"Borrow
         Direct cannot fill this request at this time.  Please request through Interlibrary
-        Loan."}}}'
+        Loan."}}'
     http_version: 
-  recorded_at: Wed, 05 Nov 2014 16:52:58 GMT
+  recorded_at: Mon, 31 Aug 2015 19:33:59 GMT
 recorded_with: VCR 2.9.3

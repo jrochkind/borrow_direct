@@ -15,9 +15,10 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     @not_requestable_item_isbn = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
     @returns_PUBRI004_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available. 
     @pickup_location           = "Some location" # BD seems to allow anything, which is disturbing
+    @pickup_location_obj       = BorrowDirect::PickupLocation.new({"PickupLocationCode" => "a", "PickupLocationDescription" => @pickup_location})
   end
 
-  it "raw RequestItem sanity check", :vcr => {:record => :all} do
+  it "raw RequestItem sanity check" do
     findable = BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find(:isbn => @requestable_item_isbn)
 
     assert findable.requestable?
@@ -36,7 +37,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     } 
 
     http = HTTPClient.new
-    response = http.post uri, JSON.generate(request_hash), {"Content-Type" => "application/json", "User-Agent" => "ruby borrow_direct gem (#{BorrowDirect::VERSION}) https://github.com/jrochkind/borrow_direct", "Accept-Language" => "en"}
+    response = http.post uri, JSON.generate(request_hash), BorrowDirect::Request.new('').request_headers
 
     assert_equal 200, response.code
     assert_present response.body
@@ -72,7 +73,8 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     resp = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).request_item_request(nil, :isbn => @not_requestable_item_isbn)
 
     assert_present resp
-    assert_present resp["Request"]
+
+    assert_present resp["RequestLink"]
   end
 
   it "uses manually set auth_id" do
@@ -81,7 +83,8 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     resp        = bd.request_item_request(nil, :isbn => @requestable_item_isbn)
 
     assert_present resp
-    assert_present resp["Request"]
+
+    assert_present resp["RequestNumber"]
   end
 
   describe "make_request" do
@@ -103,18 +106,25 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
       assert_nil resp
     end
 
-    it "says no for item that BD returns PUBRI004" do
+    it "says no for item that BD returns PUBRI004", :vcr => {:record => :all} do
       assert_nil BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => @returns_PUBRI004_ISBN)
     end
 
   end
 
-  describe "with pickup location and requestable item", :vcr => {:record => :all} do
-    it "still works" do
+  describe "with pickup location and requestable item"  do
+    it "works with String pickup_location" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(@pickup_location, :isbn => @requestable_item_isbn)
 
       assert_present request_id    
     end
+
+    it "works with structured PickupLocation" do
+      request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(@pickup_location_obj, :isbn => @requestable_item_isbn)
+
+      assert_present request_id    
+    end
+
   end
 
   describe "make_request!" do

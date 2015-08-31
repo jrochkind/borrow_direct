@@ -5,6 +5,10 @@ module BorrowDirect
   class PickupLocation
     attr_reader :response_hash
     def initialize(bd_hash)
+      if bd_hash["PickupLocationCode"].empty? || bd_hash["PickupLocationDescription"].empty?
+        raise ArgumentError, "PickupLocation requires a hash with PickupLocationCode and PickupLocationDescription, not `#{bd_hash}`"
+      end
+
       @response_hash = bd_hash
     end
 

@@ -34,6 +34,11 @@ module BorrowDirect
     # PickupLocation to BD, which it seems to accept, not sure what it
     # does with it. 
     #
+    # pickup_location can be a BorrowDirect::PickupLocation object,
+    # or a string. If a string, BD recommends it be a CODE returned
+    # from FindItem, rather than DESCRIPTION as in the past, but we
+    # think description still works? 
+    #
     # Returns the actual complete BD response hash. You may want
     # #make_request instead
     #
@@ -53,6 +58,10 @@ module BorrowDirect
       end
       unless search_type && search_value
         raise ArgumentError.new("Missing valid search type and value: '#{options}'")
+      end
+
+      if pickup_location.kind_of?(BorrowDirect::PickupLocation)
+        pickup_location = pickup_location.code
       end
 
       request exact_search_request_hash(pickup_location, search_type, search_value), need_auth_id(self.patron_barcode, self.patron_library_symbol)
@@ -91,7 +100,7 @@ module BorrowDirect
     protected
 
     def extract_request_number(resp)
-      return (resp["Request"] && resp["Request"]["RequestNumber"])
+      return resp["RequestNumber"]
     end
 
     def exact_search_request_hash(pickup_location, type, value)

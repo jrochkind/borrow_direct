@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
+    uri: https://rc.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
-      string: ! '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}}'
+      string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.9.0 (HTTPClient 2.5.3.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Wed, 05 Nov 2014 16:52:58 GMT
+      - Mon, 31 Aug 2015 19:33:54 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,43 +25,31 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 05 Nov 2014 16:52:59 GMT
+      - Mon, 31 Aug 2015 19:33:56 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '269'
       Connection:
       - keep-alive
-      Set-Cookie:
-      - visited=yes
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Language:
-      - en
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store, max-age=0
     body:
-      encoding: US-ASCII
-      string: ! '{"Authentication":{"AuthnUserInfo":{"AId":"fe7zSp7Et_Nw5d5YYmIbR28sBTg","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","UserLogin":"DUMMY_BD_PATRON","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false,"ILSProfile":{"EmailAddress":"jonathan@dnil.net","Telephone":"4105168886","AddressInformation":{"Address1":"Library
-        Systems","Address2":"MSE Library\r\nHomewood Campus"}}}}}'
+      encoding: UTF-8
+      string: '{"AuthorizationId":"OQi-sbtj9loVLcS-b3_vvIovB9Y","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 05 Nov 2014 16:52:59 GMT
+  recorded_at: Mon, 31 Aug 2015 19:33:56 GMT
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/add
+    uri: https://rc.relais-host.com/dws/item/add?aid=OQi-sbtj9loVLcS-b3_vvIovB9Y
     body:
       encoding: UTF-8
-      string: ! '{"PartnershipId":"BD","AuthorizationId":"fe7zSp7Et_Nw5d5YYmIbR28sBTg","PickupLocation":null,"ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
+      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
     headers:
       User-Agent:
-      - ruby borrow_direct gem 0.9.0 (HTTPClient 2.5.3.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
       Accept:
-      - ! '*/*'
+      - "*/*"
       Date:
-      - Wed, 05 Nov 2014 16:52:59 GMT
+      - Mon, 31 Aug 2015 19:33:56 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -74,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 05 Nov 2014 16:53:04 GMT
+      - Mon, 31 Aug 2015 19:33:57 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -82,8 +70,8 @@ http_interactions:
       Connection:
       - keep-alive
     body:
-      encoding: US-ASCII
-      string: ! '{"Request":{"RequestNumber":"JHU-99000794"}}'
+      encoding: UTF-8
+      string: '{"RequestNumber":"JHU-99003164"}'
     http_version: 
-  recorded_at: Wed, 05 Nov 2014 16:53:04 GMT
+  recorded_at: Mon, 31 Aug 2015 19:33:57 GMT
 recorded_with: VCR 2.9.3
