@@ -1,5 +1,6 @@
 require 'borrow_direct'
 require 'borrow_direct/request'
+require 'borrow_direct/pickup_location'
 
 module BorrowDirect
   # The BorrowDirect FindItem service, for discovering item availability
@@ -141,7 +142,17 @@ module BorrowDirect
       # Can be nil in some cases if not requestable?
       # if requestable?, should be an array of Strings. 
       def pickup_locations
-        response_hash["PickupLocation"]
+        response_hash["PickupLocation"] && response_hash["PickupLocation"].collect {|h| h["PickupLocationDescription"] }
+      end
+
+      # Can be nil if not requestable, otherwise an array of BorrowDirect::PickupLocation
+      def pickup_location_data
+        unless defined? @pickup_location_data
+          @pickup_location_data = response_hash["PickupLocation"] && response_hash["PickupLocation"].collect do |hash|
+            BorrowDirect::PickupLocation.new(hash)
+          end
+        end
+        return @pickup_location_data
       end
 
 

@@ -150,6 +150,26 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
 
       assert_present pickup_locations
       assert_kind_of Array, pickup_locations
+      pickup_locations.each do |location|
+        assert_kind_of String, location
+      end
+    end
+
+    describe "#pickup_location_data" do
+      it "returns array of PickupLocations" do
+        pickup_locations = @find_item.find(:isbn => @requestable_item_isbn).pickup_location_data
+
+        assert_present pickup_locations
+        assert_kind_of Array, pickup_locations
+        pickup_locations.each do |location|
+          assert_kind_of BorrowDirect::PickupLocation, location
+          assert_present location.code
+          assert_present location.description
+
+          assert_equal [location.description, location.code], location.to_a
+          assert_equal( {"PickupLocationCode" => location.code, "PickupLocationDescription" => location.description}, location.to_h )
+        end
+      end
     end
 
     it "has nil pickup locations when BD doesn't want to give us them" do
