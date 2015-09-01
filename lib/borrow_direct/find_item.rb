@@ -141,11 +141,19 @@ module BorrowDirect
 
       # Can be nil in some cases if not requestable?
       # if requestable?, should be an array of Strings. 
+      #
+      # This just returns BD location labels, see also #pickup_location_data to
+      # return labels and codes. 
       def pickup_locations
         response_hash["PickupLocation"] && response_hash["PickupLocation"].collect {|h| h["PickupLocationDescription"] }
       end
 
       # Can be nil if not requestable, otherwise an array of BorrowDirect::PickupLocation
+      #
+      # See also #pickup_locations to return simply string location descriptions. 
+      # It's perhaps more careful code to use the codes too, as in this method,
+      # although Relais says just using labels and submitting them to RequestItem
+      # as a pickup location should work too. 
       def pickup_location_data
         unless defined? @pickup_location_data
           @pickup_location_data = response_hash["PickupLocation"] && response_hash["PickupLocation"].collect do |hash|
