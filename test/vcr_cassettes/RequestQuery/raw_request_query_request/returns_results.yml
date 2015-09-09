@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication
+    uri: https://rc.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
       string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"DUMMY_BD_PATRON"}'
@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 18:48:51 GMT
+      - Wed, 09 Sep 2015 14:44:10 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 18:48:52 GMT
+      - Wed, 09 Sep 2015 14:44:11 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"HvREBkfhmknrcl67OHDAQbHezwg","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"tQlIhBDkro05xM5FE7gD83hLYFQ","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 18:48:52 GMT
+  recorded_at: Wed, 09 Sep 2015 14:44:11 GMT
 - request:
     method: get
-    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=HvREBkfhmknrcl67OHDAQbHezwg&fullRecord=0&type=all
+    uri: https://rc.relais-host.com/portal-service/request/query/my?aid=tQlIhBDkro05xM5FE7gD83hLYFQ&fullRecord=0&type=all
     body:
       encoding: UTF-8
       string: ''
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 18:48:52 GMT
+      - Wed, 09 Sep 2015 14:44:11 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,285 +62,16 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 18:48:52 GMT
+      - Wed, 09 Sep 2015 14:44:11 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '31533'
+      - '86'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"MyRequestRecordOverflow":true,"MyRequestRecords":[{"RequestNumber":"JHU-99003093","Title":"A
-        FEMINIST GLOSSARY OF HUMAN GEOGRAPHY","DateSubmitted":"Jun 27, 2015 03:08
-        PM","ISO8601DateSubmitted":"20150627150856","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jun
-        27, 2015 03:10 PM","ISO8601RequestStatusDate":"20150627151004"},{"RequestNumber":"JHU-99002540","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 14, 2015
-        01:44 PM","ISO8601DateSubmitted":"20150414134437","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        14, 2015 01:45 PM","ISO8601RequestStatusDate":"20150414134503"},{"RequestNumber":"JHU-99002539","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 14, 2015
-        01:35 PM","ISO8601DateSubmitted":"20150414133556","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        14, 2015 01:40 PM","ISO8601RequestStatusDate":"20150414134004"},{"RequestNumber":"JHU-99002537","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 13, 2015
-        05:47 PM","ISO8601DateSubmitted":"20150413174726","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        13, 2015 05:50 PM","ISO8601RequestStatusDate":"20150413175003"},{"RequestNumber":"JHU-99002536","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 13, 2015
-        03:12 PM","ISO8601DateSubmitted":"20150413151239","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        13, 2015 03:15 PM","ISO8601RequestStatusDate":"20150413151503"},{"RequestNumber":"JHU-99002531","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Apr 06, 2015 02:19
-        PM","ISO8601DateSubmitted":"20150406141919","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        07, 2015 04:04 PM","ISO8601RequestStatusDate":"20150407160401"},{"RequestNumber":"JHU-99001118","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Apr 01, 2015 12:01
-        PM","ISO8601DateSubmitted":"20150401120115","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        01, 2015 12:05 PM","ISO8601RequestStatusDate":"20150401120504"},{"RequestNumber":"JHU-99001117","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 01, 2015
-        11:06 AM","ISO8601DateSubmitted":"20150401110603","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        01, 2015 11:10 AM","ISO8601RequestStatusDate":"20150401111004"},{"RequestNumber":"JHU-99001116","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 01, 2015
-        10:54 AM","ISO8601DateSubmitted":"20150401105422","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        01, 2015 10:55 AM","ISO8601RequestStatusDate":"20150401105504"},{"RequestNumber":"JHU-99001115","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Apr 01, 2015
-        10:49 AM","ISO8601DateSubmitted":"20150401104954","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        01, 2015 10:50 AM","ISO8601RequestStatusDate":"20150401105004"},{"RequestNumber":"JHU-99001114","Title":"REVOLUTION
-        AND EVOLUTION IN THE TWENTIETH CENTURY","Author":"Boggs, James","DateSubmitted":"Mar
-        30, 2015 08:28 PM","ISO8601DateSubmitted":"20150330202811","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        30, 2015 08:30 PM","ISO8601RequestStatusDate":"20150330203003"},{"RequestNumber":"JHU-99001113","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 30, 2015 02:03
-        PM","ISO8601DateSubmitted":"20150330140317","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        30, 2015 02:05 PM","ISO8601RequestStatusDate":"20150330140503"},{"RequestNumber":"JHU-99001111","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 30, 2015 11:11
-        AM","ISO8601DateSubmitted":"20150330111131","AllowRenew":false,"AllowCancel":true,"RequestStatus":"IN_PROCESS"},{"RequestNumber":"JHU-99001110","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 30, 2015 11:10
-        AM","ISO8601DateSubmitted":"20150330111053","AllowRenew":false,"AllowCancel":true,"RequestStatus":"IN_PROCESS"},{"RequestNumber":"JHU-99001077","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 25, 2015 03:17
-        PM","ISO8601DateSubmitted":"20150325151707","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        25, 2015 03:20 PM","ISO8601RequestStatusDate":"20150325152004"},{"RequestNumber":"JHU-99001076","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 25, 2015 02:34
-        PM","ISO8601DateSubmitted":"20150325143452","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        25, 2015 02:35 PM","ISO8601RequestStatusDate":"20150325143503"},{"RequestNumber":"JHU-99001068","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 23, 2015 12:19
-        PM","ISO8601DateSubmitted":"20150323121905","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        23, 2015 12:20 PM","ISO8601RequestStatusDate":"20150323122003"},{"RequestNumber":"JHU-99001067","Title":"RETHINKING
-        DEMOCRATIC ACCOUNTABILITY","Author":"Behn, Robert D","DateSubmitted":"Mar
-        21, 2015 02:13 PM","ISO8601DateSubmitted":"20150321141344","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        21, 2015 02:15 PM","ISO8601RequestStatusDate":"20150321141504"},{"RequestNumber":"JHU-99001066","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 19, 2015 05:00
-        PM","ISO8601DateSubmitted":"20150319170010","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        19, 2015 05:00 PM","ISO8601RequestStatusDate":"20150319170004"},{"RequestNumber":"JHU-99001051","Title":"ET
-        TU, BABE","Author":"Leyner, Mark","DateSubmitted":"Mar 18, 2015 07:45 PM","ISO8601DateSubmitted":"20150318194501","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99001050","Title":"ON NATURE AND
-        LANGUAGE","Author":"Chomsky, Noam","DateSubmitted":"Mar 18, 2015 05:29 PM","ISO8601DateSubmitted":"20150318172919","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        18, 2015 05:30 PM","ISO8601RequestStatusDate":"20150318173004"},{"RequestNumber":"JHU-99001048","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 18, 2015 02:19
-        PM","ISO8601DateSubmitted":"20150318141928","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        18, 2015 02:20 PM","ISO8601RequestStatusDate":"20150318142003"},{"RequestNumber":"JHU-99001047","Title":"SEEING
-        THROUGH RACE","Author":"Berger, Martin A","DateSubmitted":"Mar 18, 2015 02:07
-        PM","ISO8601DateSubmitted":"20150318140738","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        18, 2015 02:10 PM","ISO8601RequestStatusDate":"20150318141003"},{"RequestNumber":"JHU-99001046","Title":"THE
-        DEVELOPMENT READER","Author":"Chari, Sharad","DateSubmitted":"Mar 18, 2015
-        02:06 PM","ISO8601DateSubmitted":"20150318140611","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        18, 2015 02:10 PM","ISO8601RequestStatusDate":"20150318141003"},{"RequestNumber":"JHU-99001042","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 18, 2015 12:34
-        PM","ISO8601DateSubmitted":"20150318123404","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        18, 2015 12:35 PM","ISO8601RequestStatusDate":"20150318123504"},{"RequestNumber":"JHU-99001039","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Mar 17, 2015
-        04:14 PM","ISO8601DateSubmitted":"20150317161449","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        17, 2015 04:15 PM","ISO8601RequestStatusDate":"20150317161504"},{"RequestNumber":"JHU-99001035","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Mar 16, 2015 12:52
-        PM","ISO8601DateSubmitted":"20150316125211","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        16, 2015 12:55 PM","ISO8601RequestStatusDate":"20150316125503"},{"RequestNumber":"JHU-99001034","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Mar 16, 2015
-        12:49 PM","ISO8601DateSubmitted":"20150316124954","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        16, 2015 12:50 PM","ISO8601RequestStatusDate":"20150316125003"},{"RequestNumber":"JHU-99001026","Title":"LOST
-        FATHERS","DateSubmitted":"Mar 08, 2015 06:35 PM","ISO8601DateSubmitted":"20150308183556","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Mar
-        08, 2015 06:40 PM","ISO8601RequestStatusDate":"20150308184004"},{"RequestNumber":"JHU-99001012","Title":"MEDICAL
-        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
-        26, 2015 12:56 PM","ISO8601DateSubmitted":"20150226125601","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        26, 2015 01:00 PM","ISO8601RequestStatusDate":"20150226130004"},{"RequestNumber":"JHU-99001011","Title":"MEDICAL
-        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
-        26, 2015 12:51 PM","ISO8601DateSubmitted":"20150226125105","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        26, 2015 12:55 PM","ISO8601RequestStatusDate":"20150226125504"},{"RequestNumber":"JHU-99001007","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
-        03:58 PM","ISO8601DateSubmitted":"20150224155826","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 04:00 PM","ISO8601RequestStatusDate":"20150224160003"},{"RequestNumber":"JHU-99001006","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
-        03:55 PM","ISO8601DateSubmitted":"20150224155529","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155504"},{"RequestNumber":"JHU-99001005","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
-        03:55 PM","ISO8601DateSubmitted":"20150224155513","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155504"},{"RequestNumber":"JHU-99001004","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
-        03:54 PM","ISO8601DateSubmitted":"20150224155459","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155503"},{"RequestNumber":"JHU-99001003","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 24, 2015
-        03:52 PM","ISO8601DateSubmitted":"20150224155255","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 03:55 PM","ISO8601RequestStatusDate":"20150224155503"},{"RequestNumber":"JHU-99001002","Title":"MEDICAL
-        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
-        24, 2015 03:42 PM","ISO8601DateSubmitted":"20150224154200","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 03:45 PM","ISO8601RequestStatusDate":"20150224154504"},{"RequestNumber":"JHU-99001001","Title":"THE
-        ESSENTIAL CHOMSKY","Author":"Chomsky, Noam","DateSubmitted":"Feb 23, 2015
-        10:12 PM","ISO8601DateSubmitted":"20150223221244","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 05:00 AM","ISO8601RequestStatusDate":"20150224050004"},{"RequestNumber":"JHU-99001000","Title":"THE
-        ESSENTIAL CHOMSKY","Author":"Chomsky, Noam","DateSubmitted":"Feb 23, 2015
-        10:10 PM","ISO8601DateSubmitted":"20150223221012","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        24, 2015 05:00 AM","ISO8601RequestStatusDate":"20150224050004"},{"RequestNumber":"JHU-99000999","Title":"MEDICAL
-        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
-        23, 2015 04:24 PM","ISO8601DateSubmitted":"20150223162427","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        23, 2015 04:25 PM","ISO8601RequestStatusDate":"20150223162504"},{"RequestNumber":"JHU-99000998","Title":"MEDICAL
-        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
-        23, 2015 04:12 PM","ISO8601DateSubmitted":"20150223161214","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        23, 2015 04:15 PM","ISO8601RequestStatusDate":"20150223161503"},{"RequestNumber":"JHU-99000995","Title":"MEDICAL
-        DEVICE DESIGN AND REGULATION","Author":"DeMarco, Carl T","DateSubmitted":"Feb
-        23, 2015 12:41 PM","ISO8601DateSubmitted":"20150223124118","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        23, 2015 12:45 PM","ISO8601RequestStatusDate":"20150223124504"},{"RequestNumber":"JHU-99000983","Title":"THE
-        DEVELOPMENT READER","Author":"Chari, Sharad","DateSubmitted":"Feb 19, 2015
-        12:04 PM","ISO8601DateSubmitted":"20150219120448","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        19, 2015 12:05 PM","ISO8601RequestStatusDate":"20150219120504"},{"RequestNumber":"JHU-99000982","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 18, 2015
-        09:42 PM","ISO8601DateSubmitted":"20150218214223","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        18, 2015 09:45 PM","ISO8601RequestStatusDate":"20150218214503"},{"RequestNumber":"JHU-99000971","Title":"BLACK
-        BLIZZARD","Author":"Tatsumi, Yoshihiro","DateSubmitted":"Feb 13, 2015 10:14
-        AM","ISO8601DateSubmitted":"20150213101459","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        13, 2015 10:15 AM","ISO8601RequestStatusDate":"20150213101503"},{"RequestNumber":"JHU-99000970","Title":"BLACK
-        BLIZZARD","Author":"Tatsumi, Yoshihiro","DateSubmitted":"Feb 13, 2015 10:14
-        AM","ISO8601DateSubmitted":"20150213101445","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        13, 2015 10:15 AM","ISO8601RequestStatusDate":"20150213101503"},{"RequestNumber":"JHU-99000956","Title":"BLACK
-        BLIZZARD","Author":"Tatsumi, Yoshihiro","DateSubmitted":"Feb 12, 2015 02:06
-        PM","ISO8601DateSubmitted":"20150212140618","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        12, 2015 02:10 PM","ISO8601RequestStatusDate":"20150212141003"},{"RequestNumber":"JHU-99000949","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 11:01 AM","ISO8601DateSubmitted":"20150212110103","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        12, 2015 11:05 AM","ISO8601RequestStatusDate":"20150212110504"},{"RequestNumber":"JHU-99000948","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 10:57 AM","ISO8601DateSubmitted":"20150212105749","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        12, 2015 11:00 AM","ISO8601RequestStatusDate":"20150212110004"},{"RequestNumber":"JHU-99000947","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 10:51 AM","ISO8601DateSubmitted":"20150212105148","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        12, 2015 10:55 AM","ISO8601RequestStatusDate":"20150212105504"},{"RequestNumber":"JHU-99000946","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Feb 12, 2015 10:34 AM","ISO8601DateSubmitted":"20150212103437","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        12, 2015 10:35 AM","ISO8601RequestStatusDate":"20150212103504"},{"RequestNumber":"JHU-99000943","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 05, 2015
-        10:11 AM","ISO8601DateSubmitted":"20150205101139","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        05, 2015 10:15 AM","ISO8601RequestStatusDate":"20150205101504"},{"RequestNumber":"JHU-99000942","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Feb 04, 2015
-        04:39 PM","ISO8601DateSubmitted":"20150204163952","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        04, 2015 04:40 PM","ISO8601RequestStatusDate":"20150204164004"},{"RequestNumber":"JHU-99000941","Title":"THE
-        WESTERN ILLUSION OF HUMAN NATURE","Author":"Sahlins, Marshall David","DateSubmitted":"Feb
-        04, 2015 10:57 AM","ISO8601DateSubmitted":"20150204105752","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000940","Title":"THE WESTERN
-        ILLUSION OF HUMAN NATURE","Author":"Sahlins, Marshall David","DateSubmitted":"Feb
-        04, 2015 10:51 AM","ISO8601DateSubmitted":"20150204105104","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000939","Title":"PEOPLE WITHOUT
-        GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03, 2015 04:58
-        PM","ISO8601DateSubmitted":"20150203165844","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 05:00 PM","ISO8601RequestStatusDate":"20150203170004"},{"RequestNumber":"JHU-99000938","Title":"PEOPLE
-        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
-        2015 04:56 PM","ISO8601DateSubmitted":"20150203165647","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 05:00 PM","ISO8601RequestStatusDate":"20150203170004"},{"RequestNumber":"JHU-99000937","Title":"PEOPLE
-        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
-        2015 04:49 PM","ISO8601DateSubmitted":"20150203164938","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 04:50 PM","ISO8601RequestStatusDate":"20150203165004"},{"RequestNumber":"JHU-99000936","Title":"PEOPLE
-        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
-        2015 03:30 PM","ISO8601DateSubmitted":"20150203153057","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 03:35 PM","ISO8601RequestStatusDate":"20150203153504"},{"RequestNumber":"JHU-99000935","Title":"PEOPLE
-        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
-        2015 03:26 PM","ISO8601DateSubmitted":"20150203152653","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 03:30 PM","ISO8601RequestStatusDate":"20150203153004"},{"RequestNumber":"JHU-99000934","Title":"PEOPLE
-        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
-        2015 02:45 PM","ISO8601DateSubmitted":"20150203144532","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 02:50 PM","ISO8601RequestStatusDate":"20150203145003"},{"RequestNumber":"JHU-99000933","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Feb 03, 2015 02:23 PM","ISO8601DateSubmitted":"20150203142350","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000932","Title":"A TRIBUTE TO
-        FOO CHEE SAN","DateSubmitted":"Feb 03, 2015 02:23 PM","ISO8601DateSubmitted":"20150203142341","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000931","Title":"PEOPLE WITHOUT
-        GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03, 2015 12:15
-        PM","ISO8601DateSubmitted":"20150203121525","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 12:20 PM","ISO8601RequestStatusDate":"20150203122003"},{"RequestNumber":"JHU-99000930","Title":"PEOPLE
-        WITHOUT GOVERNMENT","Author":"Barclay, Harold B","DateSubmitted":"Feb 03,
-        2015 12:08 PM","ISO8601DateSubmitted":"20150203120858","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        03, 2015 12:10 PM","ISO8601RequestStatusDate":"20150203121003"},{"RequestNumber":"JHU-99000929","Title":"ANARCHY
-        IN ACTION","Author":"Ward, Colin","DateSubmitted":"Feb 02, 2015 06:22 PM","ISO8601DateSubmitted":"20150202182216","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        02, 2015 06:25 PM","ISO8601RequestStatusDate":"20150202182503"},{"RequestNumber":"JHU-99000928","Title":"THE
-        WESTERN ILLUSION OF HUMAN NATURE","Author":"Sahlins, Marshall David","DateSubmitted":"Feb
-        02, 2015 06:18 PM","ISO8601DateSubmitted":"20150202181820","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000927","Title":"SEEING LIKE
-        A STATE","Author":"Scott, James C","DateSubmitted":"Feb 02, 2015 06:04 PM","ISO8601DateSubmitted":"20150202180442","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        02, 2015 06:05 PM","ISO8601RequestStatusDate":"20150202180504"},{"RequestNumber":"JHU-99000924","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Feb 02, 2015 11:53
-        AM","ISO8601DateSubmitted":"20150202115351","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        02, 2015 11:55 AM","ISO8601RequestStatusDate":"20150202115504"},{"RequestNumber":"JHU-99000923","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Feb 02, 2015 11:53
-        AM","ISO8601DateSubmitted":"20150202115310","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        02, 2015 11:55 AM","ISO8601RequestStatusDate":"20150202115504"},{"RequestNumber":"JHU-99000921","Title":"TAHRIR
-        SQUARE","Author":"Grn̲dahl, Mia","DateSubmitted":"Feb 02, 2015 09:30 AM","ISO8601DateSubmitted":"20150202093008","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Feb
-        02, 2015 09:30 AM","ISO8601RequestStatusDate":"20150202093004"},{"RequestNumber":"JHU-99000914","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 11:49 AM","ISO8601DateSubmitted":"20150126114927","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        26, 2015 11:50 AM","ISO8601RequestStatusDate":"20150126115004"},{"RequestNumber":"JHU-99000913","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 11:48 AM","ISO8601DateSubmitted":"20150126114842","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        26, 2015 11:50 AM","ISO8601RequestStatusDate":"20150126115004"},{"RequestNumber":"JHU-99000912","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 11:46 AM","ISO8601DateSubmitted":"20150126114621","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        26, 2015 11:45 AM","ISO8601RequestStatusDate":"20150126114503"},{"RequestNumber":"JHU-99000909","Title":"THE
-        LAW AND HARRY POTTER","DateSubmitted":"Jan 26, 2015 10:40 AM","ISO8601DateSubmitted":"20150126104022","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        26, 2015 10:40 AM","ISO8601RequestStatusDate":"20150126104004"},{"RequestNumber":"JHU-99000901","Title":"SEEING
-        LIKE A STATE","Author":"Scott, James C","DateSubmitted":"Jan 21, 2015 01:32
-        PM","ISO8601DateSubmitted":"20150121133258","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000898","Title":"ANARCHISM;
-        FROM THEORY TO PRACTICE","Author":"Gu©♭rin, Daniel","DateSubmitted":"Jan 20,
-        2015 09:01 PM","ISO8601DateSubmitted":"20150120210159","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000896","Title":"A TRIBUTE TO
-        FOO CHEE SAN","DateSubmitted":"Jan 14, 2015 04:00 PM","ISO8601DateSubmitted":"20150114160029","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000895","Title":"WE WILL SHOOT
-        BACK","Author":"Umoja, Akinyele Omowale","DateSubmitted":"Jan 13, 2015 08:14
-        PM","ISO8601DateSubmitted":"20150113201402","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        13, 2015 08:15 PM","ISO8601RequestStatusDate":"20150113201504"},{"RequestNumber":"JHU-99000890","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Jan 08, 2015
-        10:20 AM","ISO8601DateSubmitted":"20150108102023","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        08, 2015 10:25 AM","ISO8601RequestStatusDate":"20150108102504"},{"RequestNumber":"JHU-99000880","Title":"CLOUDS
-        THICK, WHEREABOUTS UNKNOWN","DateSubmitted":"Dec 22, 2014 03:41 PM","ISO8601DateSubmitted":"20141222154129","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Jan
-        05, 2015 02:40 PM","ISO8601RequestStatusDate":"20150105144004"},{"RequestNumber":"JHU-99000878","Title":"MONKEY
-        HUNTING","Author":"Garca̕, Cristina","DateSubmitted":"Dec 15, 2014 12:23 PM","ISO8601DateSubmitted":"20141215122327","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
-        15, 2014 12:25 PM","ISO8601RequestStatusDate":"20141215122503"},{"RequestNumber":"JHU-99000876","Title":"ART
-        IN THEORY, 1900-1990","DateSubmitted":"Dec 11, 2014 04:46 PM","ISO8601DateSubmitted":"20141211164618","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
-        11, 2014 04:50 PM","ISO8601RequestStatusDate":"20141211165003"},{"RequestNumber":"JHU-99000875","Title":"ANARCHISM","Author":"Goldman,
-        Emma","DateSubmitted":"Dec 10, 2014 05:29 PM","ISO8601DateSubmitted":"20141210172946","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
-        10, 2014 05:30 PM","ISO8601RequestStatusDate":"20141210173004"},{"RequestNumber":"JHU-99000874","Title":"STICK
-        TO DRAWING COMICS, MONKEY BRAIN!","Author":"Adams, Scott","DateSubmitted":"Dec
-        10, 2014 04:27 PM","ISO8601DateSubmitted":"20141210162712","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000873","Title":"INDONESIA ETC","Author":"Pisani,
-        Elizabeth","DateSubmitted":"Dec 10, 2014 04:00 PM","ISO8601DateSubmitted":"20141210160005","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
-        10, 2014 04:00 PM","ISO8601RequestStatusDate":"20141210160004"},{"RequestNumber":"JHU-99000872","Title":"INDONESIA
-        ETC","Author":"Pisani, Elizabeth","DateSubmitted":"Dec 10, 2014 03:04 PM","ISO8601DateSubmitted":"20141210150430","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Dec
-        10, 2014 03:05 PM","ISO8601RequestStatusDate":"20141210150504"},{"RequestNumber":"JHU-99000837","Title":"BOOKS
-        AND RELIGIOUS DEVOTION","Author":"Westphall, Allan F","DateSubmitted":"Nov
-        25, 2014 01:36 PM","ISO8601DateSubmitted":"20141125133611","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        25, 2014 01:40 PM","ISO8601RequestStatusDate":"20141125134003"},{"RequestNumber":"JHU-99000836","Title":"ENGLAND
-        AND ROME IN THE EARLY MIDDLE AGES","DateSubmitted":"Nov 25, 2014 01:34 PM","ISO8601DateSubmitted":"20141125133444","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        25, 2014 01:35 PM","ISO8601RequestStatusDate":"20141125133503"},{"RequestNumber":"JHU-99000835","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Nov 25, 2014
-        01:06 PM","ISO8601DateSubmitted":"20141125130635","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        25, 2014 01:10 PM","ISO8601RequestStatusDate":"20141125131003"},{"RequestNumber":"JHU-99000833","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Nov 24, 2014
-        02:03 PM","ISO8601DateSubmitted":"20141124140314","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        24, 2014 02:05 PM","ISO8601RequestStatusDate":"20141124140504"},{"RequestNumber":"JHU-99000830","Title":"THE
-        FRONTIERS OF PARADISE","Author":"Levi, Peter","DateSubmitted":"Nov 19, 2014
-        12:29 PM","ISO8601DateSubmitted":"20141119122926","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        19, 2014 12:30 PM","ISO8601RequestStatusDate":"20141119123004"},{"RequestNumber":"JHU-99000829","Title":"INDONESIA
-        BETRAYED","Author":"Collins, Elizabeth Fuller","DateSubmitted":"Nov 19, 2014
-        11:43 AM","ISO8601DateSubmitted":"20141119114319","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Apr
-        04, 2015 05:05 PM","ISO8601RequestStatusDate":"20150404170507"},{"RequestNumber":"JHU-99000828","Title":"ART
-        IN THEORY, 1900-1990","DateSubmitted":"Nov 19, 2014 11:38 AM","ISO8601DateSubmitted":"20141119113855","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        19, 2014 11:40 AM","ISO8601RequestStatusDate":"20141119114004"},{"RequestNumber":"JHU-99000827","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Nov 18, 2014 05:16 PM","ISO8601DateSubmitted":"20141118171647","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000826","Title":"A TRIBUTE TO
-        FOO CHEE SAN","DateSubmitted":"Nov 18, 2014 04:54 PM","ISO8601DateSubmitted":"20141118165418","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000825","Title":"A TRIBUTE TO
-        FOO CHEE SAN","DateSubmitted":"Nov 18, 2014 04:49 PM","ISO8601DateSubmitted":"20141118164957","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000824","Title":"INDONESIA ETC","Author":"Pisani,
-        Elizabeth","DateSubmitted":"Nov 18, 2014 02:46 PM","ISO8601DateSubmitted":"20141118144646","AllowRenew":false,"AllowCancel":true,"RequestStatus":"ENTERED","RequestStatusDate":"Nov
-        18, 2014 02:50 PM","ISO8601RequestStatusDate":"20141118145003"},{"RequestNumber":"JHU-99000823","Title":"A
-        TRIBUTE TO FOO CHEE SAN","DateSubmitted":"Nov 17, 2014 04:34 PM","ISO8601DateSubmitted":"20141117163445","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"},{"RequestNumber":"JHU-99000822","Title":"JONATHAN MONK
-        : LESS IS MORE THAN ONE HUNDRED INDIAN BICYCLES (WITH WORDS FROM RIRKRIT TIRAVANIJA
-        AND A SILVER SHADOW)","Author":"Monk, Jonathan","DateSubmitted":"Nov 17, 2014
-        03:50 PM","ISO8601DateSubmitted":"20141117155059","AllowRenew":false,"AllowCancel":false,"RequestStatus":"UNFILLED","ExceptionCodeDesc":"Request
-        automatically moved"}]}'
+      string: '{"AuthorizationState":{"AuthorizationId":"tQlIhBDkro05xM5FE7gD83hLYFQ","State":false}}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 18:48:52 GMT
+  recorded_at: Wed, 09 Sep 2015 14:44:11 GMT
 recorded_with: VCR 2.9.3
