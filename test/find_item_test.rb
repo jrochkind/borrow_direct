@@ -98,6 +98,15 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
       assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => @requestable_item_isbn)    
     end
 
+    it "uses manually set auth_id" do
+      auth_id     = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).get_auth_id  
+      bd          = BorrowDirect::FindItem.new("bad_patron" , "bad_symbol").with_auth_id(auth_id)
+      resp        = bd.find_item_request(:isbn => @requestable_item_isbn)
+
+      assert_present resp
+      assert_equal true, resp["Available"]
+    end
+
     it "finds a locally available item" do
       assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => @locally_avail_item_isbn)    
     end
@@ -126,6 +135,8 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
       assert_equal true, @find_item.find(:isbn => @requestable_item_isbn).requestable?
     end
 
+
+
     it "requestable with multiple items if at least one is requestable" do
       assert_equal true, @find_item.find(:isbn => [@requestable_item_isbn, @not_in_BD_at_all_isbn]).requestable?
     end
@@ -151,7 +162,9 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
     end
 
     it "has an auth_id" do
+      assert @find_item.auth_id.nil?
       assert_present @find_item.find(:isbn => @requestable_item_isbn).auth_id
+      assert_present @find_item.auth_id
     end    
 
     it "has pickup locations" do
