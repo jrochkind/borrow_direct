@@ -22,9 +22,10 @@ module BorrowDirect
       @patron_barcode        = patron_barcode
       @patron_library_symbol = patron_library_symbol
 
-      # BD sometimes unpredictably returns this error when it means
-      # "no results", other times it doens't. We don't want to raise on it. 
-      self.expected_error_codes << "PUBRI004"    
+      # BD sometimes unpredictably returns one of these errors when it means
+      # "no results", other times it doesn't. We don't want to raise on it. 
+      self.expected_error_codes << "PUBRI004"
+      self.expected_error_codes << "PUBRI003"
     end
 
     # need to send a key and value for a valid exact_search type

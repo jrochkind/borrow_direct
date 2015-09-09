@@ -13,7 +13,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     @requestable_item_isbn     = "9797994864" # item is in BD, and can be requested
     @locally_avail_item_isbn   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
     @not_requestable_item_isbn = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
-    @returns_PUBRI004_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available. 
+    @returns_PUBRI003_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available. 
     @pickup_location           = "Some location" # BD seems to allow anything, which is disturbing
     @pickup_location_obj       = BorrowDirect::PickupLocation.new({"PickupLocationCode" => "a", "PickupLocationDescription" => @pickup_location})
   end
@@ -106,8 +106,8 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
       assert_nil resp
     end
 
-    it "says no for item that BD returns PUBRI004", :vcr => {:record => :all} do
-      assert_nil BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => @returns_PUBRI004_ISBN)
+    it "says no for item that BD returns PUBRI003" do
+      assert_nil BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => @returns_PUBRI003_ISBN)
     end
 
   end
