@@ -2,57 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication/patron
-    body:
-      encoding: UTF-8
-      string: '{"AuthenticationInformation":{"LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"BAD_BARCODE"}}'
-    headers:
-      User-Agent:
-      - ruby borrow_direct gem 0.0.1 (HTTPClient 2.5.1) https://github.com/jrochkind/borrow_direct
-      Accept:
-      - "*/*"
-      Date:
-      - Tue, 21 Oct 2014 17:12:16 GMT
-      Content-Type:
-      - application/json
-      Accept-Language:
-      - en
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx/1.4.1
-      Date:
-      - Tue, 21 Oct 2014 17:12:17 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - visited=yes
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Language:
-      - en
-      Pragma:
-      - no-cache
-      Cache-Control:
-      - no-cache, no-store, max-age=0
-    body:
-      encoding: US-ASCII
-      string: '{"Authentication":{"Problem":{"Code":"PUBAN003","Message":"Authentication
-        failed[NCIP_MSG:Unknown User - #Unknown borrower barcode - please refer to
-        the circulation desk.]"}}}'
-    http_version: 
-  recorded_at: Tue, 21 Oct 2014 17:12:17 GMT
-- request:
-    method: post
-    uri: https://bdtest.relais-host.com/portal-service/user/authentication
+    uri: https://rc.relais-host.com/portal-service/user/authentication
     body:
       encoding: UTF-8
       string: '{"ApiKey":"DUMMY_BD_API_KEY","PartnershipId":"BD","UserGroup":"patron","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","PatronId":"BAD_BARCODE"}'
@@ -62,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 29 Jul 2015 17:02:29 GMT
+      - Wed, 09 Sep 2015 14:45:05 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -75,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 29 Jul 2015 17:02:30 GMT
+      - Wed, 09 Sep 2015 14:45:06 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -87,5 +37,5 @@ http_interactions:
       string: '{"Problem":{"Code":"PUBAN003","Message":"Authentication failed[NCIP_MSG:Unknown
         User - #Unknown borrower barcode - please refer to the circulation desk.]"}}'
     http_version: 
-  recorded_at: Wed, 29 Jul 2015 17:02:30 GMT
+  recorded_at: Wed, 09 Sep 2015 14:45:06 GMT
 recorded_with: VCR 2.9.3
