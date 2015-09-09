@@ -87,6 +87,15 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     assert_present resp["RequestNumber"]
   end
 
+  it "raises proper error on bad AID" do
+    e = assert_raises(BorrowDirect::InvalidAidError) do
+      BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).with_auth_id("bad_expired_aid").make_request(nil, :isbn => @requestable_item_isbn)
+    end
+    assert_present e.message
+    assert_present e.bd_code
+    assert_present e.aid
+  end
+
   describe "make_request" do
     it "make_request for a requestable item" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => @requestable_item_isbn)

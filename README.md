@@ -76,9 +76,8 @@ Our ruby API still accepts a barcode/library symbol pair instead, with both valu
 coming from configured local deaults. The ruby code will make a separate request to retrieve
 the AuthorizationID behind the scenes, so it can use it. 
 
-If you already have an AuthorizationID, you can set it to avoid this, but at the moment
-we have no code to rescue from expired authorization ID's (and if we did, depending on
-how often they expire, it might be less efficient than simply requesting a new one)
+If you already have an AuthorizationID, you can set pass it in to re-use, and avoid
+the extra call, using #with_auth_id on any BD API request. 
 
 ~~~ruby
 response = BorrowDirect::FindItem.new(patron_barcode).find(:isbn => isbn)
@@ -86,6 +85,11 @@ auth_id  = response.auth_id
 
 BorrowDirect::RequestItem.new(patron_barcode).with_auth_id(auth_id).make_request(pickup_location, :isbn => isbn)
 ~~~
+
+If you pass in an expired or bad AID, we should raise a BorrowDirect::InvalidAidError.
+(Some unpredictability and inconsistency in remote system error messages may
+prevent us from catching and classing as an InvalidAidError, if you notice report
+and we'll try to fix or report upstream.)
 
 ### Generate a query into BorrowDirect
 

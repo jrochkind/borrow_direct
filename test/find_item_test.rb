@@ -84,6 +84,15 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
       end
     end
 
+    it "raises proper error on bad AID" do
+      e = assert_raises(BorrowDirect::InvalidAidError) do
+        BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).with_auth_id("bad_expired_aid").find_item_request(:isbn => @requestable_item_isbn)  
+      end
+      assert_present e.message
+      assert_present e.bd_code
+      assert_present e.aid
+    end
+
 
     it "finds a requestable item" do
       assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => @requestable_item_isbn)    
