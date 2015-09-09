@@ -14,6 +14,9 @@ May also work with other Relais D2D setups with configuration or changes, no ide
 Some configuration at boot, perhaps in a Rails initializer:
 
 ~~~ruby
+# REQUIRED: Set your BD api_key
+BorrowDirect::Defaults.api_key = "your bd api key"
+
 # Uses BD Test system by defualt, if you want to use production system instead
 BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_BASE
 
