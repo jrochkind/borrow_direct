@@ -32,7 +32,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
       "PartnershipId" => BorrowDirect::Defaults.partnership_id,
       "PickupLocation" => pickup,
       "ExactSearch" => [
-        {"Type":"ISBN","Value": @requestable_item_isbn}
+        {"Type" => "ISBN","Value" => @requestable_item_isbn}
       ]
     } 
 
