@@ -8,6 +8,13 @@ require 'borrow_direct'
 require 'borrow_direct/find_item'
 require 'date'
 
+if ENV["ENV"] == "PRODUCTION"
+  BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_BASE
+  puts "BD PRODUCTION: #{BorrowDirect::Defaults::PRODUCTION_API_BASE}"
+end
+
+BorrowDirect::Defaults.api_key = ENV['BD_API_KEY']
+
 key = "isbn"
 sourcefile = ARGV[0] || File.expand_path("../isbn-bd-test-200.txt", __FILE__)
 
@@ -19,7 +26,7 @@ timeout = 20
 # wait one to 7 minutes. 
 delay = 60..420
 
-puts "#{ENV['BD_LIBRARY_SYMBOL']}: #{key}: #{sourcefile}: #{Time.now.localtime}"
+puts "#{ENV['BD_LIBRARY_SYMBOL']}: #{key}: #{sourcefile}: #{Time.now.localtime}: Testing at #{BorrowDirect::Defaults.api_base}"
 
 identifiers = File.readlines(sourcefile)   #.shuffle
  
