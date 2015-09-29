@@ -55,7 +55,16 @@ module BorrowDirect
         "fullRecord"  => (full_record ? "1" : "0")
       }
 
-      request query_params
+      response = request query_params
+
+      # RequestQuery sometimes returns odd 200 OK response with
+      # AuthFailed, at least as of 29 Sep 2015. Catch it and
+      # raise it properly. 
+      if response["AuthorizationState"] && response["AuthorizationState"]["State"] == false
+        raise BorrowDirect::InvalidAidError.new("API returned AuthorizationState.State == false", nil, response["AuthorizationState"]["AuthorizationId"])
+      end
+
+      return response
     end
 
     # Returns an array of BorrowDirect::RequestQuery::Item

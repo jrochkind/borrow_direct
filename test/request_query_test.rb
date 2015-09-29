@@ -42,6 +42,14 @@ describe "RequestQuery", :vcr => {:tag => :bd_request_query} do
       assert_kind_of Array, response_hash["MyRequestRecords"]
   end
 
+  it "raises proper error on bad AID" do
+    e = assert_raises(BorrowDirect::InvalidAidError) do
+      BorrowDirect::RequestQuery.new(VCRFilter[:bd_patron]).with_auth_id("bad_expired_id").request_query_request
+    end
+    assert_present e.message
+    assert_present e.aid
+  end
+
   describe "raw request_query_request" do
     it "returns results" do
       request_query = BorrowDirect::RequestQuery.new(VCRFilter[:bd_patron], VCRFilter[:bd_library_symbol])
