@@ -30,7 +30,7 @@ module BorrowDirect
   class InvalidAidError < Error
     attr_reader :aid
     def initialize(msg, bd_code = nil, aid = nil)
-      msg += "(aid: #{aid}" if aid
+      msg += " (aid: #{aid})" if aid
       super(msg, bd_code)
       @aid = aid
     end
