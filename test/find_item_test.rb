@@ -93,6 +93,19 @@ describe "FindItem", :vcr => {:tag => :bd_finditem }do
       assert_present e.aid
     end
 
+    it "Raises with bad api_key" do
+      begin
+        orig_api_key = BorrowDirect::Defaults.api_key 
+        BorrowDirect::Defaults.api_key = "BADAPIKEY"
+
+        assert_raises(BorrowDirect::Error) do
+          BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => @requestable_item_isbn)  
+        end
+      ensure
+        BorrowDirect::Defaults.api_key = orig_api_key      
+      end
+    end
+
 
     it "finds a requestable item" do
       assert_present BorrowDirect::FindItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).find_item_request(:isbn => @requestable_item_isbn)    
