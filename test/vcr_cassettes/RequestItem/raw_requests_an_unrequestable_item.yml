@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 31 Aug 2015 19:33:46 GMT
+      - Thu, 15 Oct 2015 15:14:25 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 31 Aug 2015 19:33:47 GMT
+      - Thu, 15 Oct 2015 15:14:27 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"WRSuLdWQGXsIUyfq0nNWYUf9t60","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"XNwGut-rd0jCdrrHllDidyxLDN8","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Mon, 31 Aug 2015 19:33:47 GMT
+  recorded_at: Thu, 15 Oct 2015 15:14:27 GMT
 - request:
     method: post
-    uri: https://rc.relais-host.com/dws/item/add?aid=WRSuLdWQGXsIUyfq0nNWYUf9t60
+    uri: https://rc.relais-host.com/dws/item/add?aid=XNwGut-rd0jCdrrHllDidyxLDN8
     body:
       encoding: UTF-8
       string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"1441190090"}]}'
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 31 Aug 2015 19:33:47 GMT
+      - Thu, 15 Oct 2015 15:14:27 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 31 Aug 2015 19:33:50 GMT
+      - Thu, 15 Oct 2015 15:14:30 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -71,9 +71,9 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"RequestLink":{"ButtonLabel":"Request","ButtonLink":"http://findit.library.jhu.edu/resolve?genre=Book&sid=BD&rft.title=Chomsky&rft.aufirst=John&rft.aulast=Collins&rft.date=%E2%84%97%E2%99%AD2008&rft.isbn=9781441190093%20%28electronic%20bk.%29\n&rft.isbn=1441190090%20%28electronic%20bk.%29&rft.pub=Continuum&rft.place=London%20%3B","RequestMessage":"Borrow
+      string: '{"RequestLink":{"ButtonLabel":"Request","ButtonLink":"http://findit.library.jhu.edu/resolve?genre=Book&sid=BD&HeldLocally=N&rft.title=Chomsky&rft.aufirst=John&rft.aulast=Collins&rft.date=%C2%A92008&rft.isbn=9781441190093%20%28electronic%20bk.%29\n&rft.isbn=1441190090%20%28electronic%20bk.%29&rft.dat=741691631&rft.pub=Continuum&rft.place=London%20%3B","RequestMessage":"Borrow
         Direct cannot fill this request at this time.  Please request through Interlibrary
         Loan."}}'
     http_version: 
-  recorded_at: Mon, 31 Aug 2015 19:33:50 GMT
+  recorded_at: Thu, 15 Oct 2015 15:14:30 GMT
 recorded_with: VCR 2.9.3

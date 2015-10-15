@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 15:18:56 GMT
+      - Thu, 15 Oct 2015 15:16:09 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 15:18:57 GMT
+      - Thu, 15 Oct 2015 15:16:11 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,9 +34,9 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"xiof2gi8W3Z23IBW-U5vHL8fMgY","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"SJrEMk5RJ3wuRadgI7mz9Y50Nv8","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 15:18:57 GMT
+  recorded_at: Thu, 15 Oct 2015 15:16:11 GMT
 - request:
     method: post
     uri: https://rc.relais-host.com/portal-service/user/authentication
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 15:18:57 GMT
+      - Thu, 15 Oct 2015 15:16:11 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 15:18:58 GMT
+      - Thu, 15 Oct 2015 15:16:12 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -71,7 +71,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"vl0aNxRqBxfPrtjpjV_OB9IJyn0","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"gcusGCvcqv9GsLdLQKqplQKaKAs","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 15:18:58 GMT
+  recorded_at: Thu, 15 Oct 2015 15:16:12 GMT
 recorded_with: VCR 2.9.3

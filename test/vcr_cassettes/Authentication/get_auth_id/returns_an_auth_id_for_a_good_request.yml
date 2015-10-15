@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 14:45:09 GMT
+      - Thu, 15 Oct 2015 15:14:38 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 14:45:10 GMT
+      - Thu, 15 Oct 2015 15:14:39 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,7 +34,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"9WnpCmeC7bYd-mw3yLyIza2aZjA","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"NRP3M6LTe8NlXeteAghriRuJ3N4","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 14:45:10 GMT
+  recorded_at: Thu, 15 Oct 2015 15:14:39 GMT
 recorded_with: VCR 2.9.3

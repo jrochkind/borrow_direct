@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 31 Aug 2015 18:39:05 GMT
+      - Thu, 15 Oct 2015 15:14:09 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 31 Aug 2015 18:39:07 GMT
+      - Thu, 15 Oct 2015 15:14:10 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"g_N_j9ZVYrTscyXjM_RDzds0Ocw","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"2lYjAZaoPeu4KD9nl1YN1Ln7vxc","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Mon, 31 Aug 2015 18:39:07 GMT
+  recorded_at: Thu, 15 Oct 2015 15:14:10 GMT
 - request:
     method: post
-    uri: https://rc.relais-host.com/dws/item/available?aid=g_N_j9ZVYrTscyXjM_RDzds0Ocw
+    uri: https://rc.relais-host.com/dws/item/available?aid=2lYjAZaoPeu4KD9nl1YN1Ln7vxc
     body:
       encoding: UTF-8
       string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"9810743734"}]}'
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 31 Aug 2015 18:39:07 GMT
+      - Thu, 15 Oct 2015 15:14:10 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 31 Aug 2015 18:39:11 GMT
+      - Thu, 15 Oct 2015 15:14:13 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -93,5 +93,5 @@ http_interactions:
         Medical Library"},{"PickupLocationCode":"T","PickupLocationDescription":"Wilmer
         Friedenwald Library"}]}'
     http_version: 
-  recorded_at: Mon, 31 Aug 2015 18:39:11 GMT
+  recorded_at: Thu, 15 Oct 2015 15:14:13 GMT
 recorded_with: VCR 2.9.3

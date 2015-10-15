@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 25 Aug 2015 20:46:28 GMT
+      - Thu, 15 Oct 2015 15:15:43 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 25 Aug 2015 20:46:29 GMT
+      - Thu, 15 Oct 2015 15:15:44 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"ec0GRN40rUaBaD4hjLT589BYFWs","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"50ssYkBTTetGViuSr38-JvU8gC4","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Tue, 25 Aug 2015 20:46:29 GMT
+  recorded_at: Thu, 15 Oct 2015 15:15:44 GMT
 - request:
     method: post
-    uri: https://rc.relais-host.com/dws/item/available?aid=ec0GRN40rUaBaD4hjLT589BYFWs
+    uri: https://rc.relais-host.com/dws/item/available?aid=50ssYkBTTetGViuSr38-JvU8gC4
     body:
       encoding: UTF-8
       string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"0109836413"}]}'
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 25 Aug 2015 20:46:29 GMT
+      - Thu, 15 Oct 2015 15:15:44 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 25 Aug 2015 20:46:29 GMT
+      - Thu, 15 Oct 2015 15:15:47 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -73,5 +73,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"Problem":{"ErrorCode":"PUBFI002","ErrorMessage":"No result"}}'
     http_version: 
-  recorded_at: Tue, 25 Aug 2015 20:46:29 GMT
+  recorded_at: Thu, 15 Oct 2015 15:15:47 GMT
 recorded_with: VCR 2.9.3

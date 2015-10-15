@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 15:18:35 GMT
+      - Thu, 15 Oct 2015 15:16:01 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 15:18:37 GMT
+      - Thu, 15 Oct 2015 15:16:02 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"pHXLhpCAGEG3B-_X6y9syfqsWfc","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"AHxq9iZ4aBZOrZZi52IpdfuzSGI","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 15:18:37 GMT
+  recorded_at: Thu, 15 Oct 2015 15:16:02 GMT
 - request:
     method: post
-    uri: https://rc.relais-host.com/dws/item/available?aid=pHXLhpCAGEG3B-_X6y9syfqsWfc
+    uri: https://rc.relais-host.com/dws/item/available?aid=AHxq9iZ4aBZOrZZi52IpdfuzSGI
     body:
       encoding: UTF-8
       string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"BADBAD","Value":"2292389283928392382938"}]}'
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 15:18:37 GMT
+      - Thu, 15 Oct 2015 15:16:02 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 15:18:37 GMT
+      - Thu, 15 Oct 2015 15:16:02 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -74,5 +74,5 @@ http_interactions:
       string: '{"Problem":{"ErrorCode":"PRIFI001","ErrorMessage":"Internal error occurred
         in FindItem"}}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 15:18:38 GMT
+  recorded_at: Thu, 15 Oct 2015 15:16:02 GMT
 recorded_with: VCR 2.9.3

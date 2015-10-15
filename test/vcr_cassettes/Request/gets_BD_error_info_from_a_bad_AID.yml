@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 15:18:49 GMT
+      - Thu, 15 Oct 2015 15:15:59 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 15:18:50 GMT
+      - Thu, 15 Oct 2015 15:16:00 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,9 +34,9 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"Xs4QIHcVYre3Z47WMQTIrbJb_Zo","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"zFjAgRX2ybaUYi-GwA5lRdNaAZM","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 15:18:50 GMT
+  recorded_at: Thu, 15 Oct 2015 15:16:00 GMT
 - request:
     method: post
     uri: https://rc.relais-host.com/dws/item/available?aid=bad_aid
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Wed, 09 Sep 2015 15:18:50 GMT
+      - Thu, 15 Oct 2015 15:16:00 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Wed, 09 Sep 2015 15:18:51 GMT
+      - Thu, 15 Oct 2015 15:16:01 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -73,5 +73,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"Problem":{"ErrorCode":"PUBFI003","ErrorMessage":"Invalid aid"}}'
     http_version: 
-  recorded_at: Wed, 09 Sep 2015 15:18:51 GMT
+  recorded_at: Thu, 15 Oct 2015 15:16:01 GMT
 recorded_with: VCR 2.9.3

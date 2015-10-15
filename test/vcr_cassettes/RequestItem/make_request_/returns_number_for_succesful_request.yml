@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 31 Aug 2015 19:33:54 GMT
+      - Thu, 15 Oct 2015 15:15:38 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 31 Aug 2015 19:33:56 GMT
+      - Thu, 15 Oct 2015 15:15:39 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,12 +34,12 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"OQi-sbtj9loVLcS-b3_vvIovB9Y","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"4tLsUw7AgOu1UPRGhvhcnXeCDhc","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Jonathan","LastName":"Rochkind","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Mon, 31 Aug 2015 19:33:56 GMT
+  recorded_at: Thu, 15 Oct 2015 15:15:39 GMT
 - request:
     method: post
-    uri: https://rc.relais-host.com/dws/item/add?aid=OQi-sbtj9loVLcS-b3_vvIovB9Y
+    uri: https://rc.relais-host.com/dws/item/add?aid=4tLsUw7AgOu1UPRGhvhcnXeCDhc
     body:
       encoding: UTF-8
       string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"9797994864"}]}'
@@ -49,7 +49,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Mon, 31 Aug 2015 19:33:56 GMT
+      - Thu, 15 Oct 2015 15:15:39 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Mon, 31 Aug 2015 19:33:57 GMT
+      - Thu, 15 Oct 2015 15:15:43 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -71,7 +71,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"RequestNumber":"JHU-99003164"}'
+      string: '{"RequestNumber":"JHU-99003183"}'
     http_version: 
-  recorded_at: Mon, 31 Aug 2015 19:33:57 GMT
+  recorded_at: Thu, 15 Oct 2015 15:15:43 GMT
 recorded_with: VCR 2.9.3
