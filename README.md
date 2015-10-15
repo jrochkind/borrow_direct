@@ -17,6 +17,11 @@ Some configuration at boot, perhaps in a Rails initializer:
 # REQUIRED: Set your BD api_key
 BorrowDirect::Defaults.api_key = "your bd api key"
 
+# Or, you likely have a different api key for production and
+# testing/dev, if in Rails this is one way to handle that:
+BorrowDirect::Defaults.api_key = Rails.env.production? ? "production_bd_api" : "dev_bd_api"
+  
+
 # Uses BD Test system by defualt, if you want to use production system instead
 BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_BASE
 
