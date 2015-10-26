@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jonathan Rochkind"]
   spec.email         = ["jonathan@dnil.net"]
   spec.summary       = %q{Ruby tools for interacting with the Borrow Direct consortial services}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/jrochkind/borrow_direct"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
