@@ -9,6 +9,12 @@ require 'minitest-vcr'
 
 require 'borrow_direct'
 
+# Want to run tests against PRODUCTION BD? It WILL result in real requests being
+# made to BD production system, so you probably don't -- but if you're not sure
+# if production API is really behaving like test, you might want to anyway. 
+if ENV["RAILS_ENV"] == "production"
+  BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_BASE
+end
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
