@@ -59,7 +59,7 @@ describe "Request", :vcr => {:tag => :bd_request } do
         ]
     }
 
-    e = assert_raises(BorrowDirect::Error) do
+    e = assert_raises(BorrowDirect::InvalidAidError) do
       response = BorrowDirect::Request.new("/dws/item/available").request( request, "bad_aid" )      
     end
 
