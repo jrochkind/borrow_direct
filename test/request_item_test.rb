@@ -84,7 +84,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
     assert_present resp
 
-    assert_present resp["RequestNumber"]
+    assert_present resp["RequestNumber"], "Was not able to succesfully make a request: #{resp}"
   end
 
   it "raises proper error on bad AID" do
@@ -134,13 +134,13 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "works with String pickup_location" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(@pickup_location, :isbn => @requestable_item_isbn)
 
-      assert_present request_id    
+      assert_present request_id, "Was not able to succesfully make a request"
     end
 
     it "works with structured PickupLocation" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(@pickup_location_obj, :isbn => @requestable_item_isbn)
 
-      assert_present request_id    
+      assert_present request_id, "Was not able to succesfully make a request"
     end
 
   end
