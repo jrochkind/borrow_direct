@@ -8,7 +8,7 @@ require 'borrow_direct'
 require 'borrow_direct/find_item'
 require 'date'
 
-if ENV["ENV"] == "PRODUCTION"
+if ENV["ENV"].upcase == "PRODUCTION"
   BorrowDirect::Defaults.api_base = BorrowDirect::Defaults::PRODUCTION_API_BASE
   puts "BD PRODUCTION: #{BorrowDirect::Defaults::PRODUCTION_API_BASE}"
 end
