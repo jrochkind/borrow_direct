@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rc.relais-host.com/portal-service/request/query/my?aid=bad_expired_id&fullRecord=0&type=all
+    uri: https://bdtest.relais-host.com/portal-service/request/query/my?aid=bad_expired_id&fullRecord=0&type=all
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.6.0.1) https://github.com/jrochkind/borrow_direct
+      - ruby borrow_direct gem 1.2.0 (HTTPClient 2.7.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - "*/*"
       Date:
-      - Thu, 15 Oct 2015 18:15:12 GMT
+      - Wed, 06 Apr 2016 14:33:03 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Thu, 15 Oct 2015 18:15:13 GMT
+      - Wed, 06 Apr 2016 14:33:04 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -36,5 +36,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"AuthorizationState":{"AuthorizationId":"bad_expired_id","State":false}}'
     http_version: 
-  recorded_at: Thu, 15 Oct 2015 18:15:13 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Wed, 06 Apr 2016 14:33:04 GMT
+recorded_with: VCR 3.0.0
