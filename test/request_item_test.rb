@@ -11,7 +11,7 @@ require 'borrow_direct/request_item'
 describe "RequestItem", :vcr => {:tag => :bd_requestitem } do 
   before do
     @requestable_item_isbn     = "9780545010221" # item is in BD, and can be requested
-    @locally_avail_item_isbn   = "0439064864"  # item is in BD, but is avail locally so not BD-requestable
+    @locally_avail_item_isbn   = "0747538492"  # item is in BD, but is avail locally so not BD-requestable
     @not_requestable_item_isbn = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
     @returns_PUBRI003_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available. 
     @pickup_location           = "Some location" # BD seems to allow anything, which is disturbing

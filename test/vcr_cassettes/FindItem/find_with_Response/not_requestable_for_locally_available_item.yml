@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       Date:
-      - Tue, 05 Apr 2016 20:20:40 GMT
+      - Wed, 06 Apr 2016 14:52:41 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 05 Apr 2016 20:20:41 GMT
+      - Wed, 06 Apr 2016 14:52:42 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -34,22 +34,22 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"AuthorizationId":"7dsCMIk15M1q07KxIrsnxZppISw","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Enrico","LastName":"Silterra","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
+      string: '{"AuthorizationId":"6iR1X-BIb2iuBSWGVwebXKOCWm8","LibrarySymbol":"DUMMY_BD_LIBRARY_SYMBOL","Iso639_2_LangCode":"ENG","FirstName":"Enrico","LastName":"Silterra","AllowLoanAddRequest":true,"AllowCopyAddRequest":false,"AllowSelDelivLoanChange":true,"AllowSelDelivCopyChange":false}'
     http_version: 
-  recorded_at: Tue, 05 Apr 2016 20:20:41 GMT
+  recorded_at: Wed, 06 Apr 2016 14:52:42 GMT
 - request:
     method: post
-    uri: https://bdtest.relais-host.com/dws/item/available?aid=7dsCMIk15M1q07KxIrsnxZppISw
+    uri: https://bdtest.relais-host.com/dws/item/available?aid=6iR1X-BIb2iuBSWGVwebXKOCWm8
     body:
       encoding: UTF-8
-      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"0747538492"}]}'
+      string: '{"PartnershipId":"BD","ExactSearch":[{"Type":"ISBN","Value":"0061052434"}]}'
     headers:
       User-Agent:
       - ruby borrow_direct gem 1.2.0 (HTTPClient 2.7.1) https://github.com/jrochkind/borrow_direct
       Accept:
       - "*/*"
       Date:
-      - Tue, 05 Apr 2016 20:20:41 GMT
+      - Wed, 06 Apr 2016 14:52:42 GMT
       Content-Type:
       - application/json
       Accept-Language:
@@ -62,7 +62,7 @@ http_interactions:
       Server:
       - nginx/1.4.1
       Date:
-      - Tue, 05 Apr 2016 20:20:49 GMT
+      - Wed, 06 Apr 2016 14:52:58 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -71,8 +71,9 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Available":false,"SearchTerm":"isbn=0747538492","RequestLink":{"ButtonLink":"https://cornell.hosts.atlas-sys.com/illiad/illiad.dll/OpenURL?genre=Book&sid=BD&HeldLocally=Y&rft.title=Harry%20Potter%20and%20the%20chamber%20of%20secrets&rft.date=1998&rft.isbn=0747538492%20%28hardcover%29&rft.dat=40697461&rft.pub=Bloomsbury%20Publishing&rft.place=London","ButtonLabel":"Request","RequestMessage":"Click
-        here to place an Interlibrary Loan request."},"NumberOfRecords":1}'
+      string: '{"Available":false,"SearchTerm":"isbn=0061052434","RequestLink":{"ButtonLink":"http://newcatalog.library.cornell.edu/catalog/2926901","ButtonLabel":"View
+        in the DUMMY_BD_LIBRARY_SYMBOL Library Catalog.","RequestMessage":"This item
+        is available locally."},"NumberOfRecords":1}'
     http_version: 
-  recorded_at: Tue, 05 Apr 2016 20:20:49 GMT
+  recorded_at: Wed, 06 Apr 2016 14:52:58 GMT
 recorded_with: VCR 3.0.0
