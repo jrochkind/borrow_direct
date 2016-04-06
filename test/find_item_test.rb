@@ -7,7 +7,7 @@ require 'borrow_direct/find_item'
 describe "FindItem", :vcr => {:tag => :bd_finditem }do
   before do
     @requestable_item_isbn     = "9810743734" # item is in BD, and can be requested
-    @locally_avail_item_isbn   = "0745649890"  # item is in BD, but is avail locally so not BD-requestable
+    @locally_avail_item_isbn   = "0061052434"  # item is in BD, but is avail locally so not BD-requestable
     @not_requestable_item_isbn = "1444367072" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
     @returns_PUBFI002_ISBN     = "0109836413" # BD returns an error PUBFI002 for this one, which we want to treat as simply not available. 
     @not_in_BD_at_all_isbn     = "1898989898" # Not in BD at all, made up ISBN, invalid. 
