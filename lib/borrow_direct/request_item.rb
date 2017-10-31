@@ -14,7 +14,7 @@ module BorrowDirect
     @@valid_search_types = %w{ISBN ISSN LCCN OCLC Control }
 
 
-    
+
     def initialize(patron_barcode,
                    patron_library_symbol = Defaults.library_symbol)
       super(@@api_path)
@@ -23,22 +23,22 @@ module BorrowDirect
       @patron_library_symbol = patron_library_symbol
 
       # BD sometimes unpredictably returns one of these errors when it means
-      # "no results", other times it doesn't. We don't want to raise on it. 
+      # "no results", other times it doesn't. We don't want to raise on it.
       self.expected_error_codes << "PUBRI004"
       self.expected_error_codes << "PUBRI003"
     end
 
     # need to send a key and value for a valid exact_search type
-    # type can be string or symbol, lowercase or uppercase. 
+    # type can be string or symbol, lowercase or uppercase.
     #
     # Also a pickup_location -- can pass in nil, and we'll send no
     # PickupLocation to BD, which it seems to accept, not sure what it
-    # does with it. 
+    # does with it.
     #
     # pickup_location can be a BorrowDirect::PickupLocation object,
     # or a string. If a string, BD recommends it be a CODE returned
     # from FindItem, rather than DESCRIPTION as in the past, but we
-    # think description still works? 
+    # think description still works?
     #
     # Returns the actual complete BD response hash. You may want
     # #make_request instead
@@ -46,7 +46,7 @@ module BorrowDirect
     #    finder.request_item_request(pickup_location, :isbn => "12345545456")
     #    finder.request_item_request(pickup_location, :lccn => "12345545456")
     #    finder.request_item_request(pickup_location, :oclc => "12345545456")
-    def request_item_request(pickup_location, options)
+    def request_item_request(pickup_location, options, notes = '')
       search_type, search_value = nil, nil
       options.each_pair do |key, value|
         if @@valid_search_types.include? key.to_s.upcase
@@ -65,29 +65,29 @@ module BorrowDirect
         pickup_location = pickup_location.code
       end
 
-      request exact_search_request_hash(pickup_location, search_type, search_value), need_auth_id(self.patron_barcode, self.patron_library_symbol)
+      request exact_search_request_hash(pickup_location, search_type, search_value, notes), need_auth_id(self.patron_barcode, self.patron_library_symbol)
     end
 
     # Pass in a BD exact search and pickup location eg
     #     make_request(pickup_location, :isbn => isbn)
     #
     # Pass in nil for pickup_location if... not sure exactly what
-    # BD will do, but it does allow it. 
+    # BD will do, but it does allow it.
     #
     # Returns the BD RequestNumber, or nil if a request could
     # not be made
     #
     # See also make_request! to raise if request can not be made
-    def make_request(pickup_location, options)
-      resp = request_item_request(pickup_location, options)
+    def make_request(pickup_location, options, notes = '')
+      resp = request_item_request(pickup_location, options, notes)
 
       return extract_request_number(resp)
     end
 
     # Like make_request, but will raise a BorrowDirect::Error if
-    # item can't be requested. 
-    def make_request!(pickup_location, options)
-      resp = request_item_request(pickup_location, options)
+    # item can't be requested.
+    def make_request!(pickup_location, options, notes = '')
+      resp = request_item_request(pickup_location, options, notes)
 
       number = extract_request_number(resp)
 
@@ -104,7 +104,7 @@ module BorrowDirect
       return resp["RequestNumber"]
     end
 
-    def exact_search_request_hash(pickup_location, type, value)
+    def exact_search_request_hash(pickup_location, type, value, notes = '')
       hash = {
           "PartnershipId" => Defaults.partnership_id,
           "ExactSearch" => [
@@ -117,6 +117,10 @@ module BorrowDirect
 
       if pickup_location
         hash["PickupLocation"] = pickup_location
+      end
+
+      if notes != ''
+        hash['Notes'] = notes
       end
 
       return hash
