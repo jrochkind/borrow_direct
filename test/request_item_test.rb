@@ -8,12 +8,12 @@ require 'borrow_direct/request_item'
 
 
 
-describe "RequestItem", :vcr => {:tag => :bd_requestitem } do 
+describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
   before do
     @requestable_item_isbn     = "9780545010221" # item is in BD, and can be requested
     @locally_avail_item_isbn   = "0747538492"  # item is in BD, but is avail locally so not BD-requestable
     @not_requestable_item_isbn = "1441190090" # in BD, and we don't have it, but no libraries let us borrow (in this case, it's an ebook)
-    @returns_PUBRI003_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available. 
+    @returns_PUBRI003_ISBN     = "0109836413" # BD returns an error PUBRI004 for this one, which we want to treat as simply not available.
     @pickup_location           = "Some location" # BD seems to allow anything, which is disturbing
     @pickup_location_obj       = BorrowDirect::PickupLocation.new({"PickupLocationCode" => "a", "PickupLocationDescription" => @pickup_location})
   end
@@ -34,7 +34,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
       "ExactSearch" => [
         {"Type" => "ISBN","Value" => @requestable_item_isbn}
       ]
-    } 
+    }
 
     http = HTTPClient.new
     response = http.post uri, JSON.generate(request_hash), BorrowDirect::Request.new('').request_headers
@@ -68,7 +68,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
   end
 
 
-  it "raw requests an unrequestable item" do    
+  it "raw requests an unrequestable item" do
 
     resp = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).request_item_request(nil, :isbn => @not_requestable_item_isbn)
 
@@ -79,7 +79,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
 
   it "uses manually set auth_id" do
     bd          = BorrowDirect::RequestItem.new("bad_patron" , "bad_symbol")
-    bd.auth_id  = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).get_auth_id  
+    bd.auth_id  = BorrowDirect::Authentication.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).get_auth_id
     resp        = bd.request_item_request(nil, :isbn => @requestable_item_isbn)
 
     assert_present resp
@@ -100,7 +100,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "make_request for a requestable item" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request(nil, :isbn => @requestable_item_isbn)
 
-      assert_present request_id    
+      assert_present request_id
     end
 
     it "sets an auth_id" do
@@ -149,7 +149,7 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
     it "returns number for succesful request" do
       request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request!(nil, :isbn => @requestable_item_isbn)
 
-      assert_present request_id    
+      assert_present request_id
     end
 
     it "raises for unrequestable" do
@@ -157,7 +157,17 @@ describe "RequestItem", :vcr => {:tag => :bd_requestitem } do
         request_id = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol]).make_request!(nil, :isbn => @not_requestable_item_isbn)
       end
     end
-    
+
+  end
+
+  describe "exact_search_request_hash" do
+    it "adds a notes key to the hash" do
+      note_text = "This is a note"
+      bd           = BorrowDirect::RequestItem.new(VCRFilter[:bd_patron] , VCRFilter[:bd_library_symbol])
+      request_hash = bd.send(:exact_search_request_hash, 'A', 'B', 'C', note_text)
+
+      assert_equal note_text, request_hash['Notes']
+    end
   end
 
 
